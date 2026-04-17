@@ -1,0 +1,44 @@
+---
+interface Row { name: string; purpose: string; duration: string; category: string; provider: string }
+interface Props {
+  columns: { name: string; purpose: string; duration: string; category: string; provider: string };
+  categories: Record<string, string>;
+  rows: Row[];
+}
+const { columns, categories, rows } = Astro.props;
+---
+<table class="ck-table">
+  <thead>
+    <tr>
+      <th>{columns.name}</th>
+      <th>{columns.purpose}</th>
+      <th>{columns.duration}</th>
+      <th>{columns.category}</th>
+      <th>{columns.provider}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {rows.map((r) => (
+      <tr>
+        <td><code>{r.name}</code></td>
+        <td>{r.purpose}</td>
+        <td>{r.duration}</td>
+        <td><span class={`cat cat-${r.category}`}>{categories[r.category]}</span></td>
+        <td>{r.provider}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
+<style>
+  .ck-table { width: 100%; border-collapse: collapse; margin-top: var(--space-8); font-size: 14px; }
+  .ck-table th, .ck-table td { padding: 12px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .ck-table th { background: var(--surface-2); font-weight: 600; color: var(--primary); font-size: 13px; }
+  .ck-table code { background: var(--surface-2); padding: 2px 6px; border-radius: 4px; font-size: 12px; }
+  .cat { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+  .cat-necessary { background: #e9f2eb; color: var(--success); }
+  .cat-preferences { background: #eaf0ef; color: var(--primary); }
+  .cat-statistics { background: #fbf0de; color: var(--warn); }
+  .cat-marketing { background: #f8e3e1; color: var(--danger); }
+  @media (max-width: 760px) { .ck-table { font-size: 12px; } .ck-table th, .ck-table td { padding: 8px; } }
+</style>

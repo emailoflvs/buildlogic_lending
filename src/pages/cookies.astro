@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+import CookieTable from '../components/CookieTable.astro';
+import policy from '../content/cookies-policy.json';
+import common from '../content/common.json';
+const t = policy.sk;
+---
+<BaseLayout title={`${t.title} — BuildLogic`} description={common.sk.brand_sub} path="/cookies/">
+  <Header path="/cookies/" />
+  <main class="container section" style="max-width: 820px;">
+    <h1>{t.title}</h1>
+    <p class="meta">{t.last_updated}</p>
+    <p>{t.intro}</p>
+    <CookieTable columns={t.columns} categories={t.categories} rows={t.rows} />
+    <p style="margin-top: var(--space-8); color: var(--muted);">{t.controls}</p>
+  </main>
+  <Footer />
+  <CookieBanner />
+</BaseLayout>
+
+<style>
+  .meta { color: var(--muted); font-size: 13px; }
+</style>

@@ -1,0 +1,62 @@
+{
+  "sk": {
+    "title": "Cookies",
+    "last_updated": "17. 4. 2026",
+    "intro": "Táto stránka vysvetľuje, aké cookies BuildLogic používa a ako ich spravovať.",
+    "categories": {
+      "necessary": "Nevyhnutné",
+      "preferences": "Preferencie",
+      "statistics": "Štatistiky",
+      "marketing": "Marketing"
+    },
+    "columns": { "name": "Názov", "purpose": "Účel", "duration": "Trvanie", "category": "Kategória", "provider": "Poskytovateľ" },
+    "rows": [
+      { "name": "bl_consent_v1", "purpose": "Uloženie vášho súhlasu s cookies.", "duration": "13 mesiacov", "category": "necessary", "provider": "buildlogic.eu" },
+      { "name": "bl_lang", "purpose": "Uloženie naposledy vybraného jazyka.", "duration": "1 rok", "category": "preferences", "provider": "buildlogic.eu" },
+      { "name": "_ga, _ga_*", "purpose": "Google Analytics 4 — anonymizovaná analytika.", "duration": "2 roky", "category": "statistics", "provider": "Google" },
+      { "name": "_fbp", "purpose": "Meta Pixel — konverzie a retargeting.", "duration": "90 dní", "category": "marketing", "provider": "Meta" },
+      { "name": "li_*, bcookie, lidc", "purpose": "LinkedIn Insight Tag — konverzie a retargeting.", "duration": "do 2 rokov", "category": "marketing", "provider": "LinkedIn" }
+    ],
+    "controls": "Svoj výber môžete kedykoľvek zmeniť cez tlačidlo \"Nastavenia cookies\" v päte stránky."
+  },
+  "en": {
+    "title": "Cookies",
+    "last_updated": "April 17, 2026",
+    "intro": "This page explains what cookies BuildLogic uses and how to manage them.",
+    "categories": {
+      "necessary": "Necessary",
+      "preferences": "Preferences",
+      "statistics": "Statistics",
+      "marketing": "Marketing"
+    },
+    "columns": { "name": "Name", "purpose": "Purpose", "duration": "Duration", "category": "Category", "provider": "Provider" },
+    "rows": [
+      { "name": "bl_consent_v1", "purpose": "Stores your cookie consent decision.", "duration": "13 months", "category": "necessary", "provider": "buildlogic.eu" },
+      { "name": "bl_lang", "purpose": "Stores the last selected language.", "duration": "1 year", "category": "preferences", "provider": "buildlogic.eu" },
+      { "name": "_ga, _ga_*", "purpose": "Google Analytics 4 — anonymized analytics.", "duration": "2 years", "category": "statistics", "provider": "Google" },
+      { "name": "_fbp", "purpose": "Meta Pixel — conversions and retargeting.", "duration": "90 days", "category": "marketing", "provider": "Meta" },
+      { "name": "li_*, bcookie, lidc", "purpose": "LinkedIn Insight — conversions and retargeting.", "duration": "up to 2 years", "category": "marketing", "provider": "LinkedIn" }
+    ],
+    "controls": "You can change your choice anytime via the \"Cookie settings\" link in the footer."
+  },
+  "ru": {
+    "title": "Файлы cookie",
+    "last_updated": "17 апреля 2026",
+    "intro": "Эта страница объясняет, какие cookies использует BuildLogic и как ими управлять.",
+    "categories": {
+      "necessary": "Необходимые",
+      "preferences": "Предпочтения",
+      "statistics": "Статистика",
+      "marketing": "Маркетинг"
+    },
+    "columns": { "name": "Имя", "purpose": "Назначение", "duration": "Срок", "category": "Категория", "provider": "Провайдер" },
+    "rows": [
+      { "name": "bl_consent_v1", "purpose": "Сохранение вашего выбора согласия.", "duration": "13 месяцев", "category": "necessary", "provider": "buildlogic.eu" },
+      { "name": "bl_lang", "purpose": "Сохранение последнего выбранного языка.", "duration": "1 год", "category": "preferences", "provider": "buildlogic.eu" },
+      { "name": "_ga, _ga_*", "purpose": "Google Analytics 4 — анонимная аналитика.", "duration": "2 года", "category": "statistics", "provider": "Google" },
+      { "name": "_fbp", "purpose": "Meta Pixel — конверсии и ретаргетинг.", "duration": "90 дней", "category": "marketing", "provider": "Meta" },
+      { "name": "li_*, bcookie, lidc", "purpose": "LinkedIn Insight — конверсии и ретаргетинг.", "duration": "до 2 лет", "category": "marketing", "provider": "LinkedIn" }
+    ],
+    "controls": "Вы можете изменить выбор в любой момент через кнопку \"Настройки cookies\" в футере."
+  }
+}
