@@ -52,6 +52,7 @@ const c = common[locale];
 
 <script>
   import { loadConsent, saveConsent, isExpired, toGtagConsent, type ConsentCategories } from '../lib/consent';
+  import { initTrackers } from '../lib/trackers';
 
   let previousFocus: HTMLElement | null = null;
 
@@ -142,10 +143,10 @@ const c = common[locale];
   function handleAction(action: string) {
     if (action === 'accept') {
       const cats: ConsentCategories = { necessary: true, preferences: true, statistics: true, marketing: true };
-      saveConsent(cats); updateGtag(cats); closeAll();
+      saveConsent(cats); updateGtag(cats); initTrackers(cats); closeAll();
     } else if (action === 'reject') {
       const cats: ConsentCategories = { necessary: true, preferences: false, statistics: false, marketing: false };
-      saveConsent(cats); updateGtag(cats); closeAll();
+      saveConsent(cats); updateGtag(cats); initTrackers(cats); closeAll();
     } else if (action === 'customize') {
       const fallback: ConsentCategories = { necessary: true, preferences: false, statistics: false, marketing: false };
       const existing = loadConsent()?.categories ?? fallback;
@@ -153,7 +154,7 @@ const c = common[locale];
       openModal();
     } else if (action === 'save') {
       const cats = readToggles();
-      saveConsent(cats); updateGtag(cats); closeAll();
+      saveConsent(cats); updateGtag(cats); initTrackers(cats); closeAll();
     } else if (action === 'close') {
       closeAll();
     }
@@ -194,6 +195,7 @@ const c = common[locale];
     openBanner();
   } else {
     updateGtag(existing.categories);
+    initTrackers(existing.categories);
   }
 </script>
 
