@@ -1,8 +1,9 @@
 ---
-const lang = Astro.currentLocale ?? 'sk';
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
-<!doctype html>
-<html lang={lang}>
-<head><meta charset="utf-8"><title>BuildLogic</title></head>
-<body><h1>BuildLogic — {lang}</h1></body>
-</html>
+<BaseLayout title="BuildLogic — Kontrola materiálov na stavbe" description="BuildLogic pomáha stavebným firmám držať pod kontrolou objekt, dokumenty, príjem materiálu a zvyšky." path="/">
+  <main class="container section">
+    <h1>BuildLogic</h1>
+    <p>Landing — under construction.</p>
+  </main>
+</BaseLayout>

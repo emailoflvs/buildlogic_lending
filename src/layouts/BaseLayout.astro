@@ -1,0 +1,59 @@
+---
+import '../styles/global.css';
+import { getAltHrefs, type Locale, DEFAULT_LOCALE } from '../lib/i18n';
+
+interface Props {
+  title: string;
+  description: string;
+  path?: string;
+}
+
+const { title, description, path = '/' } = Astro.props;
+const locale = (Astro.currentLocale ?? DEFAULT_LOCALE) as Locale;
+const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://buildlogic.eu';
+const alts = getAltHrefs(path, site);
+const canonical = alts.find((a) => a.hreflang === locale)?.href ?? site + path;
+---
+<!doctype html>
+<html lang={locale}>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  {alts.map((a) => (
+    <link rel="alternate" hreflang={a.hreflang} href={a.href} />
+  ))}
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:locale" content={locale} />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preload" as="font" href="/fonts/inter-500.woff2" type="font/woff2" crossorigin />
+  <link rel="preload" as="font" href="/fonts/inter-700.woff2" type="font/woff2" crossorigin />
+
+  <!-- Google Consent Mode v2 bootstrap: default all denied until user consents -->
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ window.dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      personalization_storage: 'denied',
+      functionality_storage: 'granted',
+      security_storage: 'granted',
+      wait_for_update: 500
+    });
+  </script>
+</head>
+<body>
+  <slot />
+</body>
+</html>
