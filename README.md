@@ -38,3 +38,10 @@ Set `.env` values from `.env.example`. Empty values disable the respective track
 
 - `docs/superpowers/specs/2026-04-17-buildlogic-landing-design.md`
 - `docs/superpowers/plans/2026-04-17-buildlogic-landing.md`
+
+## Production deployment (buildlogic.eu)
+
+1. On the production host: clone repo, `docker compose up -d --build`. Container listens on `127.0.0.1:4321`.
+2. Put the reverse-proxy config from `docs/deployment/nginx-reverse-proxy.conf.example` into `/etc/nginx/sites-available/buildlogic.eu.conf`, symlink into `sites-enabled/`, and reload nginx.
+3. Provision TLS via certbot (`certbot --nginx -d buildlogic.eu -d www.buildlogic.eu`).
+4. Update `.env` on the host with real tracker IDs (GA4 / Meta / LinkedIn) and rebuild.
