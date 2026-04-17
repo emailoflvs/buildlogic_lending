@@ -1,0 +1,79 @@
+---
+import workflow from '../content/workflow.json';
+import { type Locale, DEFAULT_LOCALE } from '../lib/i18n';
+const locale = (Astro.currentLocale ?? DEFAULT_LOCALE) as Locale;
+const t = workflow[locale];
+---
+<section class="section" id="workflow">
+  <div class="container">
+    <div class="head">
+      <span class="eyebrow">{t.eyebrow}</span>
+      <h2>{t.title}</h2>
+    </div>
+
+    <div class="wf-wrap">
+      <div class="wf-steps" role="tablist">
+        {t.steps.map((s, i) => (
+          <button type="button" class:list={['wf-step', { active: i === 0 }]} data-idx={i} role="tab">
+            <b>{s.n}</b>
+            <span>{s.title}</span>
+          </button>
+        ))}
+      </div>
+      <div class="wf-panels">
+        {t.steps.map((s, i) => (
+          <article class:list={['wf-panel', { active: i === 0 }]} data-idx={i}>
+            <span class="wf-num">{s.n}</span>
+            <h3>{s.title}</h3>
+            <p>{s.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function bind() {
+    const steps = document.querySelectorAll<HTMLButtonElement>('.wf-step');
+    const panels = document.querySelectorAll<HTMLElement>('.wf-panel');
+    steps.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const idx = btn.dataset.idx;
+        steps.forEach((b) => b.classList.toggle('active', b.dataset.idx === idx));
+        panels.forEach((p) => p.classList.toggle('active', p.dataset.idx === idx));
+      });
+    });
+  }
+  bind();
+</script>
+
+<style>
+  .head { max-width: 720px; margin: 0 auto var(--space-12); text-align: center; }
+  .head h2 { margin-top: var(--space-4); }
+
+  .wf-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8); }
+  .wf-steps { display: grid; grid-template-columns: 1fr; gap: var(--space-2); }
+  .wf-step {
+    display: grid; grid-template-columns: auto 1fr; gap: var(--space-3); align-items: center;
+    padding: var(--space-4); border: 1px solid var(--line); border-radius: var(--radius-md);
+    background: var(--surface); cursor: pointer; text-align: left;
+  }
+  .wf-step:hover { border-color: var(--accent); }
+  .wf-step.active { border-color: var(--accent); background: var(--accent-soft); box-shadow: 0 0 0 3px rgba(191,148,97,0.15); }
+  .wf-step b { font-family: 'Roboto Condensed', sans-serif; font-size: 18px; color: var(--accent); }
+  .wf-step span { font-weight: 600; font-size: 15px; color: var(--primary); }
+
+  .wf-panels { position: relative; min-height: 260px; }
+  .wf-panel {
+    position: absolute; inset: 0; background: var(--surface); border: 1px solid var(--line);
+    border-radius: var(--radius-lg); padding: var(--space-8);
+    opacity: 0; transition: opacity 0.2s; pointer-events: none;
+  }
+  .wf-panel.active { opacity: 1; pointer-events: auto; }
+  .wf-num { font-family: 'Roboto Condensed', sans-serif; font-size: 48px; color: var(--accent); display: block; line-height: 1; }
+  .wf-panel h3 { margin-top: var(--space-3); color: var(--primary); }
+  .wf-panel p { margin-top: var(--space-3); color: var(--muted); font-size: 16px; line-height: 1.6; }
+
+  @media (max-width: 960px) { .wf-wrap { grid-template-columns: 1fr; } .wf-panels { min-height: 0; } .wf-panel { position: static; opacity: 1; pointer-events: auto; display: none; } .wf-panel.active { display: block; } }
+</style>
