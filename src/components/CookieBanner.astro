@@ -1,0 +1,184 @@
+---
+import cookies from '../content/cookies.json';
+import common from '../content/common.json';
+import { localizePath, type Locale, DEFAULT_LOCALE } from '../lib/i18n';
+
+const locale = (Astro.currentLocale ?? DEFAULT_LOCALE) as Locale;
+const t = cookies[locale];
+const c = common[locale];
+---
+<div id="cookie-banner" class="cookie-banner" hidden>
+  <div class="cb-inner">
+    <div class="cb-text">
+      <h3>{t.banner_title}</h3>
+      <p>{t.banner_body}
+        <a href={localizePath('/cookies/', locale)}>{t.more_info}</a> ·
+        <a href={localizePath('/privacy/', locale)}>{t.privacy}</a>
+      </p>
+    </div>
+    <div class="cb-actions">
+      <button type="button" class="btn btn-secondary" data-consent="reject">{t.reject_all}</button>
+      <button type="button" class="btn btn-secondary" data-consent="customize">{t.customize}</button>
+      <button type="button" class="btn btn-primary" data-consent="accept">{t.accept_all}</button>
+    </div>
+  </div>
+</div>
+
+<div id="cookie-modal" class="cookie-modal" hidden aria-modal="true" role="dialog">
+  <div class="cm-backdrop" data-consent="close"></div>
+  <div class="cm-panel">
+    <header class="cm-head">
+      <h3>{t.customize}</h3>
+      <button type="button" class="cm-close" data-consent="close" aria-label="Close">×</button>
+    </header>
+    <div class="cm-body">
+      {(['necessary', 'preferences', 'statistics', 'marketing'] as const).map((k) => (
+        <label class="cm-row" data-category={k}>
+          <div class="cm-copy">
+            <strong>{t.categories[k].title}</strong>
+            <span>{t.categories[k].body}</span>
+          </div>
+          <input type="checkbox" class="cm-toggle" data-cat={k} checked={k === 'necessary'} disabled={k === 'necessary'} />
+        </label>
+      ))}
+    </div>
+    <footer class="cm-foot">
+      <button type="button" class="btn btn-secondary" data-consent="reject">{t.reject_all}</button>
+      <button type="button" class="btn btn-secondary" data-consent="save">{t.save_selection}</button>
+      <button type="button" class="btn btn-primary" data-consent="accept">{t.accept_all}</button>
+    </footer>
+  </div>
+</div>
+
+<script>
+  import { loadConsent, saveConsent, isExpired, toGtagConsent, type ConsentCategories } from '../lib/consent';
+
+  function updateGtag(cats: ConsentCategories) {
+    const g = toGtagConsent(cats);
+    if (typeof (window as any).gtag === 'function') {
+      (window as any).gtag('consent', 'update', g);
+    }
+  }
+
+  function closeAll() {
+    const banner = document.getElementById('cookie-banner');
+    const modal = document.getElementById('cookie-modal');
+    if (banner) banner.hidden = true;
+    if (modal) modal.hidden = true;
+  }
+
+  function openBanner() {
+    const banner = document.getElementById('cookie-banner');
+    if (banner) banner.hidden = false;
+  }
+  function openModal() {
+    const banner = document.getElementById('cookie-banner');
+    const modal = document.getElementById('cookie-modal');
+    if (banner) banner.hidden = true;
+    if (modal) modal.hidden = false;
+  }
+
+  function applyToggles(cats: ConsentCategories) {
+    document.querySelectorAll<HTMLInputElement>('.cm-toggle').forEach((el) => {
+      const k = el.dataset.cat as keyof ConsentCategories | undefined;
+      if (!k) return;
+      if (k === 'necessary') { el.checked = true; return; }
+      el.checked = Boolean(cats[k]);
+    });
+  }
+
+  function readToggles(): ConsentCategories {
+    const cats: ConsentCategories = { necessary: true, preferences: false, statistics: false, marketing: false };
+    document.querySelectorAll<HTMLInputElement>('.cm-toggle').forEach((el) => {
+      const k = el.dataset.cat as keyof ConsentCategories | undefined;
+      if (!k || k === 'necessary') return;
+      cats[k] = el.checked;
+    });
+    return cats;
+  }
+
+  function handleAction(action: string) {
+    if (action === 'accept') {
+      const cats: ConsentCategories = { necessary: true, preferences: true, statistics: true, marketing: true };
+      saveConsent(cats); updateGtag(cats); closeAll();
+    } else if (action === 'reject') {
+      const cats: ConsentCategories = { necessary: true, preferences: false, statistics: false, marketing: false };
+      saveConsent(cats); updateGtag(cats); closeAll();
+    } else if (action === 'customize') {
+      const existing = loadConsent()?.categories ?? { necessary: true as const, preferences: false, statistics: false, marketing: false };
+      applyToggles(existing);
+      openModal();
+    } else if (action === 'save') {
+      const cats = readToggles();
+      saveConsent(cats); updateGtag(cats); closeAll();
+    } else if (action === 'close') {
+      closeAll();
+    }
+  }
+
+  document.addEventListener('click', (ev) => {
+    const target = ev.target as HTMLElement | null;
+    if (!target) return;
+    const btn = target.closest('[data-consent]') as HTMLElement | null;
+    if (btn) {
+      ev.preventDefault();
+      handleAction(btn.dataset.consent || '');
+      return;
+    }
+    const ctrl = target.closest('[data-cookie-settings]') as HTMLElement | null;
+    if (ctrl) {
+      ev.preventDefault();
+      handleAction('customize');
+    }
+  });
+
+  // On load: show banner if no consent or expired
+  const existing = loadConsent();
+  if (!existing || isExpired(existing.timestamp)) {
+    openBanner();
+  } else {
+    updateGtag(existing.categories);
+  }
+</script>
+
+<style>
+  .cookie-banner {
+    position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 100;
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    padding: var(--space-5);
+    max-width: 960px; margin: 0 auto;
+  }
+  .cb-inner { display: grid; grid-template-columns: 1fr auto; gap: var(--space-5); align-items: center; }
+  .cb-text h3 { font-size: 18px; margin: 0 0 6px; color: var(--primary); }
+  .cb-text p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.55; }
+  .cb-text a { color: var(--primary); text-decoration: underline; }
+  .cb-actions { display: flex; gap: var(--space-2); flex-wrap: wrap; }
+  .cb-actions .btn { padding: 10px 16px; font-size: 13px; }
+
+  .cookie-modal { position: fixed; inset: 0; z-index: 110; display: grid; place-items: center; padding: 20px; }
+  .cm-backdrop { position: absolute; inset: 0; background: rgba(20, 30, 30, 0.5); }
+  .cm-panel {
+    position: relative;
+    background: var(--surface); border-radius: var(--radius-lg);
+    max-width: 620px; width: 100%;
+    display: flex; flex-direction: column;
+    max-height: 85vh; overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .cm-head, .cm-foot { padding: var(--space-5); border-bottom: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); }
+  .cm-foot { border-bottom: none; border-top: 1px solid var(--line); flex-wrap: wrap; }
+  .cm-close { background: none; border: none; font-size: 26px; line-height: 1; cursor: pointer; color: var(--muted); }
+  .cm-body { overflow-y: auto; padding: var(--space-4) var(--space-5); }
+  .cm-row { display: flex; gap: var(--space-4); padding: var(--space-3) 0; border-bottom: 1px solid var(--line-2); align-items: center; }
+  .cm-row:last-child { border-bottom: none; }
+  .cm-copy { flex: 1; min-width: 0; }
+  .cm-copy strong { display: block; color: var(--text); font-size: 15px; }
+  .cm-copy span { display: block; font-size: 13px; color: var(--muted); margin-top: 2px; }
+  .cm-toggle { width: 20px; height: 20px; accent-color: var(--primary); }
+  @media (max-width: 640px) {
+    .cb-inner { grid-template-columns: 1fr; }
+    .cb-actions { justify-content: stretch; }
+    .cb-actions .btn { flex: 1; }
+  }
+</style>

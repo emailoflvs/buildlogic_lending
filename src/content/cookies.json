@@ -1,0 +1,50 @@
+{
+  "sk": {
+    "banner_title": "Používame cookies",
+    "banner_body": "Na zlepšenie stránky používame cookies. Nevyhnutné sú vždy zapnuté. Ostatné môžete povoliť alebo odmietnuť.",
+    "accept_all": "Prijať všetko",
+    "reject_all": "Odmietnuť všetko",
+    "customize": "Prispôsobiť",
+    "more_info": "Viac o cookies",
+    "privacy": "Ochrana údajov",
+    "categories": {
+      "necessary": { "title": "Nevyhnutné", "body": "Základná funkčnosť stránky. Nedajú sa vypnúť." },
+      "preferences": { "title": "Preferencie", "body": "Uloženie vášho výberu jazyka a UI stavu." },
+      "statistics": { "title": "Štatistiky", "body": "Anonymizovaná analytika (Google Analytics)." },
+      "marketing": { "title": "Marketing", "body": "Pixely pre kampane (Meta, LinkedIn)." }
+    },
+    "save_selection": "Uložiť výber"
+  },
+  "en": {
+    "banner_title": "We use cookies",
+    "banner_body": "We use cookies to improve the site. Necessary ones are always on. You can accept or reject the rest.",
+    "accept_all": "Accept all",
+    "reject_all": "Reject all",
+    "customize": "Customize",
+    "more_info": "More about cookies",
+    "privacy": "Privacy",
+    "categories": {
+      "necessary": { "title": "Necessary", "body": "Core site functionality. Cannot be disabled." },
+      "preferences": { "title": "Preferences", "body": "Remember your language and UI choices." },
+      "statistics": { "title": "Statistics", "body": "Anonymized analytics (Google Analytics)." },
+      "marketing": { "title": "Marketing", "body": "Campaign pixels (Meta, LinkedIn)." }
+    },
+    "save_selection": "Save selection"
+  },
+  "ru": {
+    "banner_title": "Мы используем cookies",
+    "banner_body": "Cookies нужны для работы сайта. Необходимые всегда включены. Остальное — по вашему выбору.",
+    "accept_all": "Принять все",
+    "reject_all": "Отклонить все",
+    "customize": "Настроить",
+    "more_info": "Подробнее о cookies",
+    "privacy": "Конфиденциальность",
+    "categories": {
+      "necessary": { "title": "Необходимые", "body": "Базовая работа сайта. Нельзя отключить." },
+      "preferences": { "title": "Предпочтения", "body": "Сохранение языка и UI-состояний." },
+      "statistics": { "title": "Статистика", "body": "Анонимная аналитика (Google Analytics)." },
+      "marketing": { "title": "Маркетинг", "body": "Пиксели рекламных кампаний (Meta, LinkedIn)." }
+    },
+    "save_selection": "Сохранить выбор"
+  }
+}
