@@ -1,0 +1,36 @@
+# dependencies
+node_modules/
+
+# astro
+dist/
+.astro/
+
+# environment
+.env
+.env.local
+.env.production
+.env.*.local
+
+# ide
+.vscode/
+.idea/
+
+# os
+.DS_Store
+Thumbs.db
+
+# workspace
+.superpowers/
+max/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# test
+coverage/
+test-results/
+playwright-report/
+playwright/.cache/
