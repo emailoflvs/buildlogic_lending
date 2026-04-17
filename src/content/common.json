@@ -10,7 +10,16 @@
       "faq": "FAQ"
     },
     "cta_primary": "Získať test",
-    "cta_secondary": "Požiadať o demo"
+    "cta_secondary": "Požiadať o demo",
+    "footer": {
+      "rights": "Všetky práva vyhradené",
+      "privacy": "Ochrana osobných údajov",
+      "cookies": "Cookies",
+      "impressum": "Impressum",
+      "cookie_settings": "Nastavenia cookies",
+      "contact_email": "hello@buildlogic.eu",
+      "legal_placeholder": "[TODO: IČO/DIČ/adresa]"
+    }
   },
   "en": {
     "brand": "BuildLogic",
@@ -23,7 +32,16 @@
       "faq": "FAQ"
     },
     "cta_primary": "Start free trial",
-    "cta_secondary": "Request demo"
+    "cta_secondary": "Request demo",
+    "footer": {
+      "rights": "All rights reserved",
+      "privacy": "Privacy Policy",
+      "cookies": "Cookies",
+      "impressum": "Impressum",
+      "cookie_settings": "Cookie settings",
+      "contact_email": "hello@buildlogic.eu",
+      "legal_placeholder": "[TODO: company ID / address]"
+    }
   },
   "ru": {
     "brand": "BuildLogic",
@@ -36,6 +54,15 @@
       "faq": "FAQ"
     },
     "cta_primary": "Получить тест",
-    "cta_secondary": "Запросить демо"
+    "cta_secondary": "Запросить демо",
+    "footer": {
+      "rights": "Все права защищены",
+      "privacy": "Политика конфиденциальности",
+      "cookies": "Файлы cookie",
+      "impressum": "Реквизиты",
+      "cookie_settings": "Настройки cookies",
+      "contact_email": "hello@buildlogic.eu",
+      "legal_placeholder": "[TODO: ИНН/адрес компании]"
+    }
   }
 }

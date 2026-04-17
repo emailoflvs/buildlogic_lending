@@ -1,0 +1,68 @@
+---
+import common from '../content/common.json';
+import { localizePath, type Locale, DEFAULT_LOCALE } from '../lib/i18n';
+
+const locale = (Astro.currentLocale ?? DEFAULT_LOCALE) as Locale;
+const t = common[locale];
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="f-brand">
+      <span class="brand-mark">BL</span>
+      <div>
+        <strong>BuildLogic</strong>
+        <p>{t.footer.legal_placeholder}</p>
+      </div>
+    </div>
+    <nav class="f-links" aria-label="Legal">
+      <a href={localizePath('/privacy/', locale)}>{t.footer.privacy}</a>
+      <a href={localizePath('/cookies/', locale)}>{t.footer.cookies}</a>
+      <button type="button" class="link-btn" data-cookie-settings>{t.footer.cookie_settings}</button>
+      <a href={`mailto:${t.footer.contact_email}`}>{t.footer.contact_email}</a>
+    </nav>
+    <p class="f-copy">© {year} BuildLogic. {t.footer.rights}.</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--primary);
+    color: #e9efe8;
+    padding: var(--space-12) 0 var(--space-8);
+    margin-top: var(--space-16);
+  }
+  .footer-inner {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--space-8);
+    align-items: start;
+  }
+  .f-brand { display: flex; gap: var(--space-3); align-items: flex-start; }
+  .f-brand .brand-mark {
+    width: 44px; height: 44px; border-radius: 14px;
+    background: var(--accent); color: var(--primary);
+    display: grid; place-items: center;
+    font-weight: 800; font-size: 18px;
+  }
+  .f-brand strong { color: #fff; font-size: 16px; }
+  .f-brand p { margin: 4px 0 0; font-size: 12px; color: #c2d1cd; }
+  .f-links {
+    display: flex; gap: var(--space-5); flex-wrap: wrap; justify-content: flex-end;
+  }
+  .f-links a, .link-btn {
+    color: #e9efe8; font-size: 14px; background: none; border: none; cursor: pointer; padding: 0;
+  }
+  .f-links a:hover, .link-btn:hover { color: var(--accent); }
+  .f-copy {
+    grid-column: 1 / -1;
+    margin: 0;
+    padding-top: var(--space-6);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 12px; color: #c2d1cd;
+  }
+  @media (max-width: 720px) {
+    .footer-inner { grid-template-columns: 1fr; }
+    .f-links { justify-content: flex-start; }
+  }
+</style>
