@@ -1,0 +1,35 @@
+---
+import why from '../content/why.json';
+import { type Locale, DEFAULT_LOCALE } from '../lib/i18n';
+const locale = (Astro.currentLocale ?? DEFAULT_LOCALE) as Locale;
+const t = why[locale];
+---
+<section class="section">
+  <div class="container why-grid">
+    <div>
+      <span class="eyebrow">{t.eyebrow}</span>
+      <h2>{t.title}</h2>
+    </div>
+    <div>
+      <p class="why-body">{t.body}</p>
+      <ul class="why-list">
+        {t.bullets.map((b) => <li>{b}</li>)}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .why-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: var(--space-12); align-items: start; }
+  .why-grid h2 { margin-top: var(--space-4); }
+  .why-body { color: var(--muted); font-size: 17px; line-height: 1.65; }
+  .why-list { margin-top: var(--space-6); padding: 0; list-style: none; display: grid; gap: var(--space-3); }
+  .why-list li {
+    padding-left: var(--space-6); position: relative; color: var(--text); font-size: 15px;
+  }
+  .why-list li::before {
+    content: ''; position: absolute; left: 0; top: 8px; width: 10px; height: 10px;
+    background: var(--accent); border-radius: 50%;
+  }
+  @media (max-width: 960px) { .why-grid { grid-template-columns: 1fr; } }
+</style>
