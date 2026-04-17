@@ -1,0 +1,16 @@
+node_modules
+dist
+.astro
+.git
+.github
+.superpowers
+docs
+tests
+playwright-report
+test-results
+max
+*.log
+.env
+.env.*
+.vscode
+.idea

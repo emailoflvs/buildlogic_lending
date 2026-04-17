@@ -1,0 +1,7 @@
+services:
+  buildlogic-landing:
+    build: .
+    container_name: buildlogic-landing
+    ports:
+      - "4321:80"
+    restart: unless-stopped
