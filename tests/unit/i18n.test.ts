@@ -17,6 +17,12 @@ describe('localizePath', () => {
     expect(localizePath('/privacy', 'en')).toBe('/en/privacy/');
     expect(localizePath('privacy', 'en')).toBe('/en/privacy/');
   });
+
+  it('preserves query and hash', () => {
+    expect(localizePath('/contact?ref=x', 'ru')).toBe('/ru/contact/?ref=x');
+    expect(localizePath('/faq#q1', 'en')).toBe('/en/faq/#q1');
+    expect(localizePath('/', 'sk')).toBe('/');
+  });
 });
 
 describe('getAltHrefs', () => {
@@ -27,6 +33,16 @@ describe('getAltHrefs', () => {
       { hreflang: 'en', href: 'https://buildlogic.eu/en/' },
       { hreflang: 'ru', href: 'https://buildlogic.eu/ru/' },
       { hreflang: 'x-default', href: 'https://buildlogic.eu/' },
+    ]);
+  });
+
+  it('handles subpath and tolerates trailing-slash origin', () => {
+    const result = getAltHrefs('/privacy/', 'https://buildlogic.eu/');
+    expect(result).toEqual([
+      { hreflang: 'sk', href: 'https://buildlogic.eu/privacy/' },
+      { hreflang: 'en', href: 'https://buildlogic.eu/en/privacy/' },
+      { hreflang: 'ru', href: 'https://buildlogic.eu/ru/privacy/' },
+      { hreflang: 'x-default', href: 'https://buildlogic.eu/privacy/' },
     ]);
   });
 });
