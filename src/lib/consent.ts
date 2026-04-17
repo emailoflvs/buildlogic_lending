@@ -1,3 +1,6 @@
+// Client-only module. Do not import from Astro frontmatter — uses localStorage directly.
+// Consumed by src/components/CookieBanner.astro (via <script>) and src/lib/trackers.ts.
+
 export const CONSENT_VERSION = 'v1';
 export const CONSENT_KEY = 'bl_consent_v1';
 export const TTL_MS = 13 * 30 * 24 * 60 * 60 * 1000; // ~13 months
@@ -39,9 +42,19 @@ export function loadConsent(): ConsentRecord | null {
   const raw = localStorage.getItem(CONSENT_KEY);
   if (!raw) return null;
   try {
-    const parsed = JSON.parse(raw) as ConsentRecord;
-    if (parsed.version !== CONSENT_VERSION) return null;
-    return parsed;
+    const parsed = JSON.parse(raw);
+    if (
+      !parsed ||
+      parsed.version !== CONSENT_VERSION ||
+      typeof parsed.timestamp !== 'number' ||
+      !parsed.categories ||
+      typeof parsed.categories.preferences !== 'boolean' ||
+      typeof parsed.categories.statistics !== 'boolean' ||
+      typeof parsed.categories.marketing !== 'boolean'
+    ) {
+      return null;
+    }
+    return parsed as ConsentRecord;
   } catch {
     return null;
   }

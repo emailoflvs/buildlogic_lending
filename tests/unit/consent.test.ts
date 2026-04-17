@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach, vi } from 'vitest';
+import { describe, it, expect, beforeEach } from 'vitest';
 import { loadConsent, saveConsent, isExpired, toGtagConsent, CONSENT_VERSION, TTL_MS } from '../../src/lib/consent';
 
 class MockStorage {
@@ -29,6 +29,28 @@ describe('saveConsent + loadConsent', () => {
 
   it('returns null when stored version differs', () => {
     localStorage.setItem('bl_consent_v1', JSON.stringify({ version: 'wrong', timestamp: Date.now(), categories: {} }));
+    expect(loadConsent()).toBeNull();
+  });
+
+  it('forces necessary: true even if caller bypasses type system', () => {
+    saveConsent({ necessary: true as any, preferences: false, statistics: false, marketing: false });
+    const stored = JSON.parse(localStorage.getItem('bl_consent_v1')!);
+    expect(stored.categories.necessary).toBe(true);
+  });
+
+  it('returns null when categories shape is tampered', () => {
+    localStorage.setItem('bl_consent_v1', JSON.stringify({
+      version: 'v1',
+      timestamp: Date.now(),
+      categories: null,
+    }));
+    expect(loadConsent()).toBeNull();
+
+    localStorage.setItem('bl_consent_v1', JSON.stringify({
+      version: 'v1',
+      timestamp: Date.now(),
+      categories: { necessary: true, preferences: 'yes', statistics: true, marketing: false },
+    }));
     expect(loadConsent()).toBeNull();
   });
 });
