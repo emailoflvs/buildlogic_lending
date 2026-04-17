@@ -1,0 +1,55 @@
+---
+import inside from '../content/inside.json';
+import { type Locale, DEFAULT_LOCALE } from '../lib/i18n';
+const locale = (Astro.currentLocale ?? DEFAULT_LOCALE) as Locale;
+const t = inside[locale];
+---
+<section class="section" id="inside">
+  <div class="container">
+    <div class="head">
+      <span class="eyebrow">{t.eyebrow}</span>
+      <h2>{t.title}</h2>
+    </div>
+
+    <div class="grid">
+      {t.modules.map((m, i) => (
+        <article class="mod">
+          <div class="mod-mock" aria-hidden="true">
+            <div class="mock-bar"></div>
+            <div class="mock-bar w2"></div>
+            <div class="mock-bar w3"></div>
+            <div class="mock-pill"><span></span></div>
+          </div>
+          <span class="mod-num">{String(i+1).padStart(2,'0')}</span>
+          <h3>{m.title}</h3>
+          <p>{m.body}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .head { max-width: 760px; margin: 0 auto var(--space-12); text-align: center; }
+  .head h2 { margin-top: var(--space-4); }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); }
+  .mod {
+    background: var(--surface); border: 1px solid var(--line); padding: var(--space-5);
+    border-radius: var(--radius-lg); transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .mod:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+  .mod-mock {
+    background: var(--primary); border-radius: var(--radius-md); padding: var(--space-4);
+    height: 120px; display: flex; flex-direction: column; gap: 8px;
+  }
+  .mock-bar { height: 10px; background: rgba(255,255,255,0.25); border-radius: 4px; width: 80%; }
+  .mock-bar.w2 { width: 60%; background: rgba(191,148,97,0.65); }
+  .mock-bar.w3 { width: 45%; background: rgba(255,255,255,0.18); }
+  .mock-pill { margin-top: auto; height: 20px; background: rgba(255,255,255,0.08); border-radius: 10px; overflow: hidden; }
+  .mock-pill span { display: block; width: 55%; height: 100%; background: var(--accent); }
+  .mod-num { display: block; font-family: 'Roboto Condensed', sans-serif; color: var(--accent); font-size: 13px; margin-top: var(--space-4); letter-spacing: 0.15em; }
+  .mod h3 { color: var(--primary); margin-top: var(--space-2); }
+  .mod p { color: var(--muted); margin-top: var(--space-2); font-size: 14px; line-height: 1.55; }
+  @media (max-width: 960px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+</style>
