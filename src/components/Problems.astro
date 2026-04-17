@@ -1,0 +1,39 @@
+---
+import problems from '../content/problems.json';
+import { type Locale, DEFAULT_LOCALE } from '../lib/i18n';
+const locale = (Astro.currentLocale ?? DEFAULT_LOCALE) as Locale;
+const t = problems[locale];
+---
+<section class="section" id="problem">
+  <div class="container">
+    <div class="head">
+      <h2>{t.title}</h2>
+      <p>{t.lead}</p>
+    </div>
+    <div class="grid">
+      {t.cards.map((c) => (
+        <article class="card">
+          <strong>{c.title}</strong>
+          <p>{c.body}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .head { max-width: 720px; margin: 0 auto var(--space-12); text-align: center; }
+  .head h2 { margin-bottom: var(--space-4); }
+  .head p { color: var(--muted); font-size: 16px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); }
+  .card {
+    background: var(--surface); border: 1px solid var(--line);
+    padding: var(--space-6); border-radius: var(--radius-lg);
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+  .card strong { color: var(--primary); font-size: 16px; display: block; margin-bottom: var(--space-2); }
+  .card p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.55; }
+  @media (max-width: 960px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+</style>
