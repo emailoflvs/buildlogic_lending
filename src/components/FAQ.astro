@@ -1,0 +1,41 @@
+---
+import faq from '../content/faq.json';
+import { type Locale, DEFAULT_LOCALE } from '../lib/i18n';
+const locale = (Astro.currentLocale ?? DEFAULT_LOCALE) as Locale;
+const t = faq[locale];
+---
+<section class="section" id="faq">
+  <div class="container faq-wrap">
+    <div class="head">
+      <span class="eyebrow">{t.eyebrow}</span>
+      <h2>{t.title}</h2>
+    </div>
+    <div class="faq-list">
+      {t.items.map((item, i) => (
+        <details class="faq-item">
+          <summary>
+            <span class="q-num">{String(i+1).padStart(2,'0')}</span>
+            <span class="q-text">{item.q}</span>
+            <span class="q-icon" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-body">{item.a}</div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-wrap { max-width: 820px; margin: 0 auto; }
+  .head { text-align: center; margin-bottom: var(--space-12); }
+  .head h2 { margin-top: var(--space-4); }
+  .faq-list { display: grid; gap: var(--space-3); }
+  .faq-item { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-md); overflow: hidden; }
+  .faq-item summary { list-style: none; padding: var(--space-5); cursor: pointer; display: grid; grid-template-columns: auto 1fr auto; gap: var(--space-4); align-items: center; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .q-num { font-family: 'Roboto Condensed', sans-serif; color: var(--accent); font-size: 13px; letter-spacing: 0.15em; }
+  .q-text { color: var(--primary); font-weight: 600; font-size: 16px; }
+  .q-icon { color: var(--accent); font-size: 22px; line-height: 1; transition: transform 0.2s; }
+  .faq-item[open] .q-icon { transform: rotate(45deg); }
+  .faq-body { padding: 0 var(--space-5) var(--space-5); color: var(--muted); font-size: 15px; line-height: 1.65; }
+</style>
