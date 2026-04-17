@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import CookieBanner from '../../components/CookieBanner.astro';
+import ProsePage from '../../components/ProsePage.astro';
+import privacy from '../../content/privacy.json';
+import common from '../../content/common.json';
+const t = privacy.ru;
+---
+<BaseLayout title={`${t.title} — BuildLogic`} description={common.ru.brand_sub} path="/privacy/">
+  <Header path="/privacy/" />
+  <ProsePage title={t.title} lastUpdated={t.last_updated} blocks={t.blocks} />
+  <Footer />
+  <CookieBanner />
+</BaseLayout>

@@ -1,0 +1,38 @@
+{
+  "sk": {
+    "title": "Ochrana osobných údajov",
+    "last_updated": "17. 4. 2026",
+    "blocks": [
+      { "h": "Kto spracúva údaje", "p": "Prevádzkovateľom je BuildLogic s.r.o., [TODO: IČO/DIČ/adresa]." },
+      { "h": "Aké údaje zbierame", "p": "Kontaktný formulár — meno, e-mail, firma, telefón a správa. Technické logy servera pre bezpečnosť." },
+      { "h": "Na aký účel", "p": "Odpoveď na vašu žiadosť, ukážka produktu a komunikácia v rámci obchodného procesu." },
+      { "h": "Ako dlho", "p": "Kontaktné údaje do 24 mesiacov od posledného kontaktu alebo do odvolania súhlasu." },
+      { "h": "Cookies", "p": "Detaily — na stránke /cookies/." },
+      { "h": "Vaše práva", "p": "Prístup, oprava, výmaz, prenositeľnosť, obmedzenie spracúvania, námietka. Kontakt: hello@buildlogic.eu." }
+    ]
+  },
+  "en": {
+    "title": "Privacy Policy",
+    "last_updated": "April 17, 2026",
+    "blocks": [
+      { "h": "Data controller", "p": "BuildLogic s.r.o., [TODO: company ID/address]." },
+      { "h": "What we collect", "p": "Contact form — name, email, company, phone, message. Server technical logs for security." },
+      { "h": "Purpose", "p": "Responding to your request, product demos and commercial communication." },
+      { "h": "Retention", "p": "Contact data up to 24 months from last contact or until withdrawal of consent." },
+      { "h": "Cookies", "p": "See /cookies/ for details." },
+      { "h": "Your rights", "p": "Access, rectification, erasure, portability, restriction of processing, objection. Contact: hello@buildlogic.eu." }
+    ]
+  },
+  "ru": {
+    "title": "Политика конфиденциальности",
+    "last_updated": "17 апреля 2026",
+    "blocks": [
+      { "h": "Кто обрабатывает данные", "p": "BuildLogic s.r.o., [TODO: ИНН/адрес компании]." },
+      { "h": "Какие данные собираем", "p": "Контактная форма — имя, email, компания, телефон, сообщение. Технические логи сервера для безопасности." },
+      { "h": "Цель", "p": "Ответ на запрос, демо продукта и коммерческая коммуникация." },
+      { "h": "Срок хранения", "p": "Контактные данные до 24 месяцев с последнего контакта или до отзыва согласия." },
+      { "h": "Cookies", "p": "Подробнее — на странице /cookies/." },
+      { "h": "Ваши права", "p": "Доступ, исправление, удаление, переносимость, ограничение обработки, возражение. Контакт: hello@buildlogic.eu." }
+    ]
+  }
+}

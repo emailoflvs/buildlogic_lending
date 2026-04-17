@@ -1,0 +1,22 @@
+---
+interface Props { title: string; lastUpdated: string; blocks: Array<{ h: string; p: string }> }
+const { title, lastUpdated, blocks } = Astro.props;
+---
+<main class="container prose-wrap section">
+  <h1>{title}</h1>
+  <p class="meta">{lastUpdated}</p>
+  {blocks.map((b) => (
+    <section class="prose-block">
+      <h2>{b.h}</h2>
+      <p>{b.p}</p>
+    </section>
+  ))}
+</main>
+
+<style>
+  .prose-wrap { max-width: 760px; }
+  .meta { color: var(--muted); font-size: 13px; }
+  .prose-block { margin-top: var(--space-8); }
+  .prose-block h2 { color: var(--primary); font-size: 20px; margin-bottom: var(--space-3); }
+  .prose-block p { color: var(--text); line-height: 1.7; font-size: 15px; }
+</style>
