@@ -19,7 +19,8 @@
       "cookie_settings": "Nastavenia cookies",
       "contact_email": "hello@buildlogic.eu",
       "legal_placeholder": "[TODO: IČO/DIČ/adresa]"
-    }
+    },
+    "roles": { "label": "Komu to najviac pomôže", "items": ["Majiteľ", "Riaditeľ", "Operatívny manažér", "Vedúci objektu", "Zodpovedný za materiál"] }
   },
   "en": {
     "brand": "BuildLogic",
@@ -41,7 +42,8 @@
       "cookie_settings": "Cookie settings",
       "contact_email": "hello@buildlogic.eu",
       "legal_placeholder": "[TODO: company ID / address]"
-    }
+    },
+    "roles": { "label": "Who benefits most", "items": ["Owner", "Director", "Operations manager", "Site manager", "Materials lead"] }
   },
   "ru": {
     "brand": "BuildLogic",
@@ -63,6 +65,7 @@
       "cookie_settings": "Настройки cookies",
       "contact_email": "hello@buildlogic.eu",
       "legal_placeholder": "[TODO: ИНН/адрес компании]"
-    }
+    },
+    "roles": { "label": "Кому особенно полезно", "items": ["Владелец", "Директор", "Операционный руководитель", "Руководитель объекта", "Ответственный за материалы"] }
   }
 }
