@@ -1,0 +1,66 @@
+---
+import contact from '../content/contact.json';
+import common from '../content/common.json';
+import { localizePath, type Locale, DEFAULT_LOCALE } from '../lib/i18n';
+const locale = (Astro.currentLocale ?? DEFAULT_LOCALE) as Locale;
+const t = contact[locale];
+const c = common[locale];
+---
+<section class="section contact-sec" id="contact">
+  <div class="container contact-grid">
+    <div>
+      <span class="eyebrow">{t.eyebrow}</span>
+      <h2>{t.title}</h2>
+      <p class="c-lead">{t.lead}</p>
+    </div>
+
+    <form class="c-form" data-demo-form>
+      <label><span>{t.fields.name}</span><input type="text" name="name" required /></label>
+      <label><span>{t.fields.company}</span><input type="text" name="company" /></label>
+      <label><span>{t.fields.email}</span><input type="email" name="email" required /></label>
+      <label><span>{t.fields.phone}</span><input type="tel" name="phone" /></label>
+      <label class="full"><span>{t.fields.message}</span><textarea name="message" rows="4"></textarea></label>
+      <label class="consent full">
+        <input type="checkbox" required />
+        <span>{t.consent} <a href={localizePath('/privacy/', locale)}>{c.footer.privacy}</a>.</span>
+      </label>
+      <button type="submit" class="btn btn-primary full">{t.submit}</button>
+      <p class="c-success" hidden data-success>{t.success}</p>
+    </form>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLFormElement>('[data-demo-form]').forEach((f) => {
+    f.addEventListener('submit', (ev) => {
+      ev.preventDefault();
+      const s = f.querySelector<HTMLElement>('[data-success]');
+      if (s) s.hidden = false;
+      f.reset();
+    });
+  });
+</script>
+
+<style>
+  .contact-sec { background: var(--primary); color: #e9efe8; }
+  .contact-sec .eyebrow { background: transparent; color: var(--accent); border-color: var(--accent); }
+  .contact-sec h2 { color: #fff; margin-top: var(--space-4); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: var(--space-12); align-items: start; }
+  .c-lead { color: #c2d1cd; margin-top: var(--space-4); font-size: 16px; }
+  .c-form {
+    background: var(--surface); color: var(--text);
+    padding: var(--space-8); border-radius: var(--radius-lg);
+    display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4);
+  }
+  .c-form .full { grid-column: 1 / -1; }
+  .c-form label { display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: var(--muted); font-weight: 500; }
+  .c-form input, .c-form textarea {
+    padding: 10px 12px; border: 1px solid var(--line); border-radius: var(--radius-sm);
+    background: var(--surface-2); color: var(--text); font-size: 14px;
+  }
+  .c-form input:focus, .c-form textarea:focus { outline: 2px solid var(--accent); border-color: var(--accent); }
+  .consent { flex-direction: row; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--text); font-weight: 400; }
+  .consent a { color: var(--primary); text-decoration: underline; }
+  .c-success { margin: 0; padding: 12px; background: var(--accent-soft); color: var(--primary); border-radius: var(--radius-sm); text-align: center; font-weight: 600; }
+  @media (max-width: 960px) { .contact-grid { grid-template-columns: 1fr; } .c-form { grid-template-columns: 1fr; } }
+</style>
