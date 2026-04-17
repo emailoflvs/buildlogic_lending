@@ -37,7 +37,7 @@ The user already has four prototype templates (`buildlogic-landing-benchmark`, `
 ## Architecture
 
 ### Stack
-- **Astro 5.x** with TypeScript.
+- **Astro 6.x** with TypeScript.
 - **Output:** static HTML (`output: 'static'`, no SSR).
 - **Styles:** hand-written CSS using custom properties (no Tailwind — keeps output tiny and templates readable for the owner).
 - **Fonts:** Inter (400–800) + Roboto Condensed (700), **self-hosted** under `/public/fonts/` (avoids Google CDN dependency and the analytics cookie Google sets on `fonts.googleapis.com`).

@@ -4,9 +4,9 @@
 
 **Goal:** Build a production-ready static landing for BuildLogic in Astro with three languages (SK/EN/RU), full GDPR/ePrivacy-compliant cookie consent, and Docker-based deployment.
 
-**Architecture:** Astro 5 static site builds to `/dist`, served by nginx inside a single Docker container on port 4321. Content lives in JSON per section with `{ sk, en, ru }` blocks. Cookie consent is a self-hosted TypeScript module implementing Google Consent Mode v2 with four categories. Production domain (`buildlogic.eu`) sits behind a user-managed external reverse proxy.
+**Architecture:** Astro 6 static site builds to `/dist`, served by nginx inside a single Docker container on port 4321. Content lives in JSON per section with `{ sk, en, ru }` blocks. Cookie consent is a self-hosted TypeScript module implementing Google Consent Mode v2 with four categories. Production domain (`buildlogic.eu`) sits behind a user-managed external reverse proxy.
 
-**Tech Stack:** Astro 5.x · TypeScript · Vitest (unit) · Playwright (smoke) · Docker (node:22-alpine build → nginx:alpine serve) · nginx · self-hosted Inter + Roboto Condensed fonts.
+**Tech Stack:** Astro 6.x · TypeScript · Vitest (unit) · Playwright (smoke) · Docker (node:22-alpine build → nginx:alpine serve) · nginx · self-hosted Inter + Roboto Condensed fonts.
 
 **Spec:** `docs/superpowers/specs/2026-04-17-buildlogic-landing-design.md`
 
