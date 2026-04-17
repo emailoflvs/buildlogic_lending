@@ -1,0 +1,41 @@
+{
+  "sk": {
+    "brand": "BuildLogic",
+    "brand_sub": "Kontrola materiálov na stavbe",
+    "nav": {
+      "problem": "Problémy",
+      "workflow": "Ako to funguje",
+      "inside": "Čo je vnútri",
+      "pricing": "Cenník",
+      "faq": "FAQ"
+    },
+    "cta_primary": "Získať test",
+    "cta_secondary": "Požiadať o demo"
+  },
+  "en": {
+    "brand": "BuildLogic",
+    "brand_sub": "Material control on site",
+    "nav": {
+      "problem": "Problems",
+      "workflow": "How it works",
+      "inside": "What's inside",
+      "pricing": "Pricing",
+      "faq": "FAQ"
+    },
+    "cta_primary": "Start free trial",
+    "cta_secondary": "Request demo"
+  },
+  "ru": {
+    "brand": "BuildLogic",
+    "brand_sub": "Контроль материалов по объекту",
+    "nav": {
+      "problem": "Проблемы",
+      "workflow": "Как работает",
+      "inside": "Что внутри",
+      "pricing": "Тарифы",
+      "faq": "FAQ"
+    },
+    "cta_primary": "Получить тест",
+    "cta_secondary": "Запросить демо"
+  }
+}

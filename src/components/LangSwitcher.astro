@@ -1,0 +1,19 @@
+---
+import { LOCALES, localizePath, type Locale, DEFAULT_LOCALE } from '../lib/i18n';
+interface Props { path?: string }
+const { path = '/' } = Astro.props;
+const current = (Astro.currentLocale ?? DEFAULT_LOCALE) as Locale;
+---
+<nav class="lang-switcher" aria-label="Language">
+  {LOCALES.map((l) => (
+    <a href={localizePath(path, l)} class:list={['lang', { active: l === current }]} lang={l} aria-current={l === current ? 'true' : undefined}>
+      {l.toUpperCase()}
+    </a>
+  ))}
+</nav>
+<style>
+  .lang-switcher { display: inline-flex; gap: 2px; border: 1px solid var(--line); border-radius: 10px; padding: 3px; background: var(--surface); }
+  .lang { padding: 4px 8px; font-size: 12px; font-weight: 600; color: var(--muted); border-radius: 7px; letter-spacing: 0.05em; }
+  .lang.active { color: var(--primary); background: var(--accent-soft); }
+  .lang:hover:not(.active) { color: var(--text); }
+</style>
