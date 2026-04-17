@@ -1,0 +1,50 @@
+---
+import pricing from '../content/pricing.json';
+import { type Locale, DEFAULT_LOCALE } from '../lib/i18n';
+const locale = (Astro.currentLocale ?? DEFAULT_LOCALE) as Locale;
+const t = pricing[locale];
+---
+<section class="section" id="pricing">
+  <div class="container">
+    <div class="head">
+      <span class="eyebrow">{t.eyebrow}</span>
+      <h2>{t.title}</h2>
+    </div>
+    <div class="tiers">
+      {t.tiers.map((tier) => (
+        <article class:list={['tier', { recommended: tier.recommended }]}>
+          {tier.recommended && <span class="badge">★</span>}
+          <h3>{tier.name}</h3>
+          <p class="tier-price">{tier.price}</p>
+          <p class="tier-tag">{tier.tagline}</p>
+          <ul>
+            {tier.features.map((f) => <li>{f}</li>)}
+          </ul>
+          <a href="#contact" class:list={['btn', tier.recommended ? 'btn-primary' : 'btn-secondary']}>{tier.cta}</a>
+        </article>
+      ))}
+    </div>
+    <p class="note">{t.note}</p>
+  </div>
+</section>
+
+<style>
+  .head { text-align: center; max-width: 760px; margin: 0 auto var(--space-12); }
+  .head h2 { margin-top: var(--space-4); }
+  .tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); align-items: stretch; }
+  .tier {
+    background: var(--surface); border: 1px solid var(--line); padding: var(--space-8);
+    border-radius: var(--radius-lg); display: flex; flex-direction: column;
+    position: relative;
+  }
+  .tier.recommended { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(191,148,97,0.12); }
+  .badge { position: absolute; top: -12px; right: var(--space-6); background: var(--accent); color: var(--primary); font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; }
+  .tier h3 { color: var(--primary); }
+  .tier-price { font-family: 'Roboto Condensed', sans-serif; font-size: 28px; color: var(--primary); margin-top: var(--space-3); font-weight: 700; }
+  .tier-tag { color: var(--muted); font-size: 14px; margin-top: var(--space-2); }
+  .tier ul { list-style: none; padding: 0; margin: var(--space-5) 0 var(--space-6); display: grid; gap: var(--space-2); flex: 1; }
+  .tier li { font-size: 14px; padding-left: 20px; position: relative; color: var(--text); }
+  .tier li::before { content: '✓'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+  .note { text-align: center; color: var(--muted); font-size: 13px; margin-top: var(--space-8); }
+  @media (max-width: 960px) { .tiers { grid-template-columns: 1fr; } }
+</style>
