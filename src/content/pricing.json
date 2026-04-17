@@ -1,0 +1,91 @@
+{
+  "sk": {
+    "_meta": { "needs_review": true },
+    "eyebrow": "Cenník",
+    "title": "Transparentná cena. Spustenie je samostatná položka.",
+    "tiers": [
+      {
+        "name": "Start",
+        "price": "od 99 €/mes.",
+        "tagline": "Jeden objekt, štandardná logika.",
+        "features": ["Karta objektu", "Dokumenty a línie", "Základný príjem a zvyšky", "E-mail podpora"],
+        "cta": "Začať test"
+      },
+      {
+        "name": "Standard",
+        "price": "od 249 €/mes.",
+        "tagline": "Viac objektov, roly a prehľady.",
+        "features": ["Všetko zo Start", "Viaceré objekty súčasne", "Normy a odchýlky", "Záverečná správa", "Roly a prístupy"],
+        "cta": "Hovoriť s nami",
+        "recommended": true
+      },
+      {
+        "name": "Custom",
+        "price": "na mieru",
+        "tagline": "Keď má firma svoj poriadok.",
+        "features": ["Všetko zo Standard", "Hlbšie prispôsobenie", "Integrácie s interným softvérom", "Dedikovaná podpora"],
+        "cta": "Požiadať o demo"
+      }
+    ],
+    "note": "Spustenie a prvotné nastavenie sú samostatnou položkou — priznávame to otvorene."
+  },
+  "en": {
+    "_meta": { "needs_review": true },
+    "eyebrow": "Pricing",
+    "title": "Transparent price. Setup is a separate line.",
+    "tiers": [
+      {
+        "name": "Start",
+        "price": "from €99/mo",
+        "tagline": "Single object, standard logic.",
+        "features": ["Object card", "Documents and lines", "Basic inflow and remainders", "Email support"],
+        "cta": "Start trial"
+      },
+      {
+        "name": "Standard",
+        "price": "from €249/mo",
+        "tagline": "Several objects, roles and reports.",
+        "features": ["Everything in Start", "Multiple objects at once", "Norms and deviations", "Final report", "Roles and access"],
+        "cta": "Talk to us",
+        "recommended": true
+      },
+      {
+        "name": "Custom",
+        "price": "by agreement",
+        "tagline": "When the company has its own rules.",
+        "features": ["Everything in Standard", "Deeper tuning", "Integrations with internal software", "Dedicated support"],
+        "cta": "Request demo"
+      }
+    ],
+    "note": "Setup and initial configuration are billed separately — we're upfront about it."
+  },
+  "ru": {
+    "eyebrow": "Тарифы",
+    "title": "Прозрачная цена. Запуск — отдельной строкой.",
+    "tiers": [
+      {
+        "name": "Start",
+        "price": "от 99 €/мес",
+        "tagline": "Один объект, стандартная логика.",
+        "features": ["Карточка объекта", "Документы и строки", "Базовый приход и остатки", "Поддержка по email"],
+        "cta": "Начать тест"
+      },
+      {
+        "name": "Standard",
+        "price": "от 249 €/мес",
+        "tagline": "Несколько объектов, роли и отчёты.",
+        "features": ["Всё из Start", "Несколько объектов параллельно", "Нормы и отклонения", "Итоговый отчёт", "Роли и доступы"],
+        "cta": "Поговорить",
+        "recommended": true
+      },
+      {
+        "name": "Custom",
+        "price": "по запросу",
+        "tagline": "Когда у компании свой порядок.",
+        "features": ["Всё из Standard", "Глубокая настройка", "Интеграции с внутренним софтом", "Выделенная поддержка"],
+        "cta": "Запросить демо"
+      }
+    ],
+    "note": "Запуск и первичная настройка оплачиваются отдельно — говорим об этом открыто."
+  }
+}

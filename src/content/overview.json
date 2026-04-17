@@ -1,0 +1,37 @@
+{
+  "sk": {
+    "_meta": { "needs_review": true },
+    "eyebrow": "Čo vidí manažér",
+    "title": "Jeden pracovný obrys — celý objekt v číslach",
+    "lead": "Štyri KPI, ktoré manažérovi stačia, aby pochopil stav objektu za pár sekúnd.",
+    "cards": [
+      { "label": "Dokumenty", "value": "26", "hint": "4 riadky čakajú na kontrolu" },
+      { "label": "Príjem materiálu", "value": "128 460 €", "hint": "za aktuálne obdobie" },
+      { "label": "Rozdiely", "value": "8", "hint": "potrebná kontrola" },
+      { "label": "Nedostatok", "value": "3", "hint": "vyžaduje rozhodnutie" }
+    ]
+  },
+  "en": {
+    "_meta": { "needs_review": true },
+    "eyebrow": "What the manager sees",
+    "title": "One working contour — the whole object in numbers",
+    "lead": "Four KPIs are enough for a manager to understand the state of the object in seconds.",
+    "cards": [
+      { "label": "Documents", "value": "26", "hint": "4 lines waiting for check" },
+      { "label": "Material inflow", "value": "€128,460", "hint": "for the current period" },
+      { "label": "Discrepancies", "value": "8", "hint": "reconciliation needed" },
+      { "label": "Shortage", "value": "3", "hint": "decision required" }
+    ]
+  },
+  "ru": {
+    "eyebrow": "Что видно руководителю",
+    "title": "Один рабочий контур — весь объект в цифрах",
+    "lead": "Четырёх KPI достаточно руководителю, чтобы за секунды понять состояние объекта.",
+    "cards": [
+      { "label": "Документы", "value": "26", "hint": "4 строки ждут проверки" },
+      { "label": "Приход материалов", "value": "128 460 €", "hint": "по текущему периоду" },
+      { "label": "Расхождения", "value": "8", "hint": "нужна сверка" },
+      { "label": "Нехватка", "value": "3", "hint": "требует решения" }
+    ]
+  }
+}

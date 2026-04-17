@@ -1,0 +1,34 @@
+{
+  "sk": {
+    "_meta": { "needs_review": true },
+    "eyebrow": "Prečo BuildLogic",
+    "title": "Nie je to veľká ERP. Je to jeden pracovný obrys, ktorý naozaj funguje.",
+    "body": "BuildLogic nesľubuje pokryť celý biznis naraz. Pomáha navodiť poriadok v jednom kritickom obryse — materiály, dokumenty, zvyšky, výkazy po objekte. Práve to väčšinou rozhoduje o marži.",
+    "bullets": [
+      "Rýchly štart na štandardnej logike",
+      "Prispôsobenie, keď má firma svoj vlastný poriadok",
+      "Bez prísľubu \"systém na všetko\""
+    ]
+  },
+  "en": {
+    "_meta": { "needs_review": true },
+    "eyebrow": "Why BuildLogic",
+    "title": "Not a big ERP. One working contour that actually works.",
+    "body": "BuildLogic doesn't promise to cover the whole business at once. It brings order to one critical contour — materials, documents, remainders and reports per object. That's usually what decides margin.",
+    "bullets": [
+      "Fast start on the standard logic",
+      "Deeper tuning when the company has its own rules",
+      "No promise of a \"system for everything\""
+    ]
+  },
+  "ru": {
+    "eyebrow": "Почему BuildLogic",
+    "title": "Это не большая ERP. Это один рабочий контур, который действительно работает.",
+    "body": "BuildLogic не обещает закрыть весь бизнес сразу. Он помогает навести порядок в одном критичном контуре стройки — материалы, документы, остатки, отчёты по объекту. Именно это обычно решает маржу.",
+    "bullets": [
+      "Быстрый старт на стандартной логике",
+      "Глубокая настройка, если у компании свой порядок",
+      "Без обещаний «система на всё»"
+    ]
+  }
+}

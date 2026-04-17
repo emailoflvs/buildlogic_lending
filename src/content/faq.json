@@ -1,0 +1,40 @@
+{
+  "sk": {
+    "_meta": { "needs_review": true },
+    "eyebrow": "FAQ",
+    "title": "Najčastejšie otázky",
+    "items": [
+      { "q": "Ako dlho trvá zavedenie?", "a": "Štandardná verzia je pripravená za pár dní. Hlbšie prispôsobenie sa dohaduje samostatne." },
+      { "q": "Dajú sa importovať naše staré dáta?", "a": "Áno — podporujeme import dokumentov a materiálov z Excelu a hlavných účtovných systémov." },
+      { "q": "Kde sú uložené dáta?", "a": "EU (Nemecko/Frankfurt). Šifrovanie v pokoji aj pri prenose. Zálohy každý deň." },
+      { "q": "Integrácie s iným softvérom?", "a": "Dostupné cez API v tarife Custom. V Start/Standard sú hotové exporty a importy." },
+      { "q": "Čo ak naše procesy nevojdú do štandardu?", "a": "Práve to je Custom — upravíme systém tak, aby sedel na vaše reálne procesy." },
+      { "q": "Akú podporu poskytujete?", "a": "Start — email. Standard — email + rýchla reakcia. Custom — dedikovaný manažér." }
+    ]
+  },
+  "en": {
+    "_meta": { "needs_review": true },
+    "eyebrow": "FAQ",
+    "title": "Frequently asked questions",
+    "items": [
+      { "q": "How long does onboarding take?", "a": "Standard setup is ready within a few days. Deeper tuning is negotiated separately." },
+      { "q": "Can we import our legacy data?", "a": "Yes — documents and materials can be imported from Excel and major accounting systems." },
+      { "q": "Where is data stored?", "a": "EU (Frankfurt). Encrypted at rest and in transit. Daily backups." },
+      { "q": "Integrations with other software?", "a": "Available via API on the Custom plan. Start/Standard include ready imports and exports." },
+      { "q": "What if our processes don't fit the standard?", "a": "That's exactly what Custom is for — we tune the system to your real processes." },
+      { "q": "What support do you provide?", "a": "Start — email. Standard — email + quick turnaround. Custom — dedicated manager." }
+    ]
+  },
+  "ru": {
+    "eyebrow": "FAQ",
+    "title": "Частые вопросы",
+    "items": [
+      { "q": "Сколько занимает внедрение?", "a": "Стандартная версия готова за несколько дней. Глубокая настройка обсуждается отдельно." },
+      { "q": "Можно импортировать старые данные?", "a": "Да — поддерживаем импорт документов и материалов из Excel и основных учётных систем." },
+      { "q": "Где хранятся данные?", "a": "ЕС (Франкфурт). Шифрование в покое и при передаче. Ежедневные бэкапы." },
+      { "q": "Интеграции с другим софтом?", "a": "Через API — в тарифе Custom. В Start/Standard — готовые экспорты и импорты." },
+      { "q": "Что если наши процессы не укладываются в стандарт?", "a": "Именно для этого Custom — настроим систему под ваши реальные процессы." },
+      { "q": "Какая поддержка?", "a": "Start — email. Standard — email + быстрый ответ. Custom — выделенный менеджер." }
+    ]
+  }
+}

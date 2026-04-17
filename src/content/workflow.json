@@ -1,0 +1,37 @@
+{
+  "sk": {
+    "_meta": { "needs_review": true },
+    "eyebrow": "Ako to funguje",
+    "title": "Päť krokov od dokumentu po záverečnú správu",
+    "steps": [
+      { "n": "01", "title": "Dokumenty", "body": "Faktúry, dodacie listy a zmluvy sú na jednom mieste, napojené na objekt a obdobie." },
+      { "n": "02", "title": "Kontrola riadkov", "body": "Každý riadok dokumentu sa skontroluje a priradí k materiálu a normám." },
+      { "n": "03", "title": "Príjem", "body": "Príjem materiálu sa porovná s dokumentmi, rozdiely sú viditeľné okamžite." },
+      { "n": "04", "title": "Zvyšky", "body": "Zvyšky sa prepočítavajú po každej operácii, bez ručnej inventúry." },
+      { "n": "05", "title": "Záverečná správa", "body": "Jedna správa, ktorej manažér verí — materiály, pohyby, odchýlky a výsledok." }
+    ]
+  },
+  "en": {
+    "_meta": { "needs_review": true },
+    "eyebrow": "How it works",
+    "title": "Five steps from document to final report",
+    "steps": [
+      { "n": "01", "title": "Documents", "body": "Invoices, delivery notes and contracts live in one place, tied to object and period." },
+      { "n": "02", "title": "Line check", "body": "Every document line is checked and mapped to a material and norms." },
+      { "n": "03", "title": "Inflow", "body": "Material inflow is reconciled with documents; discrepancies are visible immediately." },
+      { "n": "04", "title": "Remainders", "body": "Remainders recalculate after every operation — no manual inventory." },
+      { "n": "05", "title": "Final report", "body": "One report the manager trusts — materials, movements, deviations and outcome." }
+    ]
+  },
+  "ru": {
+    "eyebrow": "Как это работает",
+    "title": "Пять шагов от документа до итогового отчёта",
+    "steps": [
+      { "n": "01", "title": "Документы", "body": "Фактуры, накладные и договоры в одном месте, привязаны к объекту и периоду." },
+      { "n": "02", "title": "Проверка строк", "body": "Каждая строка документа проверяется и сопоставляется с материалом и нормами." },
+      { "n": "03", "title": "Приход", "body": "Приход материалов сверяется с документами; расхождения видны сразу." },
+      { "n": "04", "title": "Остатки", "body": "Остатки пересчитываются после каждой операции — без ручной инвентаризации." },
+      { "n": "05", "title": "Итоговый отчёт", "body": "Один отчёт, которому доверяет руководитель — материалы, движения, отклонения и результат." }
+    ]
+  }
+}

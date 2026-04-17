@@ -1,0 +1,40 @@
+{
+  "sk": {
+    "_meta": { "needs_review": true },
+    "title": "Na stavbe sa peniaze nestrácajú iba v objemoch. Často — v chaose.",
+    "lead": "Keď dokumenty, príjem, normy, zvyšky a fakt na objekte žijú oddelene, manažér vidí obraz neskoro. Zvyčajne vtedy, keď už problém stál peniaze.",
+    "cards": [
+      { "title": "Dokumenty sú — jasnosť nie", "body": "Faktúry sú nahrané, ale nie je jasné, čo sa v skutočnosti deje s materiálom na objekte." },
+      { "title": "Príjem jedno, fakt druhé", "body": "Dodávka prešla, potom začína ručná kontrola a hádanie, kde sa čísla rozišli." },
+      { "title": "Zvyšky počítajú neskoro", "body": "Keď sa zvyšky robia ručne, manažér vidí obraz až po momente, kedy sa malo rozhodnúť." },
+      { "title": "Chyby v riadkoch dokumentu", "body": "Zlá položka ide ďalej v procese a premení sa na extra ručnú prácu." },
+      { "title": "Nedostatok v nevhodnom momente", "body": "Problém vychádza až na objekte, nie vopred, keď sa dá v pokoji vyriešiť." },
+      { "title": "Niet jednej dôveryhodnej správy", "body": "Každý má svoje čísla. Manažér potrebuje jedno pracovné miesto kontroly." }
+    ]
+  },
+  "en": {
+    "_meta": { "needs_review": true },
+    "title": "On site, money leaks aren't only in volumes. Often — in mess.",
+    "lead": "When documents, inflow, norms, remainders and actuals on the object live separately, the manager sees the picture too late. Usually when the problem already cost money.",
+    "cards": [
+      { "title": "Documents are there — clarity isn't", "body": "Invoices are uploaded, but what really happens with materials on the object stays unclear." },
+      { "title": "Inflow says one thing, actuals another", "body": "Delivery went through, then manual checks and guessing where numbers diverged." },
+      { "title": "Remainders are counted too late", "body": "When remainders are manual, the manager sees them after the decision was needed." },
+      { "title": "Document line errors caught late", "body": "A wrong row travels further in the process and becomes extra manual work." },
+      { "title": "Shortage surfaces at a bad moment", "body": "The gap becomes visible on site, not in advance when it could be handled calmly." },
+      { "title": "No single report that's trusted", "body": "Everyone has their own numbers. A manager needs one working source of truth." }
+    ]
+  },
+  "ru": {
+    "title": "На стройке деньги теряются не только в объёмах. Часто — в беспорядке.",
+    "lead": "Когда документы, приход материалов, нормы, остатки и факт по объекту живут отдельно, руководитель получает картину слишком поздно. Обычно уже в момент, когда проблема стала дорогой.",
+    "cards": [
+      { "title": "Документы есть, ясности нет", "body": "Фактуры загружены, но по объекту всё равно непонятно, что реально происходит с материалами." },
+      { "title": "По приходу одно, по факту другое", "body": "Поставка прошла, а дальше начинаются ручные сверки, догадки и поиск, где разошлись цифры." },
+      { "title": "Остатки считают с опозданием", "body": "Когда остатки собирают вручную, руководитель видит картину уже после того, как решение надо было принять." },
+      { "title": "Ошибки в строках документа замечают поздно", "body": "Неправильная строка уходит дальше по процессу и потом превращается в лишнюю ручную работу." },
+      { "title": "Нехватка всплывает в неудобный момент", "body": "Проблема становится видна уже на объекте, а не заранее, когда её можно спокойно отработать." },
+      { "title": "Нет одного отчёта, которому доверяют", "body": "У каждого свои цифры. Но у руководителя должна быть одна рабочая точка контроля." }
+    ]
+  }
+}

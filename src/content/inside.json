@@ -1,0 +1,40 @@
+{
+  "sk": {
+    "_meta": { "needs_review": true },
+    "eyebrow": "Čo je vnútri systému",
+    "title": "Šesť modulov, ktoré riešia jeden kontrolný obrys",
+    "modules": [
+      { "title": "Karta objektu", "body": "Samostatný pracovný priestor na objekt, obdobie a zodpovedných ľudí." },
+      { "title": "Dokumenty", "body": "Upload a správa dokumentov s kontrolou riadkov a väzbou na materiály." },
+      { "title": "Normy a objemy", "body": "Normatívne množstvá a vykonané objemy pre výpočet zvyškov a odchýlok." },
+      { "title": "Príjem materiálu", "body": "Evidencia príjmu s porovnaním proti dokumentom a normatívom." },
+      { "title": "Zvyšky", "body": "Automatický prepočet po každej operácii, bez ručnej inventúry." },
+      { "title": "Záverečná správa", "body": "Jediná správa pre manažéra so všetkými dôležitými číslami a odchýlkami." }
+    ]
+  },
+  "en": {
+    "_meta": { "needs_review": true },
+    "eyebrow": "What's inside the system",
+    "title": "Six modules solving one control contour",
+    "modules": [
+      { "title": "Object card", "body": "Dedicated workspace per object, period and responsible people." },
+      { "title": "Documents", "body": "Upload and management with line-level checks and material mapping." },
+      { "title": "Norms and volumes", "body": "Normative quantities and performed volumes for remainder and deviation math." },
+      { "title": "Material inflow", "body": "Inflow register cross-checked against documents and norms." },
+      { "title": "Remainders", "body": "Automatic recalculation after every operation — no manual inventory." },
+      { "title": "Final report", "body": "One report for the manager with every number that matters and the deviations." }
+    ]
+  },
+  "ru": {
+    "eyebrow": "Что внутри системы",
+    "title": "Шесть модулей, закрывающих один контур контроля",
+    "modules": [
+      { "title": "Карточка объекта", "body": "Отдельное рабочее пространство по объекту, периоду и ответственным." },
+      { "title": "Документы", "body": "Загрузка и ведение с построчной проверкой и привязкой к материалам." },
+      { "title": "Нормы и объёмы", "body": "Нормативы и выполненные объёмы для расчёта остатков и отклонений." },
+      { "title": "Приход материалов", "body": "Учёт прихода со сверкой против документов и нормативов." },
+      { "title": "Остатки", "body": "Автоматический пересчёт после каждой операции — без ручной инвентаризации." },
+      { "title": "Итоговый отчёт", "body": "Один отчёт для руководителя со всеми важными цифрами и отклонениями." }
+    ]
+  }
+}

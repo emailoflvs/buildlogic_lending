@@ -1,0 +1,31 @@
+{
+  "sk": {
+    "_meta": { "needs_review": true },
+    "eyebrow": "Ďalší krok",
+    "title": "Ukážeme BuildLogic na vašich objektoch",
+    "lead": "Vyplňte formulár — ozveme sa do jedného pracovného dňa.",
+    "fields": { "name": "Meno", "company": "Firma", "email": "E-mail", "phone": "Telefón", "message": "Správa" },
+    "consent": "Súhlasím so spracovaním osobných údajov podľa Ochrany osobných údajov.",
+    "submit": "Odoslať",
+    "success": "Ďakujeme! Ozveme sa čoskoro."
+  },
+  "en": {
+    "_meta": { "needs_review": true },
+    "eyebrow": "Next step",
+    "title": "We'll show BuildLogic on your sites",
+    "lead": "Fill in the form — we'll get back within one business day.",
+    "fields": { "name": "Name", "company": "Company", "email": "Email", "phone": "Phone", "message": "Message" },
+    "consent": "I agree to processing of my personal data as per Privacy Policy.",
+    "submit": "Send",
+    "success": "Thank you! We'll be in touch shortly."
+  },
+  "ru": {
+    "eyebrow": "Следующий шаг",
+    "title": "Покажем BuildLogic на ваших объектах",
+    "lead": "Заполните форму — ответим в течение одного рабочего дня.",
+    "fields": { "name": "Имя", "company": "Компания", "email": "Email", "phone": "Телефон", "message": "Сообщение" },
+    "consent": "Согласен на обработку персональных данных согласно Политике конфиденциальности.",
+    "submit": "Отправить",
+    "success": "Спасибо! Скоро свяжемся."
+  }
+}
