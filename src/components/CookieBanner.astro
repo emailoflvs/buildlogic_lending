@@ -17,9 +17,9 @@ const c = common[locale];
       </p>
     </div>
     <div class="cb-actions">
-      <button type="button" class="btn btn-secondary" data-consent="reject">{t.reject_all}</button>
-      <button type="button" class="btn btn-secondary" data-consent="customize">{t.customize}</button>
-      <button type="button" class="btn btn-primary" data-consent="accept">{t.accept_all}</button>
+      <button type="button" class="btn btn-equal" data-consent="reject">{t.reject_all}</button>
+      <button type="button" class="btn btn-equal" data-consent="customize">{t.customize}</button>
+      <button type="button" class="btn btn-equal" data-consent="accept">{t.accept_all}</button>
     </div>
   </div>
 </div>
@@ -43,9 +43,9 @@ const c = common[locale];
       ))}
     </div>
     <footer class="cm-foot">
-      <button type="button" class="btn btn-secondary" data-consent="reject">{t.reject_all}</button>
-      <button type="button" class="btn btn-secondary" data-consent="save">{t.save_selection}</button>
-      <button type="button" class="btn btn-primary" data-consent="accept">{t.accept_all}</button>
+      <button type="button" class="btn btn-equal" data-consent="reject">{t.reject_all}</button>
+      <button type="button" class="btn btn-equal" data-consent="save">{t.save_selection}</button>
+      <button type="button" class="btn btn-equal" data-consent="accept">{t.accept_all}</button>
     </footer>
   </div>
 </div>
@@ -53,10 +53,37 @@ const c = common[locale];
 <script>
   import { loadConsent, saveConsent, isExpired, toGtagConsent, type ConsentCategories } from '../lib/consent';
 
+  let previousFocus: HTMLElement | null = null;
+
   function updateGtag(cats: ConsentCategories) {
     const g = toGtagConsent(cats);
-    if (typeof (window as any).gtag === 'function') {
-      (window as any).gtag('consent', 'update', g);
+    if (typeof window.gtag === 'function') {
+      window.gtag('consent', 'update', g);
+    }
+  }
+
+  function lockScroll() { document.body.style.overflow = 'hidden'; }
+  function unlockScroll() { document.body.style.overflow = ''; }
+
+  function getFocusables(root: HTMLElement): HTMLElement[] {
+    return Array.from(root.querySelectorAll<HTMLElement>(
+      'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    )).filter((el) => !el.hasAttribute('hidden') && !el.closest('[hidden]'));
+  }
+
+  function trapTab(container: HTMLElement, ev: KeyboardEvent) {
+    if (ev.key !== 'Tab') return;
+    const focusables = getFocusables(container);
+    if (focusables.length === 0) return;
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+    const active = document.activeElement as HTMLElement | null;
+    if (ev.shiftKey && active === first) {
+      ev.preventDefault();
+      last.focus();
+    } else if (!ev.shiftKey && active === last) {
+      ev.preventDefault();
+      first.focus();
     }
   }
 
@@ -65,17 +92,32 @@ const c = common[locale];
     const modal = document.getElementById('cookie-modal');
     if (banner) banner.hidden = true;
     if (modal) modal.hidden = true;
+    unlockScroll();
+    if (previousFocus) { previousFocus.focus(); previousFocus = null; }
   }
 
   function openBanner() {
     const banner = document.getElementById('cookie-banner');
-    if (banner) banner.hidden = false;
+    if (!banner) return;
+    if (!previousFocus) previousFocus = document.activeElement as HTMLElement | null;
+    banner.hidden = false;
+    const first = getFocusables(banner)[0];
+    if (first) first.focus();
   }
+
   function openModal() {
     const banner = document.getElementById('cookie-banner');
     const modal = document.getElementById('cookie-modal');
+    if (!modal) return;
+    if (!previousFocus) previousFocus = document.activeElement as HTMLElement | null;
     if (banner) banner.hidden = true;
-    if (modal) modal.hidden = false;
+    modal.hidden = false;
+    lockScroll();
+    const heading = modal.querySelector<HTMLElement>('.cm-head h3');
+    if (heading) {
+      heading.setAttribute('tabindex', '-1');
+      heading.focus();
+    }
   }
 
   function applyToggles(cats: ConsentCategories) {
@@ -105,7 +147,8 @@ const c = common[locale];
       const cats: ConsentCategories = { necessary: true, preferences: false, statistics: false, marketing: false };
       saveConsent(cats); updateGtag(cats); closeAll();
     } else if (action === 'customize') {
-      const existing = loadConsent()?.categories ?? { necessary: true as const, preferences: false, statistics: false, marketing: false };
+      const fallback: ConsentCategories = { necessary: true, preferences: false, statistics: false, marketing: false };
+      const existing = loadConsent()?.categories ?? fallback;
       applyToggles(existing);
       openModal();
     } else if (action === 'save') {
@@ -129,6 +172,19 @@ const c = common[locale];
     if (ctrl) {
       ev.preventDefault();
       handleAction('customize');
+    }
+  });
+
+  document.addEventListener('keydown', (ev) => {
+    const modal = document.getElementById('cookie-modal');
+    if (!modal || modal.hidden) return;
+    if (ev.key === 'Escape') {
+      ev.preventDefault();
+      closeAll();
+      return;
+    }
+    if (ev.key === 'Tab') {
+      trapTab(modal, ev);
     }
   });
 

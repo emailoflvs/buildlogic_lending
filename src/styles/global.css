@@ -76,6 +76,13 @@ h3 { font-size: clamp(18px, 2vw, 22px); font-weight: 700; }
   color: var(--primary);
 }
 .btn-accent:hover { background: #a07d51; color: #fff; }
+.btn-equal {
+  background: var(--surface);
+  color: var(--primary);
+  border-color: var(--line);
+}
+.btn-equal:hover { border-color: var(--primary); background: var(--surface-2); }
+.btn-equal.btn-equal-accent { color: var(--accent); border-color: var(--accent); }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
