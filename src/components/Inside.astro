@@ -1,8 +1,10 @@
 ---
 import inside from '../content/inside.json';
 import { type Locale, DEFAULT_LOCALE } from '../lib/i18n';
+import InsideIllus from './illustrations/InsideIllus.astro';
 const locale = (Astro.currentLocale ?? DEFAULT_LOCALE) as Locale;
 const t = inside[locale];
+type ModIdx = 1 | 2 | 3 | 4 | 5 | 6;
 ---
 <section class="section" id="inside">
   <div class="container">
@@ -15,10 +17,7 @@ const t = inside[locale];
       {t.modules.map((m, i) => (
         <article class="mod">
           <div class="mod-mock" aria-hidden="true">
-            <div class="mock-bar"></div>
-            <div class="mock-bar w2"></div>
-            <div class="mock-bar w3"></div>
-            <div class="mock-pill"><span></span></div>
+            <InsideIllus idx={(i + 1) as ModIdx} />
           </div>
           <span class="mod-num">{String(i+1).padStart(2,'0')}</span>
           <h3>{m.title}</h3>
@@ -39,14 +38,11 @@ const t = inside[locale];
   }
   .mod:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
   .mod-mock {
-    background: var(--primary); border-radius: var(--radius-md); padding: var(--space-4);
-    height: 120px; display: flex; flex-direction: column; gap: 8px;
+    background: linear-gradient(135deg, var(--bg) 0%, var(--surface-2) 100%);
+    border: 1px solid var(--line-2);
+    border-radius: var(--radius-md); padding: var(--space-3);
+    height: 150px; display: flex; align-items: center; justify-content: center;
   }
-  .mock-bar { height: 10px; background: rgba(255,255,255,0.25); border-radius: 4px; width: 80%; }
-  .mock-bar.w2 { width: 60%; background: rgba(191,148,97,0.65); }
-  .mock-bar.w3 { width: 45%; background: rgba(255,255,255,0.18); }
-  .mock-pill { margin-top: auto; height: 20px; background: rgba(255,255,255,0.08); border-radius: 10px; overflow: hidden; }
-  .mock-pill span { display: block; width: 55%; height: 100%; background: var(--accent); }
   .mod-num { display: block; font-family: 'Roboto Condensed', sans-serif; color: var(--accent); font-size: 13px; margin-top: var(--space-4); letter-spacing: 0.15em; }
   .mod h3 { color: var(--primary); margin-top: var(--space-2); }
   .mod p { color: var(--muted); margin-top: var(--space-2); font-size: 14px; line-height: 1.55; }

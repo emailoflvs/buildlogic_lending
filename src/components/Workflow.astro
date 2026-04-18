@@ -1,8 +1,10 @@
 ---
 import workflow from '../content/workflow.json';
 import { type Locale, DEFAULT_LOCALE } from '../lib/i18n';
+import WorkflowIllus from './illustrations/WorkflowIllus.astro';
 const locale = (Astro.currentLocale ?? DEFAULT_LOCALE) as Locale;
 const t = workflow[locale];
+type StepNum = 1 | 2 | 3 | 4 | 5;
 ---
 <section class="section" id="workflow">
   <div class="container">
@@ -23,9 +25,14 @@ const t = workflow[locale];
       <div class="wf-panels">
         {t.steps.map((s, i) => (
           <article class:list={['wf-panel', { active: i === 0 }]} data-idx={i}>
-            <span class="wf-num">{s.n}</span>
-            <h3>{s.title}</h3>
-            <p>{s.body}</p>
+            <div class="wf-panel-illus">
+              <WorkflowIllus step={(i + 1) as StepNum} />
+            </div>
+            <div class="wf-panel-text">
+              <span class="wf-num">{s.n}</span>
+              <h3>{s.title}</h3>
+              <p>{s.body}</p>
+            </div>
           </article>
         ))}
       </div>
@@ -64,16 +71,25 @@ const t = workflow[locale];
   .wf-step b { font-family: 'Roboto Condensed', sans-serif; font-size: 18px; color: var(--accent); }
   .wf-step span { font-weight: 600; font-size: 15px; color: var(--primary); }
 
-  .wf-panels { position: relative; min-height: 260px; }
+  .wf-panels { position: relative; min-height: 380px; }
   .wf-panel {
     position: absolute; inset: 0; background: var(--surface); border: 1px solid var(--line);
-    border-radius: var(--radius-lg); padding: var(--space-8);
+    border-radius: var(--radius-lg); overflow: hidden;
+    display: grid; grid-template-rows: auto 1fr;
     opacity: 0; transition: opacity 0.2s; pointer-events: none;
   }
   .wf-panel.active { opacity: 1; pointer-events: auto; }
-  .wf-num { font-family: 'Roboto Condensed', sans-serif; font-size: 48px; color: var(--accent); display: block; line-height: 1; }
-  .wf-panel h3 { margin-top: var(--space-3); color: var(--primary); }
-  .wf-panel p { margin-top: var(--space-3); color: var(--muted); font-size: 16px; line-height: 1.6; }
+  .wf-panel-illus {
+    padding: var(--space-6) var(--space-6) var(--space-4);
+    background: linear-gradient(135deg, var(--bg) 0%, var(--surface-2) 100%);
+    border-bottom: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: center;
+    min-height: 180px;
+  }
+  .wf-panel-text { padding: var(--space-6) var(--space-8) var(--space-8); }
+  .wf-num { font-family: 'Roboto Condensed', sans-serif; font-size: 36px; color: var(--accent); display: block; line-height: 1; }
+  .wf-panel h3 { margin-top: var(--space-2); color: var(--primary); }
+  .wf-panel p { margin-top: var(--space-3); color: var(--muted); font-size: 15px; line-height: 1.6; }
 
-  @media (max-width: 960px) { .wf-wrap { grid-template-columns: 1fr; } .wf-panels { min-height: 0; } .wf-panel { position: static; opacity: 1; pointer-events: auto; display: none; } .wf-panel.active { display: block; } }
+  @media (max-width: 960px) { .wf-wrap { grid-template-columns: 1fr; } .wf-panels { min-height: 0; } .wf-panel { position: static; opacity: 1; pointer-events: auto; display: none; } .wf-panel.active { display: grid; } }
 </style>
