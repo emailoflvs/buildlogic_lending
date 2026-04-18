@@ -40,8 +40,13 @@ type ModIdx = 1 | 2 | 3 | 4 | 5 | 6;
   .mod-mock {
     background: linear-gradient(135deg, var(--bg) 0%, var(--surface-2) 100%);
     border: 1px solid var(--line-2);
-    border-radius: var(--radius-md); padding: var(--space-3);
-    height: 150px; display: flex; align-items: center; justify-content: center;
+    border-radius: var(--radius-md);
+    padding: var(--space-4);
+    aspect-ratio: 6 / 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
   }
   .mod-num { display: block; font-family: 'Roboto Condensed', sans-serif; color: var(--accent); font-size: 13px; margin-top: var(--space-4); letter-spacing: 0.15em; }
   .mod h3 { color: var(--primary); margin-top: var(--space-2); }

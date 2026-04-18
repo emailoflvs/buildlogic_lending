@@ -1,0 +1,70 @@
+{
+  "sk": {
+    "_meta": { "needs_review": true },
+    "docs_badge": "26 DOK",
+    "progress": "POSTUP 65 %",
+    "headers": { "material": "MATERIÁL", "norm": "NORMA", "fact": "FAKT" },
+    "inflow_period": "PRÍJEM ZA OBDOBIE",
+    "materials": ["Sádrokartón", "Profil CW", "Omietka", "Cement", "Armatúra"],
+    "status": { "ok": "OK", "warn": "ROZDIEL", "err": "CHYBA" },
+    "currency_short": "128 460 €",
+    "value_short": "128k",
+    "hero_dash": {
+      "object_label": "OBJEKT",
+      "period": "APRÍL 2026",
+      "working_contour": "Pracovný obrys objektu",
+      "object_name": "Bytový dom / Blok B",
+      "status_active": "Kontrola aktívna",
+      "kpi_docs": { "label": "Dokumenty", "hint": "4 riadky na kontrolu" },
+      "kpi_inflow": { "label": "Príjem", "hint": "za obdobie" },
+      "kpi_diff": { "label": "Rozdiely", "hint": "potrebná kontrola" },
+      "kpi_lack": { "label": "Nedostatok", "hint": "vyžaduje rozhodnutie" },
+      "timeline": ["Dokumenty", "Kontrola", "Príjem", "Zvyšky", "Správa"]
+    }
+  },
+  "en": {
+    "_meta": { "needs_review": true },
+    "docs_badge": "26 DOC",
+    "progress": "PROGRESS 65%",
+    "headers": { "material": "MATERIAL", "norm": "NORM", "fact": "ACTUAL" },
+    "inflow_period": "INFLOW BY PERIOD",
+    "materials": ["Drywall", "CW Profile", "Plaster", "Cement", "Rebar"],
+    "status": { "ok": "OK", "warn": "DEVIATION", "err": "ERROR" },
+    "currency_short": "€128,460",
+    "value_short": "128k",
+    "hero_dash": {
+      "object_label": "OBJECT",
+      "period": "APRIL 2026",
+      "working_contour": "Object working contour",
+      "object_name": "Residential / Block B",
+      "status_active": "Control active",
+      "kpi_docs": { "label": "Documents", "hint": "4 lines to check" },
+      "kpi_inflow": { "label": "Inflow", "hint": "for the period" },
+      "kpi_diff": { "label": "Discrepancies", "hint": "reconciliation needed" },
+      "kpi_lack": { "label": "Shortage", "hint": "decision required" },
+      "timeline": ["Documents", "Check", "Inflow", "Remainders", "Report"]
+    }
+  },
+  "ru": {
+    "docs_badge": "26 ДОК",
+    "progress": "ПРОГРЕСС 65%",
+    "headers": { "material": "МАТЕРИАЛ", "norm": "НОРМА", "fact": "ФАКТ" },
+    "inflow_period": "ПРИХОД ЗА ПЕРИОД",
+    "materials": ["Гипсокартон", "Профиль CW", "Шпаклёвка", "Цемент", "Арматура"],
+    "status": { "ok": "ОК", "warn": "РАСХОЖД.", "err": "ОШИБКА" },
+    "currency_short": "128 460 €",
+    "value_short": "128k",
+    "hero_dash": {
+      "object_label": "ОБЪЕКТ",
+      "period": "АПРЕЛЬ 2026",
+      "working_contour": "Рабочий контур объекта",
+      "object_name": "ЖК / Блок B",
+      "status_active": "Контроль активен",
+      "kpi_docs": { "label": "Документы", "hint": "4 строки на проверке" },
+      "kpi_inflow": { "label": "Приход", "hint": "за период" },
+      "kpi_diff": { "label": "Расхождения", "hint": "нужна сверка" },
+      "kpi_lack": { "label": "Нехватка", "hint": "требует решения" },
+      "timeline": ["Документы", "Проверка", "Приход", "Остатки", "Отчёт"]
+    }
+  }
+}

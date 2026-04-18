@@ -1,8 +1,10 @@
 ---
 import hero from '../content/hero.json';
+import illus from '../content/illus.json';
 import { type Locale, DEFAULT_LOCALE } from '../lib/i18n';
 const locale = (Astro.currentLocale ?? DEFAULT_LOCALE) as Locale;
 const t = hero[locale];
+const d = illus[locale].hero_dash;
 ---
 <section class="hero section">
   <div class="container hero-grid">
@@ -20,26 +22,26 @@ const t = hero[locale];
     <div class="hero-visual" aria-hidden="true">
       <div class="dash">
         <div class="dash-top">
-          <span class="label">OBJEKT</span>
-          <span class="label">APRÍL 2026</span>
+          <span class="label">{d.object_label}</span>
+          <span class="label">{d.period}</span>
         </div>
         <div class="dash-head">
-          <p class="dash-obj-label">Pracovný obrys objektu</p>
-          <h2>Bytový dom / Blok B</h2>
-          <span class="status">Kontrola aktívna</span>
+          <p class="dash-obj-label">{d.working_contour}</p>
+          <h2>{d.object_name}</h2>
+          <span class="status">{d.status_active}</span>
         </div>
         <div class="kpis">
-          <article><p>Dokumenty</p><strong>26</strong><small>4 riadky na kontrolu</small></article>
-          <article><p>Príjem</p><strong>128 460 €</strong><small>za obdobie</small></article>
-          <article class="warn"><p>Rozdiely</p><strong>8</strong><small>potrebná kontrola</small></article>
-          <article class="alert"><p>Nedostatok</p><strong>3</strong><small>vyžaduje rozhodnutie</small></article>
+          <article><p>{d.kpi_docs.label}</p><strong>26</strong><small>{d.kpi_docs.hint}</small></article>
+          <article><p>{d.kpi_inflow.label}</p><strong>{illus[locale].currency_short}</strong><small>{d.kpi_inflow.hint}</small></article>
+          <article class="warn"><p>{d.kpi_diff.label}</p><strong>8</strong><small>{d.kpi_diff.hint}</small></article>
+          <article class="alert"><p>{d.kpi_lack.label}</p><strong>3</strong><small>{d.kpi_lack.hint}</small></article>
         </div>
         <div class="timeline">
-          <div class="step done"><b>01</b><span>Dokumenty</span></div>
-          <div class="step done"><b>02</b><span>Kontrola</span></div>
-          <div class="step done"><b>03</b><span>Príjem</span></div>
-          <div class="step current"><b>04</b><span>Zvyšky</span></div>
-          <div class="step"><b>05</b><span>Správa</span></div>
+          {d.timeline.map((label, i) => (
+            <div class:list={['step', { done: i < 3, current: i === 3 }]}>
+              <b>{String(i + 1).padStart(2, '0')}</b><span>{label}</span>
+            </div>
+          ))}
         </div>
       </div>
     </div>
