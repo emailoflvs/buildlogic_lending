@@ -1,0 +1,149 @@
+---
+import illus from '../../content/illus.json';
+import { type Locale, DEFAULT_LOCALE } from '../../lib/i18n';
+const locale = (Astro.currentLocale ?? DEFAULT_LOCALE) as Locale;
+const steps = illus[locale].hero_steps;
+---
+<div class="hero-kpi" data-hero-kpi>
+  <div class="kpi-head">
+    <span>Рабочий контур</span>
+    <span>APR · 2026</span>
+  </div>
+  <div class="kpi-title-row">
+    <h3 class="kpi-title" data-kpi-title>{steps[0].title}</h3>
+    <span class="kpi-status" data-kpi-status>● {steps[0].status}</span>
+  </div>
+  <div class="kpi-tiles" data-kpi-tiles>
+    {steps[0].tiles.map((tile) => (
+      <div class={`kpi-tile${tile.mod ? ' kpi-tile--' + tile.mod : ''}`}>
+        <div class="kpi-tile-label">{tile.l}</div>
+        <div class="kpi-tile-num">{tile.n}</div>
+        <div class="kpi-tile-hint">{tile.h}</div>
+      </div>
+    ))}
+  </div>
+  <div class="kpi-steps" role="tablist">
+    {steps.map((s, i) => (
+      <button
+        type="button"
+        class={`kpi-step${i === 0 ? ' kpi-step--active' : ''}`}
+        data-step-idx={i}
+        role="tab"
+        aria-selected={i === 0}
+      >
+        <span class="kpi-step-num">{String(i + 1).padStart(2, '0')}</span>
+        <span class="kpi-step-label">{s.label}</span>
+      </button>
+    ))}
+  </div>
+</div>
+
+<script is:inline define:vars={{ steps }}>
+  (function () {
+    const card = document.querySelector('[data-hero-kpi]');
+    if (!card) return;
+    const titleEl = card.querySelector('[data-kpi-title]');
+    const statusEl = card.querySelector('[data-kpi-status]');
+    const tilesEl = card.querySelector('[data-kpi-tiles]');
+    const stepBtns = card.querySelectorAll('[data-step-idx]');
+    let idx = 0;
+    let timer = null;
+    let paused = false;
+
+    function renderStep(i) {
+      const s = steps[i];
+      titleEl.textContent = s.title;
+      statusEl.textContent = '● ' + s.status;
+      tilesEl.innerHTML = s.tiles
+        .map(
+          (t) =>
+            '<div class="kpi-tile' +
+            (t.mod ? ' kpi-tile--' + t.mod : '') +
+            '">' +
+            '<div class="kpi-tile-label">' + t.l + '</div>' +
+            '<div class="kpi-tile-num">' + t.n + '</div>' +
+            '<div class="kpi-tile-hint">' + t.h + '</div>' +
+            '</div>'
+        )
+        .join('');
+      stepBtns.forEach((btn, j) => {
+        const active = j === i;
+        btn.classList.toggle('kpi-step--active', active);
+        btn.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+    }
+
+    function tick() {
+      if (paused) return;
+      idx = (idx + 1) % steps.length;
+      renderStep(idx);
+    }
+
+    function start() {
+      stop();
+      timer = setInterval(tick, 3200);
+    }
+    function stop() { if (timer) clearInterval(timer); timer = null; }
+
+    card.addEventListener('mouseenter', () => { paused = true; });
+    card.addEventListener('mouseleave', () => { paused = false; });
+
+    stepBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        idx = Number(btn.dataset.stepIdx);
+        renderStep(idx);
+        paused = true;
+        setTimeout(() => { paused = false; }, 6000);
+      });
+    });
+
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      start();
+    }
+  })();
+</script>
+
+<style>
+  .hero-kpi {
+    background: var(--bl-card);
+    border: 1px solid var(--bl-card-stroke);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    box-shadow: 0 30px 70px -30px rgba(31, 59, 52, 0.35);
+    position: relative;
+  }
+  .kpi-head {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--bl-font-mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--bl-muted);
+    margin-bottom: 10px;
+  }
+  .kpi-title-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 18px; }
+  .kpi-title { font-family: var(--bl-font-display); font-size: 24px; font-weight: 500; letter-spacing: -0.02em; margin: 0; color: var(--bl-ink); }
+  .kpi-status { padding: 4px 10px; border-radius: 999px; background: var(--bl-accent-soft); color: var(--bl-accent-ink); font-size: 11px; font-weight: 600; white-space: nowrap; }
+  .kpi-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .kpi-tile { border: 1px solid var(--bl-card-stroke); border-radius: var(--radius-sm); padding: 12px 14px; background: var(--bl-paper); }
+  .kpi-tile-label { font-family: var(--bl-font-mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bl-muted); }
+  .kpi-tile-num { font-family: var(--bl-font-display); font-size: 24px; font-weight: 500; color: var(--bl-ink); letter-spacing: -0.02em; margin: 4px 0 2px; }
+  .kpi-tile-hint { font-size: 11px; color: var(--bl-muted); }
+  .kpi-tile--warn .kpi-tile-num { color: var(--bl-def); }
+  .kpi-tile--ok .kpi-tile-num { color: var(--bl-ok); }
+  .kpi-tile--accent .kpi-tile-num { color: var(--bl-accent-ink); }
+  .kpi-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 5px; margin-top: 16px; }
+  .kpi-step {
+    padding: 10px 8px; border-radius: 8px; border: 1px solid var(--bl-card-stroke);
+    background: transparent; color: var(--bl-ink-2); cursor: pointer;
+    display: flex; flex-direction: column; gap: 3px;
+    transition: all 0.35s var(--bl-ease);
+    text-align: left;
+    font-family: inherit;
+  }
+  .kpi-step--active { background: var(--bl-accent-soft); border-color: var(--bl-accent); color: var(--bl-accent-ink); transform: scale(1.03); }
+  .kpi-step-num { font-family: var(--bl-font-mono); font-size: 10px; color: var(--bl-muted); }
+  .kpi-step--active .kpi-step-num { color: var(--bl-accent-ink); }
+  .kpi-step-label { font-size: 11px; font-weight: 600; }
+</style>
