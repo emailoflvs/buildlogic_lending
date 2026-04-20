@@ -19,7 +19,7 @@
       "kpi_inflow": { "label": "Príjem", "hint": "za obdobie" },
       "kpi_diff": { "label": "Rozdiely", "hint": "potrebná kontrola" },
       "kpi_lack": { "label": "Nedostatok", "hint": "vyžaduje rozhodnutie" },
-      "timeline": ["Dokumenty", "Kontrola", "Príjem", "Zvyšky", "Správa"]
+      "timeline": ["Dokumenty", "Kontrola", "Príjem", "Zvyšky", "Report"]
     },
     "hero_steps": [
       {

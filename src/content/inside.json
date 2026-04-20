@@ -21,7 +21,7 @@
         { "name": "Cement M500", "val": "−120 kg", "state": "def" },
         { "name": "Concrete C25", "val": "+840 l", "state": "ok" },
         { "name": "Rebar ⌀12", "val": "−45 kg", "state": "def" },
-        { "name": "Bricks", "val": "+2 400 pc", "state": "ok" }
+        { "name": "Bricks", "val": "+2 400 шт", "state": "ok" }
       ]
     },
     "flow": {
@@ -56,7 +56,7 @@
         { "name": "Concrete C25/30", "pct": 78, "val": "12.4 m³" },
         { "name": "Rebar ⌀12 mm", "pct": 65, "val": "845 kg" },
         { "name": "Cement M500", "pct": 14, "val": "120 kg", "low": true },
-        { "name": "Bricks", "pct": 82, "val": "3 280 pc" },
+        { "name": "Bricks", "pct": 82, "val": "3 280 шт" },
         { "name": "Plaster mix", "pct": 38, "val": "64 kg" }
       ]
     },
