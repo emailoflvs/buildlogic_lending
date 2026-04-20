@@ -12,7 +12,7 @@
   --bl-def-bg: #fceeea;
   --bl-ok: #3f8a5a;
   --bl-ok-bg: #e7f1e7;
-  --bl-ink: #1f3b34;
+  --bl-ink: #1f3b34; /* intentionally same as --bl-green-deep today; may diverge */
   --bl-ink-2: #3a4945;
   --bl-muted: #6b7a74;
   --bl-card: #ffffff;
@@ -32,7 +32,7 @@
   --accent: var(--bl-accent);
   --accent-soft: var(--bl-accent-soft);
   --success: var(--bl-ok);
-  --warn: var(--bl-accent-ink);
+  --warn: var(--bl-accent);
   --danger: var(--bl-def);
 
   /* ====== Typography ====== */
