@@ -1,28 +1,37 @@
 {
+  "ru": {
+    "eyebrow": "Порядок, не хаос",
+    "title_1": "Контроль стройки",
+    "title_2": "в одном рабочем контуре.",
+    "lead": "Объекты, материалы, документы и отчёты — без десяти Excel-файлов и бесконечных пересылок. Система подстраивается под роль, не наоборот.",
+    "cta_primary": "Начать бесплатно",
+    "cta_secondary": "Посмотреть демо",
+    "note": "14 дней на всё. Без привязки карты.",
+    "audience_label": "Особенно полезно:",
+    "audience_chips": ["Владельцу", "Директору", "Прорабу", "Снабженцу", "Бухгалтеру"]
+  },
   "sk": {
     "_meta": { "needs_review": true },
-    "eyebrow": "Pre majiteľov, riaditeľov a vedúcich stavby",
-    "title": "Poriadok v materiáloch na každom objekte",
-    "lead": "BuildLogic pomáha stavebnej firme držať pod kontrolou objekt, obdobie, dokumenty, príjem materiálu, normy, vykonané objemy, zvyšky a záverečnú správu — bez ručného chaosu a bez ťažkého systému na všetko naraz.",
-    "cta_primary": "Získať 14-dňový test",
-    "cta_secondary": "Pozrieť, ako to funguje",
-    "note": "Pokojný štart na štandardnej logike. Ak má firma svoj poriadok — BuildLogic sa dá prispôsobiť hlbšie."
+    "eyebrow": "Poriadok, nie chaos",
+    "title_1": "Kontrola stavby",
+    "title_2": "v jednom pracovnom obryse.",
+    "lead": "Objekty, materiály, dokumenty a reporty — bez desiatich Excel-ov a nekonečného preposielania. Systém sa prispôsobuje roli, nie naopak.",
+    "cta_primary": "Začať zdarma",
+    "cta_secondary": "Pozrieť demo",
+    "note": "14 dní na všetko. Bez platobnej karty.",
+    "audience_label": "Zvlášť užitočné pre:",
+    "audience_chips": ["Majiteľa", "Riaditeľa", "Stavbyvedúceho", "Nákupcu", "Účtovníka"]
   },
   "en": {
     "_meta": { "needs_review": true },
-    "eyebrow": "For owners, directors and site managers",
-    "title": "Order in materials on every site",
-    "lead": "BuildLogic helps a construction company keep the object, period, documents, material inflow, norms, performed volumes, remainders and final report under one working roof — without manual mess and without a heavy all-in-one system.",
-    "cta_primary": "Start 14-day trial",
-    "cta_secondary": "See how it works",
-    "note": "Calm start on the standard logic. If your company has its own rules — BuildLogic can be tuned deeper."
-  },
-  "ru": {
-    "eyebrow": "Для владельцев, директоров и руководителей объектов",
-    "title": "Порядок в материалах по каждому объекту",
-    "lead": "BuildLogic помогает держать под контролем документы, приход материалов, нормы, выполненные объёмы, остатки и итоговую картину по объекту — без ручной путаницы и без тяжёлой системы ради всего сразу.",
-    "cta_primary": "Получить 14 дней теста",
-    "cta_secondary": "Посмотреть, как это работает",
-    "note": "Спокойный старт на стандартной логике. Если у компании свой порядок документов и контроля, BuildLogic можно настроить глубже под реальную работу."
+    "eyebrow": "Order, not chaos",
+    "title_1": "Construction control",
+    "title_2": "in one working contour.",
+    "lead": "Objects, materials, documents and reports — without ten Excel files and endless email chains. The system adapts to the role, not the other way around.",
+    "cta_primary": "Start for free",
+    "cta_secondary": "See demo",
+    "note": "14 days of everything. No credit card.",
+    "audience_label": "Especially useful for:",
+    "audience_chips": ["Owner", "Director", "Site manager", "Procurement", "Accounting"]
   }
 }
