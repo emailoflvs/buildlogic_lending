@@ -20,7 +20,64 @@
       "kpi_diff": { "label": "Rozdiely", "hint": "potrebná kontrola" },
       "kpi_lack": { "label": "Nedostatok", "hint": "vyžaduje rozhodnutie" },
       "timeline": ["Dokumenty", "Kontrola", "Príjem", "Zvyšky", "Správa"]
-    }
+    },
+    "hero_steps": [
+      {
+        "label": "Dokumenty",
+        "title": "Rezidencia / Blok V",
+        "status": "Dokumenty v práci",
+        "tiles": [
+          { "l": "Spolu", "n": "26", "h": "dokumentov" },
+          { "l": "Na kontrole", "n": "4", "h": "čakajú", "mod": "accent" },
+          { "l": "Schválené", "n": "22", "h": "prešli kontrolou", "mod": "ok" },
+          { "l": "Po termíne", "n": "2", "h": "pozornosť", "mod": "warn" }
+        ]
+      },
+      {
+        "label": "Kontrola",
+        "title": "Rezidencia / Blok V",
+        "status": "Kontrola aktívna",
+        "tiles": [
+          { "l": "Rozdiely", "n": "8", "h": "potrebná kontrola", "mod": "accent" },
+          { "l": "Podľa normy", "n": "118", "h": "zo 126", "mod": "ok" },
+          { "l": "Suma", "n": "3 210 €", "h": "odchýlka", "mod": "accent" },
+          { "l": "Vyriešené", "n": "5", "h": "za smenu", "mod": "ok" }
+        ]
+      },
+      {
+        "label": "Príjem",
+        "title": "Rezidencia / Blok V",
+        "status": "Príjem materiálu",
+        "tiles": [
+          { "l": "Prijaté", "n": "128 460 €", "h": "za apríl" },
+          { "l": "Dodávky", "n": "17", "h": "od začiatku" },
+          { "l": "Čakáme", "n": "3", "h": "na ceste", "mod": "accent" },
+          { "l": "Odmietnuté", "n": "1", "h": "vrátené", "mod": "warn" }
+        ]
+      },
+      {
+        "label": "Sklad",
+        "title": "Rezidencia / Blok V",
+        "status": "Sklad objektu",
+        "tiles": [
+          { "l": "Položiek", "n": "42", "h": "na sklade" },
+          { "l": "Nedostatok", "n": "3", "h": "nutné objednať", "mod": "warn" },
+          { "l": "S rezervou", "n": "31", "h": "na 14 dní+", "mod": "ok" },
+          { "l": "Zamrazené", "n": "12 740 €", "h": "nelikvid", "mod": "accent" }
+        ]
+      },
+      {
+        "label": "Report",
+        "title": "Rezidencia / Blok V",
+        "status": "Report pripravený",
+        "tiles": [
+          { "l": "Spolu", "n": "128 460 €", "h": "príjem apríl" },
+          { "l": "Spotreba", "n": "104 120 €", "h": "odpísané" },
+          { "l": "Úspora", "n": "4 820 €", "h": "vs plán", "mod": "ok" },
+          { "l": "Dni na report", "n": "0", "h": "automat", "mod": "ok" }
+        ]
+      }
+    ]
   },
   "en": {
     "_meta": { "needs_review": true },
@@ -43,7 +100,64 @@
       "kpi_diff": { "label": "Discrepancies", "hint": "reconciliation needed" },
       "kpi_lack": { "label": "Shortage", "hint": "decision required" },
       "timeline": ["Documents", "Check", "Inflow", "Remainders", "Report"]
-    }
+    },
+    "hero_steps": [
+      {
+        "label": "Documents",
+        "title": "Residential / Block V",
+        "status": "Documents in progress",
+        "tiles": [
+          { "l": "Total", "n": "26", "h": "documents this period" },
+          { "l": "In review", "n": "4", "h": "awaiting check", "mod": "accent" },
+          { "l": "Approved", "n": "22", "h": "passed control", "mod": "ok" },
+          { "l": "Overdue", "n": "2", "h": "need attention", "mod": "warn" }
+        ]
+      },
+      {
+        "label": "Reconciliation",
+        "title": "Residential / Block V",
+        "status": "Reconciliation active",
+        "tiles": [
+          { "l": "Discrepancies", "n": "8", "h": "need check", "mod": "accent" },
+          { "l": "On spec", "n": "118", "h": "of 126 lines", "mod": "ok" },
+          { "l": "Value", "n": "3 210 €", "h": "variance", "mod": "accent" },
+          { "l": "Closed today", "n": "5", "h": "this shift", "mod": "ok" }
+        ]
+      },
+      {
+        "label": "Inbound",
+        "title": "Residential / Block V",
+        "status": "Inbound materials",
+        "tiles": [
+          { "l": "Received", "n": "128 460 €", "h": "for April" },
+          { "l": "Deliveries", "n": "17", "h": "month to date" },
+          { "l": "Awaiting", "n": "3", "h": "in transit", "mod": "accent" },
+          { "l": "Rejected", "n": "1", "h": "return to vendor", "mod": "warn" }
+        ]
+      },
+      {
+        "label": "Stock",
+        "title": "Residential / Block V",
+        "status": "On-site stock",
+        "tiles": [
+          { "l": "Items", "n": "42", "h": "in stock" },
+          { "l": "Shortage", "n": "3", "h": "needs ordering", "mod": "warn" },
+          { "l": "Buffer", "n": "31", "h": "14+ days cover", "mod": "ok" },
+          { "l": "Dead stock", "n": "12 740 €", "h": "non-liquid", "mod": "accent" }
+        ]
+      },
+      {
+        "label": "Report",
+        "title": "Residential / Block V",
+        "status": "Report ready",
+        "tiles": [
+          { "l": "Total", "n": "128 460 €", "h": "inbound April" },
+          { "l": "Consumed", "n": "104 120 €", "h": "written off" },
+          { "l": "Savings", "n": "4 820 €", "h": "vs plan", "mod": "ok" },
+          { "l": "Days to report", "n": "0", "h": "auto-generated", "mod": "ok" }
+        ]
+      }
+    ]
   },
   "ru": {
     "docs_badge": "26 ДОК",
@@ -65,6 +179,63 @@
       "kpi_diff": { "label": "Расхождения", "hint": "нужна сверка" },
       "kpi_lack": { "label": "Нехватка", "hint": "требует решения" },
       "timeline": ["Документы", "Проверка", "Приход", "Остатки", "Отчёт"]
-    }
+    },
+    "hero_steps": [
+      {
+        "label": "Документы",
+        "title": "Residential / Block V",
+        "status": "Документы в работе",
+        "tiles": [
+          { "l": "Всего", "n": "26", "h": "документов за период" },
+          { "l": "На проверке", "n": "4", "h": "ожидают сверки", "mod": "accent" },
+          { "l": "Утверждены", "n": "22", "h": "прошли контроль", "mod": "ok" },
+          { "l": "Просрочены", "n": "2", "h": "требуют внимания", "mod": "warn" }
+        ]
+      },
+      {
+        "label": "Сверка",
+        "title": "Residential / Block V",
+        "status": "Сверка активна",
+        "tiles": [
+          { "l": "Расхождения", "n": "8", "h": "нужна сверка", "mod": "accent" },
+          { "l": "По норме", "n": "118", "h": "из 126 позиций", "mod": "ok" },
+          { "l": "По сумме", "n": "3 210 €", "h": "отклонение", "mod": "accent" },
+          { "l": "Решено", "n": "5", "h": "за смену", "mod": "ok" }
+        ]
+      },
+      {
+        "label": "Приход",
+        "title": "Residential / Block V",
+        "status": "Приход материалов",
+        "tiles": [
+          { "l": "Принято", "n": "128 460 €", "h": "за апрель" },
+          { "l": "Поставок", "n": "17", "h": "с начала месяца" },
+          { "l": "Ждём", "n": "3", "h": "в пути", "mod": "accent" },
+          { "l": "Отклонено", "n": "1", "h": "возврат", "mod": "warn" }
+        ]
+      },
+      {
+        "label": "Склад",
+        "title": "Residential / Block V",
+        "status": "Склад объекта",
+        "tiles": [
+          { "l": "Позиций", "n": "42", "h": "на складе" },
+          { "l": "Нехватка", "n": "3", "h": "требует заказа", "mod": "warn" },
+          { "l": "С запасом", "n": "31", "h": "на 14 дней+", "mod": "ok" },
+          { "l": "Заморожено", "n": "12 740 €", "h": "неликвид", "mod": "accent" }
+        ]
+      },
+      {
+        "label": "Отчёт",
+        "title": "Residential / Block V",
+        "status": "Отчёт готов",
+        "tiles": [
+          { "l": "Итог", "n": "128 460 €", "h": "приход апрель" },
+          { "l": "Расход", "n": "104 120 €", "h": "списано в работу" },
+          { "l": "Экономия", "n": "4 820 €", "h": "vs план", "mod": "ok" },
+          { "l": "Дней на отчёт", "n": "0", "h": "формируется авто", "mod": "ok" }
+        ]
+      }
+    ]
   }
 }
