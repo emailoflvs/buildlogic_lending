@@ -4,15 +4,25 @@ import { type Locale, DEFAULT_LOCALE } from '../lib/i18n';
 const locale = (Astro.currentLocale ?? DEFAULT_LOCALE) as Locale;
 const t = problems[locale];
 ---
-<section class="section" id="problem">
+<section class="section problems" id="problem">
+  <svg class="problems-bg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <pattern id="problems-iso" width="40" height="23" patternUnits="userSpaceOnUse">
+        <path d="M0 0 L20 11.5 L40 0 M0 23 L20 11.5 L40 23" fill="none" stroke="rgba(31,59,52,0.06)" stroke-width="0.8"/>
+      </pattern>
+    </defs>
+    <rect width="1200" height="800" fill="url(#problems-iso)"/>
+  </svg>
+
   <div class="container">
     <div class="head">
       <h2>{t.title}</h2>
       <p>{t.lead}</p>
     </div>
     <div class="grid">
-      {t.cards.map((c) => (
+      {t.cards.map((c, i) => (
         <article class="card">
+          <div class="card-num">{String(i + 1).padStart(2, '0')}</div>
           <strong>{c.title}</strong>
           <p>{c.body}</p>
         </article>
@@ -22,18 +32,33 @@ const t = problems[locale];
 </section>
 
 <style>
+  .problems { position: relative; background: var(--bl-paper-2); overflow: hidden; }
+  .problems-bg { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; pointer-events: none; }
+  .problems .container { position: relative; z-index: 1; }
   .head { max-width: 720px; margin: 0 auto var(--space-12); text-align: center; }
   .head h2 { margin-bottom: var(--space-4); }
-  .head p { color: var(--muted); font-size: 16px; }
+  .head p { color: var(--bl-ink-2); font-size: 16px; }
   .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); }
   .card {
-    background: var(--surface); border: 1px solid var(--line);
-    padding: var(--space-6); border-radius: var(--radius-lg);
-    transition: transform 0.15s, box-shadow 0.15s;
+    background: var(--bl-card); border: 1px solid var(--bl-card-stroke);
+    padding: var(--space-6); border-radius: var(--radius-md);
+    transition: transform 0.2s var(--bl-ease), box-shadow 0.2s var(--bl-ease);
+    position: relative;
   }
-  .card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
-  .card strong { color: var(--primary); font-size: 16px; display: block; margin-bottom: var(--space-2); }
-  .card p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.55; }
+  .card:hover { transform: translateY(-2px); box-shadow: 0 20px 40px -20px rgba(31,59,52,0.2); }
+  .card-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 36px; height: 36px; border-radius: 8px;
+    background: var(--bl-def-bg); color: var(--bl-def);
+    font-weight: 700; font-family: var(--bl-font-mono); font-size: 13px;
+    margin-bottom: var(--space-3);
+  }
+  .card strong {
+    color: var(--bl-ink); font-family: var(--bl-font-display);
+    font-size: 17px; font-weight: 500;
+    display: block; margin-bottom: var(--space-2);
+  }
+  .card p { margin: 0; color: var(--bl-ink-2); font-size: 14px; line-height: 1.55; }
   @media (max-width: 960px) { .grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
 </style>
