@@ -27,6 +27,7 @@
         "cta": "Požiadať o demo"
       }
     ],
+    "no_card": "Bez platobnej karty",
     "note": "Spustenie a prvotné nastavenie sú samostatnou položkou — priznávame to otvorene."
   },
   "en": {
@@ -57,6 +58,7 @@
         "cta": "Request demo"
       }
     ],
+    "no_card": "No credit card",
     "note": "Setup and initial configuration are billed separately — we're upfront about it."
   },
   "ru": {
@@ -86,6 +88,7 @@
         "cta": "Запросить демо"
       }
     ],
+    "no_card": "Без привязки карты",
     "note": "Запуск и первичная настройка оплачиваются отдельно — говорим об этом открыто."
   }
 }
