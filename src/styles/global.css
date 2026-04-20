@@ -6,12 +6,9 @@
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
-  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
-  background:
-    linear-gradient(to right, rgba(191, 148, 97, 0.08) 1px, transparent 1px) 0 0 / 48px 48px,
-    linear-gradient(to bottom, rgba(191, 148, 97, 0.08) 1px, transparent 1px) 0 0 / 48px 48px,
-    var(--bg);
-  color: var(--text);
+  font-family: var(--bl-font-body);
+  background: var(--bl-paper);
+  color: var(--bl-ink);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -30,22 +27,29 @@ button, input, textarea, select { font: inherit; color: inherit; }
 
 .eyebrow {
   display: inline-block;
-  font-family: 'Roboto Condensed', 'Inter', sans-serif;
-  font-weight: 700;
-  font-size: 13px;
-  letter-spacing: 0.15em;
+  font-family: var(--bl-font-mono);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--accent);
-  padding: 4px 10px;
-  border: 1px solid var(--accent);
+  color: var(--bl-accent-ink);
+  padding: 5px 12px;
+  border: 1px solid rgba(201, 142, 79, 0.5);
   border-radius: 999px;
-  background: var(--accent-soft);
+  background: rgba(243, 237, 224, 0.8);
 }
 
-h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.15; margin: 0; }
-h1 { font-size: clamp(32px, 4.5vw, 54px); font-weight: 800; }
-h2 { font-size: clamp(26px, 3.2vw, 40px); font-weight: 800; }
-h3 { font-size: clamp(18px, 2vw, 22px); font-weight: 700; }
+h1, h2, h3 {
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  margin: 0;
+  font-family: var(--bl-font-display);
+  font-weight: 500;
+  color: var(--bl-ink);
+}
+h1 { font-size: clamp(40px, 5.5vw, 64px); }
+h2 { font-size: clamp(30px, 3.8vw, 46px); }
+h3 { font-size: clamp(18px, 2vw, 22px); font-weight: 500; }
 
 .btn {
   display: inline-flex;
