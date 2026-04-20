@@ -46,7 +46,9 @@ const t = hero[locale];
     display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
     gap: var(--space-12); align-items: center;
   }
-  .hero-copy h1 { margin-top: var(--space-4); }
+  .hero-copy { min-width: 0; }
+  .hero-copy h1 { margin-top: var(--space-4); word-wrap: break-word; }
+  .hero-visual { min-width: 0; }
   .hero-accent { color: var(--bl-ink); position: relative; display: inline-block; }
   .hero-underline {
     position: absolute; left: 0; right: 0; bottom: -6px;
