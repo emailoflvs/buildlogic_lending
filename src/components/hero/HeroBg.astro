@@ -49,14 +49,16 @@
     <text x="1010" y="440" font-family="JetBrains Mono" font-size="11" fill="rgba(138,90,42,0.8)" text-anchor="middle">PLAN 1:50</text>
 
     <!-- Swaying crane top-right -->
-    <g class="hero-crane" transform="translate(1040 50) scale(0.5)" stroke="rgba(31,59,52,0.26)" stroke-width="1.3" fill="none">
-      <path d="M90 260 L90 40 L110 40 L110 260"/>
-      <path d="M90 260 L110 260 M90 200 L110 200 M90 140 L110 140 M90 80 L110 80"/>
-      <path d="M90 40 L110 80 M110 40 L90 80 M90 80 L110 140 M110 80 L90 140"/>
-      <path d="M20 40 L180 40"/>
-      <path d="M20 40 L60 20 L180 40 M60 20 L100 40"/>
-      <path d="M40 40 L40 130"/>
-      <rect x="95" y="35" width="10" height="10"/>
+    <g transform="translate(1040 50) scale(0.5)">
+      <g class="hero-crane" stroke="rgba(31,59,52,0.26)" stroke-width="1.3" fill="none">
+        <path d="M90 260 L90 40 L110 40 L110 260"/>
+        <path d="M90 260 L110 260 M90 200 L110 200 M90 140 L110 140 M90 80 L110 80"/>
+        <path d="M90 40 L110 80 M110 40 L90 80 M90 80 L110 140 M110 80 L90 140"/>
+        <path d="M20 40 L180 40"/>
+        <path d="M20 40 L60 20 L180 40 M60 20 L100 40"/>
+        <path d="M40 40 L40 130"/>
+        <rect x="95" y="35" width="10" height="10"/>
+      </g>
     </g>
 
     <!-- Excavator bottom-left -->
@@ -82,8 +84,8 @@
     animation: hero-crane-sway 6s ease-in-out infinite;
   }
   @keyframes hero-crane-sway {
-    0%, 100% { transform: translate(1040px, 50px) scale(0.5) rotate(-1.2deg); }
-    50% { transform: translate(1040px, 50px) scale(0.5) rotate(1.2deg); }
+    0%, 100% { transform: rotate(-1.2deg); }
+    50% { transform: rotate(1.2deg); }
   }
   @media (prefers-reduced-motion: reduce) {
     .hero-crane { animation: none; }

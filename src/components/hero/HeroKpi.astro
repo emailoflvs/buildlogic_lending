@@ -3,11 +3,12 @@ import illus from '../../content/illus.json';
 import { type Locale, DEFAULT_LOCALE } from '../../lib/i18n';
 const locale = (Astro.currentLocale ?? DEFAULT_LOCALE) as Locale;
 const steps = illus[locale].hero_steps;
+const heroDash = illus[locale].hero_dash;
 ---
 <div class="hero-kpi" data-hero-kpi>
   <div class="kpi-head">
-    <span>Рабочий контур</span>
-    <span>APR · 2026</span>
+    <span>{heroDash.working_contour}</span>
+    <span>{heroDash.period}</span>
   </div>
   <div class="kpi-title-row">
     <h3 class="kpi-title" data-kpi-title>{steps[0].title}</h3>
@@ -97,6 +98,26 @@ const steps = illus[locale].hero_steps;
       });
     });
 
+    const tablistEl = card.querySelector('[role="tablist"]');
+    if (tablistEl) {
+      tablistEl.addEventListener('keydown', (e) => {
+        if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)) return;
+        e.preventDefault();
+        const btns = [...stepBtns];
+        const cur = btns.findIndex((b) => b.getAttribute('aria-selected') === 'true');
+        let next;
+        if (e.key === 'ArrowRight') next = (cur + 1) % btns.length;
+        else if (e.key === 'ArrowLeft') next = (cur - 1 + btns.length) % btns.length;
+        else if (e.key === 'Home') next = 0;
+        else next = btns.length - 1;
+        idx = next;
+        renderStep(idx);
+        btns[next].focus();
+        paused = true;
+        setTimeout(() => { paused = false; }, 6000);
+      });
+    }
+
     if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       start();
     }
@@ -146,4 +167,8 @@ const steps = illus[locale].hero_steps;
   .kpi-step-num { font-family: var(--bl-font-mono); font-size: 10px; color: var(--bl-muted); }
   .kpi-step--active .kpi-step-num { color: var(--bl-accent-ink); }
   .kpi-step-label { font-size: 11px; font-weight: 600; }
+  .kpi-step:focus-visible {
+    outline: 2px solid var(--bl-accent);
+    outline-offset: 2px;
+  }
 </style>
