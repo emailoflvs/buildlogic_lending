@@ -1,40 +1,202 @@
 {
+  "ru": {
+    "eyebrow": "Что внутри системы",
+    "title": "Шесть модулей — один рабочий контур",
+    "lead": "Каждый модуль — это не иконка, а живой интерфейс. Смотрите, чем вы будете пользоваться каждый день.",
+    "boq": {
+      "title": "Расчёт по спецификации",
+      "body": "Ведомость объёмов — сколько материалов нужно по каждой позиции, без Excel-таблиц.",
+      "head": ["Материал", "Норма", "Нужно"],
+      "rows": [
+        ["Concrete C25/30", "2.4 m³/стена", "38.4 m³"],
+        ["Rebar ⌀12 mm", "85 kg/m³", "3 264 kg"],
+        ["Brick 250×120×65", "400 шт/m²", "12 800 шт"],
+        ["Cement M500", "320 kg/m³", "12 288 kg"]
+      ]
+    },
+    "shortage": {
+      "title": "Отчёт о нехватке",
+      "body": "Мгновенный список: что кончилось, что на исходе. Одна кнопка — заявка в закупку.",
+      "items": [
+        { "name": "Cement M500", "val": "−120 kg", "state": "def" },
+        { "name": "Concrete C25", "val": "+840 l", "state": "ok" },
+        { "name": "Rebar ⌀12", "val": "−45 kg", "state": "def" },
+        { "name": "Bricks", "val": "+2 400 pc", "state": "ok" }
+      ]
+    },
+    "flow": {
+      "title": "Движение на объекте",
+      "body": "Материалы проходят цепочку: поставка → приёмка → склад → использование.",
+      "chips": ["Delivery", "Acceptance", "Stock", "In use"]
+    },
+    "docs": {
+      "title": "Единый реестр документов",
+      "body": "Накладные, акты приёмки, счета — в едином реестре. Экспорт в PDF / Excel.",
+      "formats": [
+        { "fmt": "Delivery note", "hint": "PDF · signed" },
+        { "fmt": "Work acceptance", "hint": "PDF · signed" },
+        { "fmt": "Invoice", "hint": "PDF / XML" }
+      ]
+    },
+    "roles": {
+      "title": "Разные роли, один контур",
+      "body": "Права видимости по ролям — каждый видит своё, но работает с общими данными.",
+      "pills": [
+        { "label": "Owner", "color": "ok" },
+        { "label": "Director", "color": "green" },
+        { "label": "Site manager", "color": "accent" },
+        { "label": "Procurement", "color": "accent-ink" },
+        { "label": "Accounting", "color": "muted" }
+      ]
+    },
+    "stock": {
+      "title": "Остатки на складе объекта",
+      "body": "Реальные цифры, не Excel-догадки. Красным — под заказ, зелёным — есть буфер.",
+      "items": [
+        { "name": "Concrete C25/30", "pct": 78, "val": "12.4 m³" },
+        { "name": "Rebar ⌀12 mm", "pct": 65, "val": "845 kg" },
+        { "name": "Cement M500", "pct": 14, "val": "120 kg", "low": true },
+        { "name": "Bricks", "pct": 82, "val": "3 280 pc" },
+        { "name": "Plaster mix", "pct": 38, "val": "64 kg" }
+      ]
+    },
+    "connector": {
+      "label": "Всё связано в один контур",
+      "chain": ["Объект", "BoQ", "Склад", "Документы", "Отчёт"]
+    }
+  },
   "sk": {
     "_meta": { "needs_review": true },
     "eyebrow": "Čo je vnútri systému",
-    "title": "Šesť modulov, ktoré riešia jeden kontrolný obrys",
-    "modules": [
-      { "title": "Karta objektu", "body": "Samostatný pracovný priestor na objekt, obdobie a zodpovedných ľudí." },
-      { "title": "Dokumenty", "body": "Upload a správa dokumentov s kontrolou riadkov a väzbou na materiály." },
-      { "title": "Normy a objemy", "body": "Normatívne množstvá a vykonané objemy pre výpočet zvyškov a odchýlok." },
-      { "title": "Príjem materiálu", "body": "Evidencia príjmu s porovnaním proti dokumentom a normatívom." },
-      { "title": "Zvyšky", "body": "Automatický prepočet po každej operácii, bez ručnej inventúry." },
-      { "title": "Záverečná správa", "body": "Jediná správa pre manažéra so všetkými dôležitými číslami a odchýlkami." }
-    ]
+    "title": "Šesť modulov — jeden pracovný obrys",
+    "lead": "Každý modul nie je ikona, ale živé rozhranie. Pozrite si, s čím budete pracovať každý deň.",
+    "boq": {
+      "title": "Výpočet podľa výkazu výmer",
+      "body": "Zoznam objemov — koľko materiálu treba na každú položku, bez Excel-tabuliek.",
+      "head": ["Materiál", "Norma", "Potreba"],
+      "rows": [
+        ["Concrete C25/30", "2.4 m³/stena", "38.4 m³"],
+        ["Rebar ⌀12 mm", "85 kg/m³", "3 264 kg"],
+        ["Brick 250×120×65", "400 ks/m²", "12 800 ks"],
+        ["Cement M500", "320 kg/m³", "12 288 kg"]
+      ]
+    },
+    "shortage": {
+      "title": "Report nedostatku",
+      "body": "Okamžitý zoznam: čo sa minulo, čo sa míňa. Jedno kliknutie — objednávka.",
+      "items": [
+        { "name": "Cement M500", "val": "−120 kg", "state": "def" },
+        { "name": "Concrete C25", "val": "+840 l", "state": "ok" },
+        { "name": "Rebar ⌀12", "val": "−45 kg", "state": "def" },
+        { "name": "Bricks", "val": "+2 400 ks", "state": "ok" }
+      ]
+    },
+    "flow": {
+      "title": "Pohyb na stavbe",
+      "body": "Materiály prechádzajú reťazou: dodanie → preberanie → sklad → použitie.",
+      "chips": ["Delivery", "Acceptance", "Stock", "In use"]
+    },
+    "docs": {
+      "title": "Jednotný register dokumentov",
+      "body": "Dodacie listy, preberacie protokoly, faktúry — v jednom registri. Export do PDF / Excel.",
+      "formats": [
+        { "fmt": "Delivery note", "hint": "PDF · signed" },
+        { "fmt": "Work acceptance", "hint": "PDF · signed" },
+        { "fmt": "Invoice", "hint": "PDF / XML" }
+      ]
+    },
+    "roles": {
+      "title": "Rôzne roly, jeden obrys",
+      "body": "Oprávnenia podľa role — každý vidí svoje, ale pracuje nad spoločnými dátami.",
+      "pills": [
+        { "label": "Owner", "color": "ok" },
+        { "label": "Director", "color": "green" },
+        { "label": "Site manager", "color": "accent" },
+        { "label": "Procurement", "color": "accent-ink" },
+        { "label": "Accounting", "color": "muted" }
+      ]
+    },
+    "stock": {
+      "title": "Zvyšky na sklade objektu",
+      "body": "Reálne čísla, nie odhady z Excelu. Červené — na objednanie, zelené — je rezerva.",
+      "items": [
+        { "name": "Concrete C25/30", "pct": 78, "val": "12.4 m³" },
+        { "name": "Rebar ⌀12 mm", "pct": 65, "val": "845 kg" },
+        { "name": "Cement M500", "pct": 14, "val": "120 kg", "low": true },
+        { "name": "Bricks", "pct": 82, "val": "3 280 ks" },
+        { "name": "Plaster mix", "pct": 38, "val": "64 kg" }
+      ]
+    },
+    "connector": {
+      "label": "Všetko je prepojené v jednom obryse",
+      "chain": ["Objekt", "BoQ", "Sklad", "Dokumenty", "Report"]
+    }
   },
   "en": {
     "_meta": { "needs_review": true },
     "eyebrow": "What's inside the system",
-    "title": "Six modules solving one control contour",
-    "modules": [
-      { "title": "Object card", "body": "Dedicated workspace per object, period and responsible people." },
-      { "title": "Documents", "body": "Upload and management with line-level checks and material mapping." },
-      { "title": "Norms and volumes", "body": "Normative quantities and performed volumes for remainder and deviation math." },
-      { "title": "Material inflow", "body": "Inflow register cross-checked against documents and norms." },
-      { "title": "Remainders", "body": "Automatic recalculation after every operation — no manual inventory." },
-      { "title": "Final report", "body": "One report for the manager with every number that matters and the deviations." }
-    ]
-  },
-  "ru": {
-    "eyebrow": "Что внутри системы",
-    "title": "Шесть модулей, закрывающих один контур контроля",
-    "modules": [
-      { "title": "Карточка объекта", "body": "Отдельное рабочее пространство по объекту, периоду и ответственным." },
-      { "title": "Документы", "body": "Загрузка и ведение с построчной проверкой и привязкой к материалам." },
-      { "title": "Нормы и объёмы", "body": "Нормативы и выполненные объёмы для расчёта остатков и отклонений." },
-      { "title": "Приход материалов", "body": "Учёт прихода со сверкой против документов и нормативов." },
-      { "title": "Остатки", "body": "Автоматический пересчёт после каждой операции — без ручной инвентаризации." },
-      { "title": "Итоговый отчёт", "body": "Один отчёт для руководителя со всеми важными цифрами и отклонениями." }
-    ]
+    "title": "Six modules — one working contour",
+    "lead": "Each module is not an icon but a live interface. See what you'll actually use every day.",
+    "boq": {
+      "title": "Bill of quantities",
+      "body": "Line-by-line estimate of every material — no Excel spreadsheets.",
+      "head": ["Material", "Norm", "Required"],
+      "rows": [
+        ["Concrete C25/30", "2.4 m³/wall", "38.4 m³"],
+        ["Rebar ⌀12 mm", "85 kg/m³", "3 264 kg"],
+        ["Brick 250×120×65", "400 pc/m²", "12 800 pc"],
+        ["Cement M500", "320 kg/m³", "12 288 kg"]
+      ]
+    },
+    "shortage": {
+      "title": "Shortage report",
+      "body": "Instant list — what's out, what's low. One click — purchase request.",
+      "items": [
+        { "name": "Cement M500", "val": "−120 kg", "state": "def" },
+        { "name": "Concrete C25", "val": "+840 l", "state": "ok" },
+        { "name": "Rebar ⌀12", "val": "−45 kg", "state": "def" },
+        { "name": "Bricks", "val": "+2 400 pc", "state": "ok" }
+      ]
+    },
+    "flow": {
+      "title": "Site material flow",
+      "body": "Materials travel a chain: delivery → acceptance → stock → in use.",
+      "chips": ["Delivery", "Acceptance", "Stock", "In use"]
+    },
+    "docs": {
+      "title": "Unified document register",
+      "body": "Delivery notes, work acceptances, invoices — in one register. Export to PDF / Excel.",
+      "formats": [
+        { "fmt": "Delivery note", "hint": "PDF · signed" },
+        { "fmt": "Work acceptance", "hint": "PDF · signed" },
+        { "fmt": "Invoice", "hint": "PDF / XML" }
+      ]
+    },
+    "roles": {
+      "title": "Different roles, one contour",
+      "body": "Role-based visibility — everyone sees their scope but works on shared data.",
+      "pills": [
+        { "label": "Owner", "color": "ok" },
+        { "label": "Director", "color": "green" },
+        { "label": "Site manager", "color": "accent" },
+        { "label": "Procurement", "color": "accent-ink" },
+        { "label": "Accounting", "color": "muted" }
+      ]
+    },
+    "stock": {
+      "title": "On-site stock",
+      "body": "Real numbers, not Excel guesses. Red — needs ordering, green — buffer available.",
+      "items": [
+        { "name": "Concrete C25/30", "pct": 78, "val": "12.4 m³" },
+        { "name": "Rebar ⌀12 mm", "pct": 65, "val": "845 kg" },
+        { "name": "Cement M500", "pct": 14, "val": "120 kg", "low": true },
+        { "name": "Bricks", "pct": 82, "val": "3 280 pc" },
+        { "name": "Plaster mix", "pct": 38, "val": "64 kg" }
+      ]
+    },
+    "connector": {
+      "label": "Everything wired into one contour",
+      "chain": ["Object", "BoQ", "Stock", "Documents", "Report"]
+    }
   }
 }
