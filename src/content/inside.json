@@ -12,6 +12,16 @@
         ["Rebar ⌀12 mm", "85 kg/m³", "3 264 kg"],
         ["Brick 250×120×65", "400 шт/m²", "12 800 шт"],
         ["Cement M500", "320 kg/m³", "12 288 kg"]
+      ],
+      "total": {
+        "label": "Итого по объекту",
+        "meta": "4 позиции",
+        "value": "128 460 €"
+      },
+      "kpis": [
+        { "value": "4", "label": "материала", "mod": "" },
+        { "value": "126%", "label": "к нормам", "mod": "accent" },
+        { "value": "0", "label": "отклонений", "mod": "ok" }
       ]
     },
     "shortage": {
@@ -27,15 +37,32 @@
     "flow": {
       "title": "Движение на объекте",
       "body": "Материалы проходят цепочку: поставка → приёмка → склад → использование.",
-      "chips": ["Delivery", "Acceptance", "Stock", "In use"]
+      "chips": ["Delivery", "Acceptance", "Stock", "In use"],
+      "stages": [
+        { "key": "delivery", "label": "Поставка", "count": "17" },
+        { "key": "accept", "label": "Приёмка", "count": "15" },
+        { "key": "stock", "label": "Склад", "count": "42", "active": true },
+        { "key": "in_use", "label": "В работе", "count": "31" }
+      ],
+      "stats": [
+        { "value": "17", "label": "поставок в апреле", "mod": "" },
+        { "value": "105", "label": "позиций в контуре", "mod": "accent" },
+        { "value": "26", "label": "документов подписано", "mod": "ok" }
+      ],
+      "last_event": {
+        "prefix": "Последняя приёмка:",
+        "material": "Cement M500",
+        "qty": "2 т",
+        "time": "11:40"
+      }
     },
     "docs": {
       "title": "Единый реестр документов",
       "body": "Накладные, акты приёмки, счета — в едином реестре. Экспорт в PDF / Excel.",
       "formats": [
-        { "fmt": "Delivery note", "hint": "PDF · signed" },
-        { "fmt": "Work acceptance", "hint": "PDF · signed" },
-        { "fmt": "Invoice", "hint": "PDF / XML" }
+        { "fmt": "Delivery note", "hint": "PDF · signed", "signed": true },
+        { "fmt": "Work acceptance", "hint": "PDF · signed", "signed": true },
+        { "fmt": "Invoice", "hint": "PDF / XML", "signed": false }
       ]
     },
     "roles": {
@@ -60,6 +87,17 @@
         { "name": "Plaster mix", "pct": 38, "val": "64 kg" }
       ]
     },
+    "audit": {
+      "title": "Что на объекте сегодня",
+      "body": "",
+      "live_label": "LIVE",
+      "events": [
+        { "time": "14:32", "role": "Прораб", "action": "принял поставку M500 · 2 т", "dot": "ok" },
+        { "time": "11:40", "role": "Снабженец", "action": "закрыл дефицит Rebar ⌀12", "dot": "accent" },
+        { "time": "09:15", "role": "Директор", "action": "утвердил BoQ на Блок V", "dot": "def" },
+        { "time": "08:02", "role": "Система", "action": "сформировала документы автоматически", "dot": "ok" }
+      ]
+    },
     "connector": {
       "label": "Всё связано в один контур",
       "chain": ["Объект", "BoQ", "Склад", "Документы", "Отчёт"]
@@ -79,6 +117,16 @@
         ["Rebar ⌀12 mm", "85 kg/m³", "3 264 kg"],
         ["Brick 250×120×65", "400 ks/m²", "12 800 ks"],
         ["Cement M500", "320 kg/m³", "12 288 kg"]
+      ],
+      "total": {
+        "label": "Spolu za objekt",
+        "meta": "4 položky",
+        "value": "128 460 €"
+      },
+      "kpis": [
+        { "value": "4", "label": "materiálov", "mod": "" },
+        { "value": "126%", "label": "oproti norme", "mod": "accent" },
+        { "value": "0", "label": "odchýlok", "mod": "ok" }
       ]
     },
     "shortage": {
@@ -94,15 +142,32 @@
     "flow": {
       "title": "Pohyb na stavbe",
       "body": "Materiály prechádzajú reťazou: dodanie → preberanie → sklad → použitie.",
-      "chips": ["Delivery", "Acceptance", "Stock", "In use"]
+      "chips": ["Delivery", "Acceptance", "Stock", "In use"],
+      "stages": [
+        { "key": "delivery", "label": "Dodanie", "count": "17" },
+        { "key": "accept", "label": "Prevzatie", "count": "15" },
+        { "key": "stock", "label": "Sklad", "count": "42", "active": true },
+        { "key": "in_use", "label": "Vo výrobe", "count": "31" }
+      ],
+      "stats": [
+        { "value": "17", "label": "dodávok v apríli", "mod": "" },
+        { "value": "105", "label": "položiek v okruhu", "mod": "accent" },
+        { "value": "26", "label": "dokumentov podpísaných", "mod": "ok" }
+      ],
+      "last_event": {
+        "prefix": "Posledné prevzatie:",
+        "material": "Cement M500",
+        "qty": "2 t",
+        "time": "11:40"
+      }
     },
     "docs": {
       "title": "Jednotný register dokumentov",
       "body": "Dodacie listy, preberacie protokoly, faktúry — v jednom registri. Export do PDF / Excel.",
       "formats": [
-        { "fmt": "Delivery note", "hint": "PDF · signed" },
-        { "fmt": "Work acceptance", "hint": "PDF · signed" },
-        { "fmt": "Invoice", "hint": "PDF / XML" }
+        { "fmt": "Delivery note", "hint": "PDF · signed", "signed": true },
+        { "fmt": "Work acceptance", "hint": "PDF · signed", "signed": true },
+        { "fmt": "Invoice", "hint": "PDF / XML", "signed": false }
       ]
     },
     "roles": {
@@ -127,6 +192,17 @@
         { "name": "Plaster mix", "pct": 38, "val": "64 kg" }
       ]
     },
+    "audit": {
+      "title": "Čo sa deje na stavbe dnes",
+      "body": "",
+      "live_label": "LIVE",
+      "events": [
+        { "time": "14:32", "role": "Stavbyvedúci", "action": "prevzal dodávku M500 · 2 t", "dot": "ok" },
+        { "time": "11:40", "role": "Nákupca", "action": "uzavrel deficit Rebar ⌀12", "dot": "accent" },
+        { "time": "09:15", "role": "Riaditeľ", "action": "schválil BoQ pre Blok V", "dot": "def" },
+        { "time": "08:02", "role": "Systém", "action": "vytvoril dokumenty automaticky", "dot": "ok" }
+      ]
+    },
     "connector": {
       "label": "Všetko je prepojené v jednom obryse",
       "chain": ["Objekt", "BoQ", "Sklad", "Dokumenty", "Report"]
@@ -146,6 +222,16 @@
         ["Rebar ⌀12 mm", "85 kg/m³", "3 264 kg"],
         ["Brick 250×120×65", "400 pc/m²", "12 800 pc"],
         ["Cement M500", "320 kg/m³", "12 288 kg"]
+      ],
+      "total": {
+        "label": "Object total",
+        "meta": "4 line items",
+        "value": "128 460 €"
+      },
+      "kpis": [
+        { "value": "4", "label": "materials", "mod": "" },
+        { "value": "126%", "label": "vs norms", "mod": "accent" },
+        { "value": "0", "label": "deviations", "mod": "ok" }
       ]
     },
     "shortage": {
@@ -161,15 +247,32 @@
     "flow": {
       "title": "Site material flow",
       "body": "Materials travel a chain: delivery → acceptance → stock → in use.",
-      "chips": ["Delivery", "Acceptance", "Stock", "In use"]
+      "chips": ["Delivery", "Acceptance", "Stock", "In use"],
+      "stages": [
+        { "key": "delivery", "label": "Delivery", "count": "17" },
+        { "key": "accept", "label": "Acceptance", "count": "15" },
+        { "key": "stock", "label": "Stock", "count": "42", "active": true },
+        { "key": "in_use", "label": "In use", "count": "31" }
+      ],
+      "stats": [
+        { "value": "17", "label": "deliveries in April", "mod": "" },
+        { "value": "105", "label": "items in contour", "mod": "accent" },
+        { "value": "26", "label": "documents signed", "mod": "ok" }
+      ],
+      "last_event": {
+        "prefix": "Last acceptance:",
+        "material": "Cement M500",
+        "qty": "2 t",
+        "time": "11:40"
+      }
     },
     "docs": {
       "title": "Unified document register",
       "body": "Delivery notes, work acceptances, invoices — in one register. Export to PDF / Excel.",
       "formats": [
-        { "fmt": "Delivery note", "hint": "PDF · signed" },
-        { "fmt": "Work acceptance", "hint": "PDF · signed" },
-        { "fmt": "Invoice", "hint": "PDF / XML" }
+        { "fmt": "Delivery note", "hint": "PDF · signed", "signed": true },
+        { "fmt": "Work acceptance", "hint": "PDF · signed", "signed": true },
+        { "fmt": "Invoice", "hint": "PDF / XML", "signed": false }
       ]
     },
     "roles": {
@@ -192,6 +295,17 @@
         { "name": "Cement M500", "pct": 14, "val": "120 kg", "low": true },
         { "name": "Bricks", "pct": 82, "val": "3 280 pc" },
         { "name": "Plaster mix", "pct": 38, "val": "64 kg" }
+      ]
+    },
+    "audit": {
+      "title": "What's on site today",
+      "body": "",
+      "live_label": "LIVE",
+      "events": [
+        { "time": "14:32", "role": "Site manager", "action": "accepted delivery M500 · 2 t", "dot": "ok" },
+        { "time": "11:40", "role": "Procurement", "action": "closed shortage Rebar ⌀12", "dot": "accent" },
+        { "time": "09:15", "role": "Director", "action": "approved BoQ for Block V", "dot": "def" },
+        { "time": "08:02", "role": "System", "action": "generated documents automatically", "dot": "ok" }
       ]
     },
     "connector": {

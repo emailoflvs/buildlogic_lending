@@ -3,6 +3,7 @@ import inside from '../content/inside.json';
 import { type Locale, DEFAULT_LOCALE } from '../lib/i18n';
 import InsideBoq from './inside/InsideBoq.astro';
 import InsideShortage from './inside/InsideShortage.astro';
+import InsideAudit from './inside/InsideAudit.astro';
 import InsideFlow from './inside/InsideFlow.astro';
 import InsideDocs from './inside/InsideDocs.astro';
 import InsideRoles from './inside/InsideRoles.astro';
@@ -22,6 +23,7 @@ const t = inside[locale];
     <div class="bento">
       <InsideBoq />
       <InsideShortage />
+      <InsideAudit />
       <InsideFlow />
       <InsideDocs />
       <InsideRoles />
@@ -39,7 +41,13 @@ const t = inside[locale];
 
   .bento {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 1.3fr 1fr 1fr;
+    grid-template-areas:
+      "boq boq shortage"
+      "boq boq audit"
+      "flow docs roles"
+      "stock stock stock";
+    grid-auto-rows: minmax(180px, auto);
     gap: var(--space-4);
     margin-bottom: var(--space-4);
   }
@@ -55,7 +63,13 @@ const t = inside[locale];
     transform: translateY(-2px);
     box-shadow: 0 40px 60px -30px rgba(31, 59, 52, 0.25);
   }
-  .bento :global(.mod--2fr) { grid-column: span 2; }
+  .bento :global(.mod-boq)      { grid-area: boq; }
+  .bento :global(.mod-shortage) { grid-area: shortage; }
+  .bento :global(.mod-audit)    { grid-area: audit; }
+  .bento :global(.mod-flow)     { grid-area: flow; }
+  .bento :global(.mod-docs)     { grid-area: docs; }
+  .bento :global(.mod-roles)    { grid-area: roles; }
+  .bento :global(.mod-stock)    { grid-area: stock; }
   .bento :global(.mod-head) { display: flex; gap: var(--space-3); align-items: flex-start; }
   .bento :global(.mod-icon) {
     width: 36px; height: 36px; flex-shrink: 0;
@@ -86,7 +100,16 @@ const t = inside[locale];
   }
 
   @media (max-width: 900px) {
-    .bento { grid-template-columns: 1fr; }
-    .bento :global(.mod--2fr) { grid-column: span 1; }
+    .bento {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "boq"
+        "shortage"
+        "audit"
+        "flow"
+        "docs"
+        "roles"
+        "stock";
+    }
   }
 </style>

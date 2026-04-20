@@ -4,7 +4,7 @@ import { type Locale, DEFAULT_LOCALE } from '../../lib/i18n';
 const locale = (Astro.currentLocale ?? DEFAULT_LOCALE) as Locale;
 const c = inside[locale].boq;
 ---
-<div class="mod mod--2fr">
+<div class="mod mod-boq">
   <div class="mod-head">
     <div class="mod-icon">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm0 4h10M8 11h2m3 0h3M8 14h2m3 0h3M8 17h8"/></svg>
@@ -20,6 +20,19 @@ const c = inside[locale].boq;
         <span class="need">{r[2]}</span>
       </div>
     ))}
+    <div class="boq-row boq-total">
+      <span class="name">{c.total.label} <span class="total-meta">{c.total.meta}</span></span>
+      <span class="norm"></span>
+      <span class="need total-value">{c.total.value}</span>
+    </div>
+  </div>
+  <div class="boq-kpis">
+    {c.kpis.map((k) => (
+      <div class={`boq-kpi${k.mod ? ` boq-kpi--${k.mod}` : ''}`}>
+        <b>{k.value}</b>
+        <span>{k.label}</span>
+      </div>
+    ))}
   </div>
 </div>
 
@@ -31,4 +44,39 @@ const c = inside[locale].boq;
   .boq-row .name { color: var(--bl-ink); }
   .boq-row .norm { color: var(--bl-muted); }
   .boq-row .need { color: var(--bl-green); font-weight: 600; }
+
+  .boq-total { background: var(--bl-paper-2); font-weight: 600; }
+  .boq-total .name { color: var(--bl-ink); }
+  .total-meta { font-weight: 400; font-size: 10px; color: var(--bl-muted); margin-left: 6px; }
+  .total-value { color: var(--bl-accent-ink) !important; }
+
+  .boq-kpis {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--bl-card-stroke);
+    margin-top: auto;
+  }
+  .boq-kpi {
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .boq-kpi + .boq-kpi {
+    border-left: 1px solid var(--bl-card-stroke);
+  }
+  .boq-kpi b {
+    font-family: var(--bl-font-display);
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1;
+    color: var(--bl-ink);
+  }
+  .boq-kpi span {
+    font-size: 11px;
+    color: var(--bl-muted);
+    line-height: 1.3;
+  }
+  .boq-kpi--accent b { color: var(--bl-accent-ink); }
+  .boq-kpi--ok b { color: var(--bl-ok); }
 </style>
