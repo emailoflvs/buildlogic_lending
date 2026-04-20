@@ -6,7 +6,6 @@ import InsideShortage from './inside/InsideShortage.astro';
 import InsideAudit from './inside/InsideAudit.astro';
 import InsideFlow from './inside/InsideFlow.astro';
 import InsideDocs from './inside/InsideDocs.astro';
-import InsideRoles from './inside/InsideRoles.astro';
 import InsideStock from './inside/InsideStock.astro';
 import InsideConnector from './inside/InsideConnector.astro';
 const locale = (Astro.currentLocale ?? DEFAULT_LOCALE) as Locale;
@@ -23,10 +22,9 @@ const t = inside[locale];
     <div class="bento">
       <InsideBoq />
       <InsideShortage />
-      <InsideAudit />
       <InsideFlow />
       <InsideDocs />
-      <InsideRoles />
+      <InsideAudit />
       <InsideStock />
     </div>
 
@@ -44,8 +42,8 @@ const t = inside[locale];
     grid-template-columns: 1.3fr 1fr 1fr;
     grid-template-areas:
       "boq boq shortage"
-      "boq boq audit"
-      "flow docs roles"
+      "boq boq shortage"
+      "flow docs audit"
       "stock stock stock";
     grid-auto-rows: minmax(180px, auto);
     gap: var(--space-4);
@@ -68,7 +66,6 @@ const t = inside[locale];
   .bento :global(.mod-audit)    { grid-area: audit; }
   .bento :global(.mod-flow)     { grid-area: flow; }
   .bento :global(.mod-docs)     { grid-area: docs; }
-  .bento :global(.mod-roles)    { grid-area: roles; }
   .bento :global(.mod-stock)    { grid-area: stock; }
   .bento :global(.mod-head) { display: flex; gap: var(--space-3); align-items: flex-start; }
   .bento :global(.mod-icon) {
@@ -105,10 +102,9 @@ const t = inside[locale];
       grid-template-areas:
         "boq"
         "shortage"
-        "audit"
         "flow"
         "docs"
-        "roles"
+        "audit"
         "stock";
     }
   }

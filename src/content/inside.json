@@ -31,7 +31,9 @@
         { "name": "Cement M500", "val": "−120 kg", "state": "def" },
         { "name": "Concrete C25", "val": "+840 l", "state": "ok" },
         { "name": "Rebar ⌀12", "val": "−45 kg", "state": "def" },
-        { "name": "Bricks", "val": "+2 400 шт", "state": "ok" }
+        { "name": "Bricks", "val": "+2 400 шт", "state": "ok" },
+        { "name": "Plaster mix", "val": "+400 kg", "state": "ok" },
+        { "name": "Paint PU-150", "val": "−18 l", "state": "def" }
       ]
     },
     "flow": {
@@ -136,7 +138,9 @@
         { "name": "Cement M500", "val": "−120 kg", "state": "def" },
         { "name": "Concrete C25", "val": "+840 l", "state": "ok" },
         { "name": "Rebar ⌀12", "val": "−45 kg", "state": "def" },
-        { "name": "Bricks", "val": "+2 400 ks", "state": "ok" }
+        { "name": "Bricks", "val": "+2 400 ks", "state": "ok" },
+        { "name": "Plaster mix", "val": "+400 kg", "state": "ok" },
+        { "name": "Paint PU-150", "val": "−18 l", "state": "def" }
       ]
     },
     "flow": {
@@ -241,7 +245,9 @@
         { "name": "Cement M500", "val": "−120 kg", "state": "def" },
         { "name": "Concrete C25", "val": "+840 l", "state": "ok" },
         { "name": "Rebar ⌀12", "val": "−45 kg", "state": "def" },
-        { "name": "Bricks", "val": "+2 400 pc", "state": "ok" }
+        { "name": "Bricks", "val": "+2 400 pc", "state": "ok" },
+        { "name": "Plaster mix", "val": "+400 kg", "state": "ok" },
+        { "name": "Paint PU-150", "val": "−18 l", "state": "def" }
       ]
     },
     "flow": {

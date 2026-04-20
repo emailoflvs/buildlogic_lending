@@ -24,7 +24,8 @@ const c = inside[locale].shortage;
 </div>
 
 <style>
-  .short-list { padding: 10px; display: flex; flex-direction: column; gap: 6px; }
+  .short-list { padding: 10px; display: flex; flex-direction: column; gap: 6px; height: 100%; }
+  .mod-shortage :global(.mod-preview) { flex: 1; display: flex; flex-direction: column; }
   .short-item { display: flex; justify-content: space-between; align-items: center; padding: 9px 12px; border-radius: 8px; font-size: 12px; }
   .short-item--def { background: var(--bl-def-bg); }
   .short-item--ok { background: var(--bl-ok-bg); }
