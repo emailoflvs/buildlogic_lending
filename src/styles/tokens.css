@@ -1,19 +1,49 @@
 :root {
-  --bg: #f4efe7;
-  --surface: #fffdfa;
-  --surface-2: #fbf8f3;
-  --card: #ffffff;
-  --text: #1e2b33;
-  --muted: #61717c;
-  --line: #ddd3c4;
-  --line-2: #ece4d8;
-  --primary: #234f48;
-  --primary-2: #1b3e38;
-  --accent: #bf9461;
-  --accent-soft: #efe3d3;
-  --success: #347451;
-  --warn: #c08a3e;
-  --danger: #a84c49;
+  /* ====== Palette ====== */
+  --bl-green-deep: #1f3b34;
+  --bl-green: #2a4a42;
+  --bl-green-ink: #eef1ea;
+  --bl-paper: #f3ede0;
+  --bl-paper-2: #eee6d4;
+  --bl-accent: #c98e4f;
+  --bl-accent-soft: #e7c89a;
+  --bl-accent-ink: #8a5a2a;
+  --bl-def: #c75252;
+  --bl-def-bg: #fceeea;
+  --bl-ok: #3f8a5a;
+  --bl-ok-bg: #e7f1e7;
+  --bl-ink: #1f3b34;
+  --bl-ink-2: #3a4945;
+  --bl-muted: #6b7a74;
+  --bl-card: #ffffff;
+  --bl-card-stroke: #d9d1bf;
+
+  /* ====== Legacy aliases (keep until full migration) ====== */
+  --bg: var(--bl-paper);
+  --surface: var(--bl-card);
+  --surface-2: var(--bl-paper-2);
+  --card: var(--bl-card);
+  --text: var(--bl-ink);
+  --muted: var(--bl-muted);
+  --line: var(--bl-card-stroke);
+  --line-2: var(--bl-paper-2);
+  --primary: var(--bl-green);
+  --primary-2: var(--bl-green-deep);
+  --accent: var(--bl-accent);
+  --accent-soft: var(--bl-accent-soft);
+  --success: var(--bl-ok);
+  --warn: var(--bl-accent-ink);
+  --danger: var(--bl-def);
+
+  /* ====== Typography ====== */
+  --bl-font-display: 'Fraunces', Georgia, serif;
+  --bl-font-body: 'Inter Tight', 'Inter', system-ui, sans-serif;
+  --bl-font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* ====== Motion ====== */
+  --bl-ease: cubic-bezier(.2,.7,.2,1);
+
+  /* ====== Layout (unchanged) ====== */
   --shadow: 0 18px 40px rgba(37, 40, 32, 0.08);
   --radius-xl: 28px;
   --radius-lg: 22px;
