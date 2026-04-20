@@ -51,22 +51,29 @@ const heroDash = illus[locale].hero_dash;
     let timer = null;
     let paused = false;
 
+    // Cache tile element references and their scoped-style-safe inner spans.
+    // We MUTATE existing SSR-rendered tiles rather than re-innerHTML them, so
+    // Astro's scoped-CSS data attributes survive across step changes.
+    const tileEls = tilesEl.querySelectorAll('.kpi-tile');
+    const tileParts = Array.from(tileEls).map((el) => ({
+      root: el,
+      label: el.querySelector('.kpi-tile-label'),
+      num: el.querySelector('.kpi-tile-num'),
+      hint: el.querySelector('.kpi-tile-hint'),
+    }));
+
     function renderStep(i) {
       const s = steps[i];
       titleEl.textContent = s.title;
       statusEl.textContent = '● ' + s.status;
-      tilesEl.innerHTML = s.tiles
-        .map(
-          (t) =>
-            '<div class="kpi-tile' +
-            (t.mod ? ' kpi-tile--' + t.mod : '') +
-            '">' +
-            '<div class="kpi-tile-label">' + t.l + '</div>' +
-            '<div class="kpi-tile-num">' + t.n + '</div>' +
-            '<div class="kpi-tile-hint">' + t.h + '</div>' +
-            '</div>'
-        )
-        .join('');
+      s.tiles.forEach((t, j) => {
+        const parts = tileParts[j];
+        if (!parts) return;
+        parts.root.className = 'kpi-tile' + (t.mod ? ' kpi-tile--' + t.mod : '');
+        parts.label.textContent = t.l;
+        parts.num.textContent = t.n;
+        parts.hint.textContent = t.h;
+      });
       stepBtns.forEach((btn, j) => {
         const active = j === i;
         btn.classList.toggle('kpi-step--active', active);
