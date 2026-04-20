@@ -1,0 +1,34 @@
+---
+import inside from '../../content/inside.json';
+import { type Locale, DEFAULT_LOCALE } from '../../lib/i18n';
+const locale = (Astro.currentLocale ?? DEFAULT_LOCALE) as Locale;
+const c = inside[locale].stock;
+---
+<div class="mod mod--2fr">
+  <div class="mod-head">
+    <div class="mod-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18v4H3zM3 13h18v4H3zM5 7V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v2"/></svg>
+    </div>
+    <div><h3>{c.title}</h3><p>{c.body}</p></div>
+  </div>
+  <div class="mod-preview stock">
+    {c.items.map((it) => (
+      <div class="stock-row">
+        <span class="name">{it.name}</span>
+        <div class="bar"><div class={`fill${it.low ? ' low' : ''}`} style={`width:${it.pct}%`}/></div>
+        <span class={`val${it.low ? ' low' : ''}`}>{it.val}</span>
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .stock { padding: 14px 16px; display: flex; flex-direction: column; gap: 9px; }
+  .stock-row { display: grid; grid-template-columns: 130px 1fr auto; gap: 12px; align-items: center; font-size: 12px; }
+  .stock-row .name { color: var(--bl-ink-2); }
+  .stock-row .bar { height: 7px; background: var(--bl-paper-2); border-radius: 999px; overflow: hidden; }
+  .stock-row .fill { height: 100%; background: var(--bl-green); }
+  .stock-row .fill.low { background: var(--bl-def); }
+  .stock-row .val { font-weight: 600; color: var(--bl-ink); }
+  .stock-row .val.low { color: var(--bl-def); }
+</style>

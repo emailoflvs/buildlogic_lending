@@ -1,0 +1,32 @@
+---
+import inside from '../../content/inside.json';
+import { type Locale, DEFAULT_LOCALE } from '../../lib/i18n';
+const locale = (Astro.currentLocale ?? DEFAULT_LOCALE) as Locale;
+const c = inside[locale].connector;
+---
+<div class="inside-connector">
+  <div>
+    <div class="label">{c.label}</div>
+    <div class="chain">
+      {c.chain.map((item, i) => (
+        <>
+          <span class="chain-item">{item}</span>
+          {i < c.chain.length - 1 && <span class="chain-sep">→</span>}
+        </>
+      ))}
+    </div>
+  </div>
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--bl-accent-soft)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+</div>
+
+<style>
+  .inside-connector {
+    background: var(--bl-green-deep); color: var(--bl-green-ink);
+    padding: 18px 24px; border-radius: var(--radius-md);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .label { font-family: var(--bl-font-mono); font-size: 11px; letter-spacing: 0.15em; color: var(--bl-accent-soft); text-transform: uppercase; }
+  .chain { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; font-size: 13px; font-weight: 600; margin-top: 4px; }
+  .chain-item { color: var(--bl-accent-soft); }
+  .chain-sep { color: var(--bl-green-ink); opacity: 0.6; }
+</style>
