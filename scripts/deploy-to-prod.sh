@@ -9,9 +9,9 @@
 #      1. verify local main == origin/main (dev is source of truth)
 #      2. clone prod repo into temp dir
 #      3. fetch dev main into the temp clone
-#      4. merge dev/main into prod/main (prefers dev on conflict)
+#      4. reset prod main to dev main (linear — no merge commits)
 #      5. git rm -r each EXCLUDE_PATHS entry that is tracked
-#      6. commit + push prod/main
+#      6. force-push prod/main (prod is always "dev main + one strip commit")
 #   B. trigger server: git pull + docker compose up -d --build
 #
 # Server pulls from DEV repo directly (via deploy key at github-buildlogic).
@@ -57,27 +57,41 @@ git config user.name "$GIT_NAME"
 git remote add dev "$DEV_URL"
 git fetch --quiet dev main
 
-BEFORE_MERGE=$(git rev-parse HEAD)
-git merge dev/main -X theirs --no-edit >/dev/null
+# idempotency check: prod is "up to date" if its HEAD's parent equals current
+# dev/main tip AND no EXCLUDE_PATHS are tracked in prod. Skip push in that case.
+PROD_HEAD=$(git rev-parse HEAD)
+PROD_PARENT=$(git rev-parse HEAD^ 2>/dev/null || echo none)
+DEV_TIP=$(git rev-parse dev/main)
 
-STRIPPED=0
-for p in "${EXCLUDE_PATHS[@]}"; do
-  if git ls-files --error-unmatch "$p" >/dev/null 2>&1; then
-    echo "→ removing $p/ from prod tree"
-    git rm -rf --quiet "$p"
-    STRIPPED=$((STRIPPED + 1))
+NEEDS_PUSH=true
+if [[ "$PROD_PARENT" == "$DEV_TIP" ]]; then
+  TRACKED_EXCLUDES=0
+  for p in "${EXCLUDE_PATHS[@]}"; do
+    if git ls-files --error-unmatch "$p" >/dev/null 2>&1; then
+      TRACKED_EXCLUDES=$((TRACKED_EXCLUDES + 1))
+    fi
+  done
+  if (( TRACKED_EXCLUDES == 0 )); then
+    NEEDS_PUSH=false
   fi
-done
-
-if (( STRIPPED > 0 )); then
-  git commit --quiet -m "deploy: strip internal paths (${EXCLUDE_PATHS[*]}) from prod"
 fi
 
-if [[ "$(git rev-parse HEAD)" == "$BEFORE_MERGE" ]]; then
-  echo "✓ prod repo already up to date (${BEFORE_MERGE:0:7})"
+if ! $NEEDS_PUSH; then
+  echo "✓ prod repo already up to date (${PROD_HEAD:0:7})"
 else
-  echo "→ pushing prod main"
-  git push --quiet origin main
+  # rebuild prod main: reset to dev tip, strip excluded paths, one commit on top
+  git reset --hard --quiet dev/main
+  for p in "${EXCLUDE_PATHS[@]}"; do
+    if git ls-files --error-unmatch "$p" >/dev/null 2>&1; then
+      echo "→ removing $p/ from prod tree"
+      git rm -rf --quiet "$p"
+    fi
+  done
+  if ! git diff --cached --quiet; then
+    git commit --quiet -m "deploy: strip internal paths (${EXCLUDE_PATHS[*]}) from prod"
+  fi
+  echo "→ pushing prod main (force — linear rebuild on top of dev)"
+  git push --force-with-lease --quiet origin main
   echo "✓ prod repo: dev ${LOCAL:0:7} → prod $(git rev-parse --short HEAD)"
 fi
 
