@@ -25,23 +25,18 @@ npm run test         # unit (vitest)
 npm run test:e2e     # e2e (playwright)
 ```
 
-## Deploy to production
-
-Same image; place behind external nginx/Caddy with TLS.
-Example reverse-proxy config: `docs/deployment/nginx-reverse-proxy.conf.example`.
-
 ## Trackers
 
 Set `.env` values from `.env.example`. Empty values disable the respective tracker. All loading gated by user consent (Google Consent Mode v2).
 
-## Spec and plan
-
-- `docs/superpowers/specs/2026-04-17-buildlogic-landing-design.md`
-- `docs/superpowers/plans/2026-04-17-buildlogic-landing.md`
-
 ## Production deployment (buildlogic.eu)
 
-1. On the production host: clone repo, `docker compose up -d --build`. Container listens on `127.0.0.1:4321`.
-2. Put the reverse-proxy config from `docs/deployment/nginx-reverse-proxy.conf.example` into `/etc/nginx/sites-available/buildlogic.eu.conf`, symlink into `sites-enabled/`, and reload nginx.
-3. Provision TLS via certbot (`certbot --nginx -d buildlogic.eu -d www.buildlogic.eu`).
-4. Update `.env` on the host with real tracker IDs (GA4 / Meta / LinkedIn) and rebuild.
+The live site runs on a Debian host behind Traefik v3 (Docker) with Let's Encrypt TLS. The landing container exposes port 80 internally and is routed via Docker labels on the `proxy` network — no host nginx, no certbot on the host.
+
+Deploy flow:
+
+1. Commit changes to this repo and push to `origin/main`.
+2. Run `./scripts/deploy-to-prod.sh` — this syncs the production git repo (strips internal paths like `docs/`).
+3. Rsync/tar the source to the server's `/opt/docker-projects/buildlogic_www/` and rebuild: `docker compose up -d --build`.
+
+Traefik labels, network wiring, and rollback notes live in the internal ops notes (not in this repo).
