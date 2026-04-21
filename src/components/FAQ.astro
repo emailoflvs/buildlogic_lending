@@ -4,7 +4,7 @@ import { type Locale, DEFAULT_LOCALE } from '../lib/i18n';
 const locale = (Astro.currentLocale ?? DEFAULT_LOCALE) as Locale;
 const t = faq[locale];
 ---
-<section class="section" id="faq">
+<section class="section faq-sec" id="faq">
   <div class="container faq-wrap">
     <div class="head">
       <span class="eyebrow">{t.eyebrow}</span>
@@ -26,6 +26,7 @@ const t = faq[locale];
 </section>
 
 <style>
+  .faq-sec { background: var(--bl-paper-2); }
   .faq-wrap { max-width: 820px; margin: 0 auto; }
   .head { text-align: center; margin-bottom: var(--space-12); }
   .head h2 { margin-top: var(--space-4); }

@@ -11,7 +11,7 @@ import InsideConnector from './inside/InsideConnector.astro';
 const locale = (Astro.currentLocale ?? DEFAULT_LOCALE) as Locale;
 const t = inside[locale];
 ---
-<section class="section" id="inside">
+<section class="section inside-sec" id="inside">
   <div class="container">
     <div class="head">
       <span class="eyebrow">{t.eyebrow}</span>
@@ -33,6 +33,7 @@ const t = inside[locale];
 </section>
 
 <style>
+  .inside-sec { background: var(--bl-paper-2); }
   .head { max-width: 640px; margin: 0 auto var(--space-12); text-align: center; }
   .head h2 { margin-top: var(--space-4); }
   .head .lead { color: var(--bl-ink-2); margin-top: var(--space-3); font-size: 15px; }

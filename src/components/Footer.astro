@@ -10,16 +10,12 @@ const year = new Date().getFullYear();
   <div class="container footer-inner">
     <div class="f-brand">
       <span class="brand-mark">BL</span>
-      <div>
-        <strong>BuildLogic</strong>
-        <p>{t.footer.legal_placeholder}</p>
-      </div>
+      <strong>BuildLogic</strong>
     </div>
     <nav class="f-links" aria-label="Legal">
       <a href={localizePath('/privacy/', locale)}>{t.footer.privacy}</a>
       <a href={localizePath('/cookies/', locale)}>{t.footer.cookies}</a>
       <button type="button" class="link-btn" data-cookie-settings>{t.footer.cookie_settings}</button>
-      <a href={`mailto:${t.footer.contact_email}`}>{t.footer.contact_email}</a>
     </nav>
     <p class="f-copy">© {year} BuildLogic. {t.footer.rights}.</p>
   </div>
@@ -37,15 +33,20 @@ const year = new Date().getFullYear();
     gap: var(--space-8);
     align-items: center;
   }
-  .f-brand { display: flex; gap: var(--space-3); align-items: flex-start; }
+  .f-brand { display: flex; gap: var(--space-3); align-items: center; }
   .f-brand .brand-mark {
     width: 44px; height: 44px; border-radius: 14px;
     background: var(--bl-accent); color: var(--bl-green-deep);
     display: grid; place-items: center;
     font-weight: 800; font-size: 18px;
   }
-  .f-brand strong { color: var(--bl-ink); font-size: 16px; }
-  .f-brand p { margin: 4px 0 0; font-size: 12px; color: var(--bl-accent-ink); }
+  .f-brand strong {
+    color: var(--bl-ink);
+    font-family: var(--bl-font-display);
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: -0.01em;
+  }
   .f-links {
     display: flex; gap: var(--space-5); flex-wrap: wrap; justify-content: flex-end;
   }
