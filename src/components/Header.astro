@@ -8,7 +8,7 @@ const { path = '/' } = Astro.props;
 const locale = (Astro.currentLocale ?? DEFAULT_LOCALE) as Locale;
 const t = common[locale];
 ---
-<header class="site-header" id="top">
+<header class="site-header">
   <div class="container header-inner">
     <a href={path === '/' ? '#top' : '/'} class="brand">
       <span class="brand-mark">BL</span>
