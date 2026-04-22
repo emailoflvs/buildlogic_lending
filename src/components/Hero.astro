@@ -26,12 +26,6 @@ const t = hero[locale];
         <a href="#workflow" class="btn btn-secondary">▶ {t.cta_secondary}</a>
       </div>
       <p class="hero-note">{t.note}</p>
-      <div class="hero-audience">
-        <span class="hero-audience-label">{t.audience_label}</span>
-        <div class="hero-chips">
-          {t.audience_chips.map((c) => <span class="hero-chip">{c}</span>)}
-        </div>
-      </div>
     </div>
     <div class="hero-visual">
       <HeroKpi />
@@ -40,7 +34,7 @@ const t = hero[locale];
 </section>
 
 <style>
-  .hero { position: relative; overflow: hidden; padding-top: 60px; }
+  .hero { position: relative; overflow: hidden; padding-top: 60px; background: var(--bl-paper); }
   .hero-grid {
     position: relative; z-index: 1;
     display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
@@ -67,16 +61,6 @@ const t = hero[locale];
   .hero-lead { font-size: 18px; color: var(--bl-ink-2); margin-top: var(--space-4); line-height: 1.55; max-width: 520px; }
   .hero-actions { display: flex; gap: var(--space-3); margin-top: var(--space-6); flex-wrap: wrap; }
   .hero-note { font-size: 13px; color: var(--bl-muted); margin-top: var(--space-4); }
-  .hero-audience { margin-top: var(--space-8); }
-  .hero-audience-label {
-    font-family: var(--bl-font-mono); font-size: 11px; color: var(--bl-muted);
-    letter-spacing: 0.15em; text-transform: uppercase;
-  }
-  .hero-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: var(--space-2); }
-  .hero-chip {
-    padding: 5px 12px; border-radius: 999px; background: var(--bl-paper-2);
-    font-size: 12px; color: var(--bl-ink-2);
-  }
 
   @media (max-width: 960px) {
     .hero-grid { grid-template-columns: 1fr; }

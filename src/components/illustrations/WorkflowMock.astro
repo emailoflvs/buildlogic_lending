@@ -1,0 +1,296 @@
+---
+import mocks from '../../content/workflow_mocks.json';
+import { type Locale, DEFAULT_LOCALE } from '../../lib/i18n';
+
+interface Props {
+  step: 1 | 2 | 3 | 4 | 5;
+}
+const { step } = Astro.props;
+const locale = (Astro.currentLocale ?? DEFAULT_LOCALE) as Locale;
+const m = mocks[locale];
+---
+
+<div class="wm">
+  {step === 1 && (
+    <div class="wm-screen">
+      <div class="wm-head">
+        <div>
+          <div class="wm-title">{m.step1.heading}</div>
+          <div class="wm-sub">{m.step1.subheading}</div>
+        </div>
+        <div class="wm-btn wm-btn--primary">{m.step1.btn_upload}</div>
+      </div>
+      <div class="wm-toolbar">
+        <div class="wm-input wm-input--search"><span>⌕</span> —</div>
+        <div class="wm-select">{m.step1.filter_all} ▾</div>
+      </div>
+      <div class="wm-block">
+        <div class="wm-block-title">{m.step1.count}</div>
+        <table class="wm-table">
+          <thead><tr>{m.step1.cols.map((c) => <th>{c}</th>)}</tr></thead>
+          <tbody>
+            {m.step1.rows.map((r) => (
+              <tr>
+                <td class="wm-c-file"><span class="wm-i">▤</span> {r.file}</td>
+                <td>{r.supplier}</td>
+                <td>
+                  {r.status === 'pending'
+                    ? <span class="wm-pill wm-pill--pending">{m.step1.status_pending}</span>
+                    : <span class="wm-pill wm-pill--ok">{m.step1.status_ok}</span>
+                  }
+                </td>
+                <td class="wm-muted">{r.date}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  )}
+
+  {step === 2 && (
+    <div class="wm-screen">
+      <div class="wm-title wm-title--s2">{m.step2.heading}</div>
+      <div class="wm-section">
+        <div class="wm-section-title">{m.step2.sections.parties} ▾</div>
+        <div class="wm-parties">
+          {['supplier','consignee','customer'].map((k) => (
+            <div class="wm-party">
+              <div class="wm-party-label">{m.step2.party_labels[k]}</div>
+              <div class="wm-party-name">{k === 'supplier' ? 'WOODCOTE GROUP a.s.' : 'NN-Bau Slovensko s.r.o.'}</div>
+              <div class="wm-party-addr">{k === 'supplier' ? 'Vajnorská 135, Bratislava' : 'Bratislavská cesta 4303'}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div class="wm-section">
+        <div class="wm-section-title">{m.step2.sections.totals} ▾</div>
+        <div class="wm-totals">
+          <div><span>{m.step2.totals_labels.base}:</span> <b>1 178,69</b></div>
+          <div><span>{m.step2.totals_labels.vat}:</span> <b>38,14</b></div>
+          <div><span>{m.step2.totals_labels.total}:</span> <b class="wm-accent">1 216,83</b></div>
+        </div>
+      </div>
+      <div class="wm-section">
+        <div class="wm-section-title">{m.step2.sections.positions} ▾</div>
+        <table class="wm-table">
+          <thead><tr>{m.step2.pos_cols.map((c) => <th>{c}</th>)}</tr></thead>
+          <tbody>
+            {m.step2.pos_rows.map((r, i) => (
+              <tr>
+                <td>{i + 1}</td>
+                <td>{r.name}</td>
+                <td class="wm-muted">{r.qty}</td>
+                <td>{r.sum}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  )}
+
+  {step === 3 && (
+    <div class="wm-screen">
+      <div class="wm-head">
+        <div>
+          <div class="wm-title">{m.step3.heading}</div>
+          <div class="wm-sub">{m.step3.subheading}</div>
+        </div>
+        <div class="wm-btns">
+          <div class="wm-btn wm-btn--primary">{m.step3.btn_new}</div>
+          <div class="wm-btn">{m.step3.btn_export}</div>
+        </div>
+      </div>
+      <div class="wm-filters">
+        {m.step3.filters.map((f) => (<div class="wm-filter">{f} ▾</div>))}
+      </div>
+      <table class="wm-table">
+        <thead><tr>{m.step3.cols.map((c) => <th>{c}</th>)}</tr></thead>
+        <tbody>
+          {m.step3.rows.map((r) => (
+            <tr>
+              <td>{r.num}</td>
+              <td><span class={`wm-type wm-type--${r.type}`}>{m.step3.types[r.type]}</span></td>
+              <td class="wm-muted">{r.date}</td>
+              <td class="wm-muted">{r.obj}</td>
+              <td>{r.sum}</td>
+              <td><span class="wm-pill wm-pill--info">{m.step3.status_checked}</span></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )}
+
+  {step === 4 && (
+    <div class="wm-screen">
+      <div class="wm-title">{m.step4.heading}</div>
+      <div class="wm-toolbar">
+        <div class="wm-input wm-input--search"><span>⌕</span> {m.step4.search_ph}</div>
+        <div class="wm-select">{m.step4.filter_all} ▾</div>
+      </div>
+      <table class="wm-table">
+        <thead><tr>{m.step4.cols.map((c) => <th>{c}</th>)}</tr></thead>
+        <tbody>
+          {m.step4.rows.map((r) => (
+            <tr>
+              <td class="wm-c-name">{r.name}</td>
+              <td class="wm-muted">{r.unit === 'pc' ? m.step4.unit_pc : m.step4.unit_m}</td>
+              <td>{r.in}</td>
+              <td class="wm-muted">{r.used}</td>
+              <td class="wm-ok">{r.rest}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )}
+
+  {step === 5 && (
+    <div class="wm-screen">
+      <div class="wm-head">
+        <div>
+          <div class="wm-title">{m.step5.heading}</div>
+          <div class="wm-sub">{m.step5.subheading}</div>
+        </div>
+        <div class="wm-btn wm-btn--primary">{m.step5.btn_build}</div>
+      </div>
+      <div class="wm-report-filters">
+        <div><span>{m.step5.year}</span> <b>2026</b></div>
+        <div><span>{m.step5.month}</span> <b>04</b></div>
+      </div>
+      <div class="wm-kpi-row">
+        {m.step5.tiles.map((t) => (
+          <div class={`wm-kpi${t.mod ? ' wm-kpi--' + t.mod : ''}`}>
+            <div class="wm-kpi-label">{t.label}</div>
+            <div class="wm-kpi-value">{t.value}</div>
+          </div>
+        ))}
+      </div>
+      <div class="wm-top">
+        <div class="wm-top-title"><span class="wm-warn-dot">⚠</span> {m.step5.top_title}</div>
+        {m.step5.top_rows.map((r) => (
+          <div class="wm-top-row">
+            <div class="wm-top-name">{r.name}</div>
+            <div class={`wm-bar wm-bar--${r.mod}`} style={`width: ${r.w || 70}%`}></div>
+            <div class="wm-top-val">{r.val}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )}
+</div>
+
+<style>
+  .wm {
+    width: 100%; height: 100%;
+    display: flex; align-items: stretch; justify-content: stretch;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+  .wm-screen {
+    width: 100%; height: 100%;
+    background: #ffffff;
+    border: 1px solid #e2e4e8;
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 9px;
+    color: #1f2937;
+    display: flex; flex-direction: column; gap: 6px;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  .wm-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+  .wm-title { font-size: 12px; font-weight: 700; color: #0f172a; }
+  .wm-title--s2 { font-size: 11px; }
+  .wm-sub { font-size: 8px; color: #64748b; margin-top: 2px; }
+
+  .wm-btn {
+    font-size: 8px; font-weight: 500; padding: 4px 7px; border-radius: 4px;
+    background: #fff; border: 1px solid #e2e4e8; color: #334155;
+    white-space: nowrap;
+  }
+  .wm-btn--primary { background: #1e293b; color: #fff; border-color: #1e293b; }
+  .wm-btns { display: flex; gap: 4px; }
+
+  .wm-toolbar { display: flex; gap: 6px; padding: 4px 0; }
+  .wm-input, .wm-select {
+    flex: 1; font-size: 8px; padding: 4px 6px; border: 1px solid #e2e4e8;
+    border-radius: 4px; background: #fff; color: #64748b; display: flex; align-items: center; gap: 4px;
+  }
+  .wm-input--search span { color: #94a3b8; }
+  .wm-select { flex: 0 0 80px; color: #334155; }
+
+  .wm-block-title { font-size: 9px; font-weight: 600; color: #475569; margin-bottom: 3px; }
+
+  .wm-table { width: 100%; border-collapse: collapse; font-size: 8.5px; }
+  .wm-table th {
+    text-align: left; padding: 4px 3px; font-size: 7.5px; letter-spacing: 0.05em;
+    color: #94a3b8; font-weight: 500; border-bottom: 1px solid #e2e4e8;
+  }
+  .wm-table td {
+    padding: 4px 3px; border-bottom: 1px solid #f1f5f9;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .wm-table tr:last-child td { border-bottom: none; }
+  .wm-c-file { color: #2563eb; font-weight: 500; }
+  .wm-c-name { color: #0f172a; font-weight: 500; }
+  .wm-muted { color: #94a3b8; }
+  .wm-ok { color: #16a34a; font-weight: 600; }
+  .wm-accent { color: var(--bl-accent-ink, #8a5a2a); }
+  .wm-i { color: #94a3b8; }
+
+  .wm-pill { display: inline-block; padding: 1px 6px; border-radius: 999px; font-size: 7.5px; font-weight: 500; }
+  .wm-pill--ok { background: #e0f2fe; color: #0369a1; }
+  .wm-pill--info { background: #dbeafe; color: #1d4ed8; }
+  .wm-pill--pending { background: #fef3c7; color: #b45309; }
+
+  .wm-type { display: inline-block; padding: 1px 5px; border-radius: 3px; font-size: 7.5px; font-weight: 500; }
+  .wm-type--return { background: #fef3c7; color: #b45309; }
+  .wm-type--issue { background: #dbeafe; color: #1d4ed8; }
+  .wm-type--income { background: #dcfce7; color: #166534; }
+
+  /* step 2 */
+  .wm-section { border: 1px solid #eef0f3; border-radius: 4px; padding: 6px 8px; }
+  .wm-section-title { font-size: 9px; font-weight: 600; color: #334155; margin-bottom: 4px; }
+  .wm-parties { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 5px; }
+  .wm-party { border: 1px solid #eef0f3; border-radius: 3px; padding: 4px 5px; background: #fafbfc; }
+  .wm-party-label { font-size: 6.5px; letter-spacing: 0.05em; color: #94a3b8; font-weight: 600; }
+  .wm-party-name { font-size: 8px; font-weight: 500; color: #0f172a; margin-top: 1px; }
+  .wm-party-addr { font-size: 7px; color: #64748b; margin-top: 1px; line-height: 1.3; }
+  .wm-totals { display: flex; gap: 10px; font-size: 8px; }
+  .wm-totals span { color: #64748b; }
+  .wm-totals b { color: #0f172a; margin-left: 3px; font-weight: 600; }
+
+  /* step 3 */
+  .wm-filters { display: flex; gap: 4px; flex-wrap: wrap; }
+  .wm-filter {
+    font-size: 7.5px; padding: 3px 6px; border: 1px solid #e2e4e8;
+    border-radius: 4px; background: #fff; color: #64748b;
+  }
+
+  /* step 5 */
+  .wm-report-filters { display: flex; gap: 10px; font-size: 8px; color: #64748b; }
+  .wm-report-filters b { color: #0f172a; margin-left: 3px; }
+  .wm-kpi-row { display: grid; grid-template-columns: repeat(6, 1fr); gap: 3px; }
+  .wm-kpi { border: 1px solid #e2e4e8; border-radius: 4px; padding: 4px 5px; }
+  .wm-kpi-label { font-size: 6.5px; letter-spacing: 0.05em; color: #94a3b8; font-weight: 600; }
+  .wm-kpi-value { font-size: 11px; font-weight: 700; color: #0f172a; margin-top: 1px; }
+  .wm-kpi--accent { background: #fef3c7; border-color: #fde68a; }
+  .wm-kpi--accent .wm-kpi-value { color: #b45309; }
+  .wm-kpi--warn { background: #fee2e2; border-color: #fecaca; }
+  .wm-kpi--warn .wm-kpi-value { color: #b91c1c; }
+
+  .wm-top { border: 1px solid #eef0f3; border-radius: 4px; padding: 6px 8px; }
+  .wm-top-title { font-size: 8.5px; font-weight: 600; color: #475569; margin-bottom: 4px; }
+  .wm-warn-dot { color: #f59e0b; margin-right: 2px; }
+  .wm-top-row { display: grid; grid-template-columns: 100px 1fr 30px; gap: 6px; align-items: center; margin-top: 3px; font-size: 8px; }
+  .wm-top-name { color: #334155; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .wm-bar { height: 8px; border-radius: 2px; }
+  .wm-bar--warn { background: #ef4444; }
+  .wm-bar--accent { background: #f59e0b; }
+  .wm-top-val { text-align: right; color: #64748b; font-variant-numeric: tabular-nums; }
+</style>

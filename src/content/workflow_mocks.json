@@ -1,0 +1,287 @@
+{
+  "ru": {
+    "step1": {
+      "heading": "Распознанные документы",
+      "subheading": "Список всех распознанных документов",
+      "btn_upload": "Загрузить и распознать",
+      "filter_all": "Все статусы",
+      "count": "7 документов",
+      "cols": ["ФАЙЛ", "ПОСТАВЩИК", "СТАТУС", "ДАТА"],
+      "status_ok": "распознан",
+      "status_pending": "в обработке",
+      "rows": [
+        { "file": "№V6667001497", "supplier": "WOODCOTE GROUP a.s.", "date": "10.04.2026", "status": "ok" },
+        { "file": "№501052312", "supplier": "WOODCOTE GROUP a.s.", "date": "10.04.2026", "status": "ok" },
+        { "file": "№INV-2026-445", "supplier": "NN-Stavba s.r.o.", "date": "09.04.2026", "status": "ok" },
+        { "file": "№KM-09/26", "supplier": "STAVMAT EU a.s.", "date": "08.04.2026", "status": "ok" },
+        { "file": "№A7001234", "supplier": "HORNBACH Slovensko", "date": "08.04.2026", "status": "pending" },
+        { "file": "№TTN-04-118", "supplier": "BAUHAUS s.r.o.", "date": "07.04.2026", "status": "ok" },
+        { "file": "№F-2026-0073", "supplier": "KNAUF INSULATION", "date": "07.04.2026", "status": "ok" }
+      ]
+    },
+    "step2": {
+      "heading": "Проверка документа",
+      "sections": { "parties": "Стороны", "totals": "Итоги", "positions": "Позиции" },
+      "party_labels": { "supplier": "ПОСТАВЩИК", "consignee": "ПОЛУЧАТЕЛЬ", "customer": "ПЛАТЕЛЬЩИК" },
+      "totals_labels": { "base": "Основа", "vat": "НДС", "total": "К оплате" },
+      "pos_cols": ["№", "НАИМЕНОВАНИЕ", "КОЛ-ВО", "СУММА"],
+      "pos_rows": [
+        { "name": "BEK CW profil 75", "qty": "480 м", "sum": "456,96" },
+        { "name": "UA profil 75×40", "qty": "36 м", "sum": "120,53" },
+        { "name": "Profil ukončovací", "qty": "300 м", "sum": "59,94" },
+        { "name": "BEK UD profil 28", "qty": "240 м", "sum": "98,88" },
+        { "name": "HILTI Skrutka 3,5×55", "qty": "2 упак", "sum": "40,11" },
+        { "name": "EXTHERM Tesnenie", "qty": "6 шт", "sum": "20,49" }
+      ]
+    },
+    "step3": {
+      "heading": "Журнал документов",
+      "subheading": "Перечень всех складских документов",
+      "btn_new": "Новое перемещение",
+      "btn_export": "Экспорт Excel",
+      "filters": ["Тип", "Объект", "Период", "Статус"],
+      "cols": ["НОМЕР", "ТИП", "ДАТА", "ОБЪЕКТ", "СУММА", "СТАТУС"],
+      "status_checked": "Проверен",
+      "types": { "return": "Возврат", "issue": "Выдача", "income": "Приход" },
+      "rows": [
+        { "num": "ORT-2026-00005", "type": "return", "date": "08.04.26", "obj": "Kancelárske Ruž…", "sum": "24,34" },
+        { "num": "ISS-2026-00004", "type": "issue", "date": "08.04.26", "obj": "Rekonštrukcia Petrža…", "sum": "0,16" },
+        { "num": "AI-1-cd4bdfd8", "type": "income", "date": "07.04.26", "obj": "—", "sum": "175,00" },
+        { "num": "OI-1-cd4bdfd8", "type": "issue", "date": "07.04.26", "obj": "Kancelárske Ruž…", "sum": "175,00" },
+        { "num": "ORT-2026-00003", "type": "return", "date": "07.04.26", "obj": "Kancelárske Ruž…", "sum": "6,37" },
+        { "num": "ISS-2026-00002", "type": "issue", "date": "06.04.26", "obj": "Rekonštrukcia Petrža…", "sum": "42,80" },
+        { "num": "AI-2-ab2c3d4e", "type": "income", "date": "06.04.26", "obj": "—", "sum": "92,50" }
+      ]
+    },
+    "step4": {
+      "heading": "Остатки материалов",
+      "search_ph": "Поиск материала…",
+      "filter_all": "Все категории",
+      "cols": ["НАЗВАНИЕ", "ЕД.", "ПОСТУПИЛО", "ИСПОЛЬЗ.", "ОСТАТОК"],
+      "unit_pc": "шт",
+      "unit_m": "м",
+      "rows": [
+        { "name": "BEK Izolačný tanierik TIT 60", "unit": "pc", "in": "400,00", "used": "1,00", "rest": "390,00" },
+        { "name": "BEK Skrutka TX sadrokartón", "unit": "pc", "in": "23,00", "used": "0,00", "rest": "23,00" },
+        { "name": "FIBRAN XPS ETICS GF-I 30", "unit": "m", "in": "30,00", "used": "0,00", "rest": "30,00" },
+        { "name": "KNAUF GKB 12,5×1200×2000", "unit": "m", "in": "280,80", "used": "0,00", "rest": "280,80" },
+        { "name": "RIGIPS MA AA(DF)", "unit": "m", "in": "96,00", "used": "0,00", "rest": "96,00" },
+        { "name": "EXTHERM Ochrana rohov PVC", "unit": "m", "in": "100,00", "used": "0,00", "rest": "100,00" },
+        { "name": "Woodcote XPS ETICS GF-I 50", "unit": "m", "in": "59,75", "used": "0,00", "rest": "59,75" },
+        { "name": "Paleta KNAUF Vratná", "unit": "pc", "in": "3,00", "used": "0,00", "rest": "3,00" }
+      ]
+    },
+    "step5": {
+      "heading": "Отчёт-сверка",
+      "subheading": "Сравнение плановых и фактических расходов",
+      "year": "Год",
+      "month": "Месяц",
+      "btn_build": "Сформировать отчёт",
+      "tiles": [
+        { "label": "ЗАКУПЛЕНО", "value": "44,00", "mod": "" },
+        { "label": "ПЛАН", "value": "2,00", "mod": "" },
+        { "label": "ФАКТ", "value": "45,00", "mod": "accent" },
+        { "label": "НЕХВАТКА", "value": "2,00", "mod": "warn" },
+        { "label": "ПЕРЕРАСХОД", "value": "45,00", "mod": "accent" },
+        { "label": "ДОКУМЕНТОВ", "value": "7", "mod": "" }
+      ],
+      "top_title": "Топ-4 материалов по нехватке",
+      "top_rows": [
+        { "name": "Woodcote XPS ETICS GF-I", "val": "1,00", "mod": "warn", "w": 92 },
+        { "name": "BEK Izolačný tanierik", "val": "1,00", "mod": "accent", "w": 78 },
+        { "name": "KNAUF GKB 12,5mm", "val": "0,80", "mod": "warn", "w": 58 },
+        { "name": "FIBRAN XPS 30mm", "val": "0,50", "mod": "accent", "w": 38 }
+      ]
+    }
+  },
+  "sk": {
+    "step1": {
+      "heading": "Rozpoznané dokumenty",
+      "subheading": "Zoznam rozpoznaných dokumentov",
+      "btn_upload": "Nahrať a rozpoznať",
+      "filter_all": "Všetky stavy",
+      "count": "7 dokumentov",
+      "cols": ["SÚBOR", "DODÁVATEĽ", "STAV", "DÁTUM"],
+      "status_ok": "rozpoznané",
+      "status_pending": "spracúva sa",
+      "rows": [
+        { "file": "№V6667001497", "supplier": "WOODCOTE GROUP a.s.", "date": "10.04.2026", "status": "ok" },
+        { "file": "№501052312", "supplier": "WOODCOTE GROUP a.s.", "date": "10.04.2026", "status": "ok" },
+        { "file": "№INV-2026-445", "supplier": "NN-Stavba s.r.o.", "date": "09.04.2026", "status": "ok" },
+        { "file": "№KM-09/26", "supplier": "STAVMAT EU a.s.", "date": "08.04.2026", "status": "ok" },
+        { "file": "№A7001234", "supplier": "HORNBACH Slovensko", "date": "08.04.2026", "status": "pending" },
+        { "file": "№TTN-04-118", "supplier": "BAUHAUS s.r.o.", "date": "07.04.2026", "status": "ok" },
+        { "file": "№F-2026-0073", "supplier": "KNAUF INSULATION", "date": "07.04.2026", "status": "ok" }
+      ]
+    },
+    "step2": {
+      "heading": "Kontrola dokumentu",
+      "sections": { "parties": "Strany", "totals": "Súhrn", "positions": "Položky" },
+      "party_labels": { "supplier": "DODÁVATEĽ", "consignee": "PRÍJEMCA", "customer": "ODBERATEĽ" },
+      "totals_labels": { "base": "Základ", "vat": "DPH", "total": "K úhrade" },
+      "pos_cols": ["№", "NÁZOV", "POČET", "SUMA"],
+      "pos_rows": [
+        { "name": "BEK CW profil 75", "qty": "480 m", "sum": "456,96" },
+        { "name": "UA profil 75×40", "qty": "36 m", "sum": "120,53" },
+        { "name": "Profil ukončovací", "qty": "300 m", "sum": "59,94" },
+        { "name": "BEK UD profil 28", "qty": "240 m", "sum": "98,88" },
+        { "name": "HILTI Skrutka 3,5×55", "qty": "2 bal", "sum": "40,11" },
+        { "name": "EXTHERM Tesnenie", "qty": "6 ks", "sum": "20,49" }
+      ]
+    },
+    "step3": {
+      "heading": "Denník dokumentov",
+      "subheading": "Zoznam všetkých skladových dokumentov",
+      "btn_new": "Nový pohyb",
+      "btn_export": "Export Excel",
+      "filters": ["Typ", "Objekt", "Obdobie", "Stav"],
+      "cols": ["ČÍSLO", "TYP", "DÁTUM", "OBJEKT", "SUMA", "STAV"],
+      "status_checked": "Overené",
+      "types": { "return": "Vrátenie", "issue": "Výdaj", "income": "Príjem" },
+      "rows": [
+        { "num": "ORT-2026-00005", "type": "return", "date": "08.04.26", "obj": "Kancelárske Ruž…", "sum": "24,34" },
+        { "num": "ISS-2026-00004", "type": "issue", "date": "08.04.26", "obj": "Rekonštrukcia Petrža…", "sum": "0,16" },
+        { "num": "AI-1-cd4bdfd8", "type": "income", "date": "07.04.26", "obj": "—", "sum": "175,00" },
+        { "num": "OI-1-cd4bdfd8", "type": "issue", "date": "07.04.26", "obj": "Kancelárske Ruž…", "sum": "175,00" },
+        { "num": "ORT-2026-00003", "type": "return", "date": "07.04.26", "obj": "Kancelárske Ruž…", "sum": "6,37" },
+        { "num": "ISS-2026-00002", "type": "issue", "date": "06.04.26", "obj": "Rekonštrukcia Petrža…", "sum": "42,80" },
+        { "num": "AI-2-ab2c3d4e", "type": "income", "date": "06.04.26", "obj": "—", "sum": "92,50" }
+      ]
+    },
+    "step4": {
+      "heading": "Zvyšky materiálu",
+      "search_ph": "Hľadať materiál…",
+      "filter_all": "Všetky kategórie",
+      "cols": ["NÁZOV", "JEDN.", "PRIJATÉ", "POUŽITÉ", "ZVYŠOK"],
+      "unit_pc": "ks",
+      "unit_m": "m",
+      "rows": [
+        { "name": "BEK Izolačný tanierik TIT 60", "unit": "pc", "in": "400,00", "used": "1,00", "rest": "390,00" },
+        { "name": "BEK Skrutka TX sadrokartón", "unit": "pc", "in": "23,00", "used": "0,00", "rest": "23,00" },
+        { "name": "FIBRAN XPS ETICS GF-I 30", "unit": "m", "in": "30,00", "used": "0,00", "rest": "30,00" },
+        { "name": "KNAUF GKB 12,5×1200×2000", "unit": "m", "in": "280,80", "used": "0,00", "rest": "280,80" },
+        { "name": "RIGIPS MA AA(DF)", "unit": "m", "in": "96,00", "used": "0,00", "rest": "96,00" },
+        { "name": "EXTHERM Ochrana rohov PVC", "unit": "m", "in": "100,00", "used": "0,00", "rest": "100,00" },
+        { "name": "Woodcote XPS ETICS GF-I 50", "unit": "m", "in": "59,75", "used": "0,00", "rest": "59,75" },
+        { "name": "Paleta KNAUF Vratná", "unit": "pc", "in": "3,00", "used": "0,00", "rest": "3,00" }
+      ]
+    },
+    "step5": {
+      "heading": "Report — porovnanie",
+      "subheading": "Porovnanie plánovaných a skutočných nákladov",
+      "year": "Rok",
+      "month": "Mesiac",
+      "btn_build": "Vygenerovať report",
+      "tiles": [
+        { "label": "NAKÚPENÉ", "value": "44,00", "mod": "" },
+        { "label": "PLÁN", "value": "2,00", "mod": "" },
+        { "label": "SKUT.", "value": "45,00", "mod": "accent" },
+        { "label": "NEDOSTATOK", "value": "2,00", "mod": "warn" },
+        { "label": "PREKROČ.", "value": "45,00", "mod": "accent" },
+        { "label": "DOKUMENTY", "value": "7", "mod": "" }
+      ],
+      "top_title": "Top-4 materiály — nedostatok",
+      "top_rows": [
+        { "name": "Woodcote XPS ETICS GF-I", "val": "1,00", "mod": "warn", "w": 92 },
+        { "name": "BEK Izolačný tanierik", "val": "1,00", "mod": "accent", "w": 78 },
+        { "name": "KNAUF GKB 12,5mm", "val": "0,80", "mod": "warn", "w": 58 },
+        { "name": "FIBRAN XPS 30mm", "val": "0,50", "mod": "accent", "w": 38 }
+      ]
+    }
+  },
+  "en": {
+    "step1": {
+      "heading": "Recognized documents",
+      "subheading": "List of recognized documents",
+      "btn_upload": "Upload & recognize",
+      "filter_all": "All statuses",
+      "count": "7 documents",
+      "cols": ["FILE", "SUPPLIER", "STATUS", "DATE"],
+      "status_ok": "recognized",
+      "status_pending": "processing",
+      "rows": [
+        { "file": "№V6667001497", "supplier": "WOODCOTE GROUP a.s.", "date": "10.04.2026", "status": "ok" },
+        { "file": "№501052312", "supplier": "WOODCOTE GROUP a.s.", "date": "10.04.2026", "status": "ok" },
+        { "file": "№INV-2026-445", "supplier": "NN-Stavba s.r.o.", "date": "09.04.2026", "status": "ok" },
+        { "file": "№KM-09/26", "supplier": "STAVMAT EU a.s.", "date": "08.04.2026", "status": "ok" },
+        { "file": "№A7001234", "supplier": "HORNBACH Slovensko", "date": "08.04.2026", "status": "pending" },
+        { "file": "№TTN-04-118", "supplier": "BAUHAUS s.r.o.", "date": "07.04.2026", "status": "ok" },
+        { "file": "№F-2026-0073", "supplier": "KNAUF INSULATION", "date": "07.04.2026", "status": "ok" }
+      ]
+    },
+    "step2": {
+      "heading": "Document check",
+      "sections": { "parties": "Parties", "totals": "Totals", "positions": "Positions" },
+      "party_labels": { "supplier": "SUPPLIER", "consignee": "CONSIGNEE", "customer": "CUSTOMER" },
+      "totals_labels": { "base": "Base", "vat": "VAT", "total": "Total due" },
+      "pos_cols": ["№", "ITEM", "QTY", "AMOUNT"],
+      "pos_rows": [
+        { "name": "BEK CW profile 75", "qty": "480 m", "sum": "456.96" },
+        { "name": "UA profile 75×40", "qty": "36 m", "sum": "120.53" },
+        { "name": "Finishing profile", "qty": "300 m", "sum": "59.94" },
+        { "name": "BEK UD profile 28", "qty": "240 m", "sum": "98.88" },
+        { "name": "HILTI Screw 3.5×55", "qty": "2 pk", "sum": "40.11" },
+        { "name": "EXTHERM Sealant", "qty": "6 pc", "sum": "20.49" }
+      ]
+    },
+    "step3": {
+      "heading": "Document log",
+      "subheading": "All inventory documents",
+      "btn_new": "New transfer",
+      "btn_export": "Export Excel",
+      "filters": ["Type", "Site", "Period", "Status"],
+      "cols": ["NUMBER", "TYPE", "DATE", "SITE", "AMOUNT", "STATUS"],
+      "status_checked": "Verified",
+      "types": { "return": "Return", "issue": "Issue", "income": "Income" },
+      "rows": [
+        { "num": "ORT-2026-00005", "type": "return", "date": "08.04.26", "obj": "Office Ruž…", "sum": "24.34" },
+        { "num": "ISS-2026-00004", "type": "issue", "date": "08.04.26", "obj": "Petrža Renov.", "sum": "0.16" },
+        { "num": "AI-1-cd4bdfd8", "type": "income", "date": "07.04.26", "obj": "—", "sum": "175.00" },
+        { "num": "OI-1-cd4bdfd8", "type": "issue", "date": "07.04.26", "obj": "Office Ruž…", "sum": "175.00" },
+        { "num": "ORT-2026-00003", "type": "return", "date": "07.04.26", "obj": "Office Ruž…", "sum": "6.37" },
+        { "num": "ISS-2026-00002", "type": "issue", "date": "06.04.26", "obj": "Petrža Renov.", "sum": "42.80" },
+        { "num": "AI-2-ab2c3d4e", "type": "income", "date": "06.04.26", "obj": "—", "sum": "92.50" }
+      ]
+    },
+    "step4": {
+      "heading": "Material stock",
+      "search_ph": "Search material…",
+      "filter_all": "All categories",
+      "cols": ["NAME", "UNIT", "IN", "USED", "STOCK"],
+      "unit_pc": "pc",
+      "unit_m": "m",
+      "rows": [
+        { "name": "BEK Insulation disc TIT 60", "unit": "pc", "in": "400.00", "used": "1.00", "rest": "390.00" },
+        { "name": "BEK TX Drywall screw", "unit": "pc", "in": "23.00", "used": "0.00", "rest": "23.00" },
+        { "name": "FIBRAN XPS ETICS GF-I 30", "unit": "m", "in": "30.00", "used": "0.00", "rest": "30.00" },
+        { "name": "KNAUF GKB 12.5×1200×2000", "unit": "m", "in": "280.80", "used": "0.00", "rest": "280.80" },
+        { "name": "RIGIPS MA AA(DF)", "unit": "m", "in": "96.00", "used": "0.00", "rest": "96.00" },
+        { "name": "EXTHERM PVC corner guard", "unit": "m", "in": "100.00", "used": "0.00", "rest": "100.00" },
+        { "name": "Woodcote XPS ETICS GF-I 50", "unit": "m", "in": "59.75", "used": "0.00", "rest": "59.75" },
+        { "name": "KNAUF returnable pallet", "unit": "pc", "in": "3.00", "used": "0.00", "rest": "3.00" }
+      ]
+    },
+    "step5": {
+      "heading": "Reconciliation report",
+      "subheading": "Plan vs. actual material costs",
+      "year": "Year",
+      "month": "Month",
+      "btn_build": "Build report",
+      "tiles": [
+        { "label": "PURCHASED", "value": "44.00", "mod": "" },
+        { "label": "PLAN", "value": "2.00", "mod": "" },
+        { "label": "ACTUAL", "value": "45.00", "mod": "accent" },
+        { "label": "SHORTAGE", "value": "2.00", "mod": "warn" },
+        { "label": "OVERSPEND", "value": "45.00", "mod": "accent" },
+        { "label": "DOCUMENTS", "value": "7", "mod": "" }
+      ],
+      "top_title": "Top 4 materials — shortage",
+      "top_rows": [
+        { "name": "Woodcote XPS ETICS GF-I", "val": "1.00", "mod": "warn", "w": 92 },
+        { "name": "BEK Insulation disc", "val": "1.00", "mod": "accent", "w": 78 },
+        { "name": "KNAUF GKB 12.5mm", "val": "0.80", "mod": "warn", "w": 58 },
+        { "name": "FIBRAN XPS 30mm", "val": "0.50", "mod": "accent", "w": 38 }
+      ]
+    }
+  }
+}

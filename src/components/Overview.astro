@@ -5,6 +5,15 @@ const locale = (Astro.currentLocale ?? DEFAULT_LOCALE) as Locale;
 const t = overview[locale];
 ---
 <section class="section overview">
+  <svg class="overview-bg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <pattern id="overview-dots" width="28" height="28" patternUnits="userSpaceOnUse">
+        <circle cx="14" cy="14" r="1.4" fill="rgba(31,59,52,0.18)"/>
+      </pattern>
+    </defs>
+    <rect width="1200" height="800" fill="url(#overview-dots)"/>
+  </svg>
+
   <div class="container">
     <div class="head">
       <span class="eyebrow">{t.eyebrow}</span>
@@ -25,19 +34,26 @@ const t = overview[locale];
 </section>
 
 <style>
-  .overview { background: var(--primary); color: #e9efe8; }
+  .overview { position: relative; background: var(--bl-paper); overflow: hidden; }
+  .overview-bg { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; pointer-events: none; }
+  .overview .container { position: relative; z-index: 1; }
   .head { text-align: center; max-width: 760px; margin: 0 auto var(--space-12); }
-  .head .eyebrow { background: transparent; color: var(--accent); border-color: var(--accent); }
-  .head h2 { color: #fff; margin-block: var(--space-4); }
-  .head p { color: #c2d1cd; font-size: 16px; }
+  .head h2 { margin-block: var(--space-4); }
+  .head p { color: var(--bl-ink-2); font-size: 16px; }
   .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-4); }
   .kpi {
-    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+    background: var(--bl-card); border: 1px solid var(--bl-card-stroke);
     padding: var(--space-5); border-radius: var(--radius-lg); position: relative;
+    transition: transform 0.2s var(--bl-ease), box-shadow 0.2s var(--bl-ease);
   }
-  .kpi-num { font-family: 'Roboto Condensed', sans-serif; font-size: 12px; color: var(--accent); letter-spacing: 0.15em; }
-  .kpi-label { margin: var(--space-2) 0 0; font-size: 13px; color: #c2d1cd; }
-  .kpi-value { display: block; font-family: 'Roboto Condensed', sans-serif; font-size: 32px; color: #fff; margin-top: var(--space-2); }
-  .kpi-hint { display: block; font-size: 12px; color: #c2d1cd; margin-top: var(--space-2); }
+  .kpi:hover { transform: translateY(-2px); box-shadow: 0 20px 40px -20px rgba(31,59,52,0.2); }
+  .kpi-num { font-family: var(--bl-font-mono); font-size: 12px; color: var(--bl-accent); letter-spacing: 0.15em; }
+  .kpi-label { margin: var(--space-2) 0 0; font-size: 13px; color: var(--bl-ink-2); }
+  .kpi-value {
+    display: block; font-family: var(--bl-font-display); font-weight: 500;
+    font-size: 32px; color: var(--bl-ink); margin-top: var(--space-2);
+    letter-spacing: -0.02em;
+  }
+  .kpi-hint { display: block; font-size: 12px; color: var(--bl-muted); margin-top: var(--space-2); }
   @media (max-width: 960px) { .kpis { grid-template-columns: repeat(2, 1fr); } }
 </style>

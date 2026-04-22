@@ -1,12 +1,12 @@
 ---
 import workflow from '../content/workflow.json';
 import { type Locale, DEFAULT_LOCALE } from '../lib/i18n';
-import WorkflowIllus from './illustrations/WorkflowIllus.astro';
+import WorkflowMock from './illustrations/WorkflowMock.astro';
 const locale = (Astro.currentLocale ?? DEFAULT_LOCALE) as Locale;
 const t = workflow[locale];
 type StepNum = 1 | 2 | 3 | 4 | 5;
 ---
-<section class="section" id="workflow">
+<section class="section workflow-sec" id="workflow">
   <div class="container">
     <div class="head">
       <span class="eyebrow">{t.eyebrow}</span>
@@ -22,19 +22,21 @@ type StepNum = 1 | 2 | 3 | 4 | 5;
           </button>
         ))}
       </div>
-      <div class="wf-panels">
-        {t.steps.map((s, i) => (
-          <article class:list={['wf-panel', { active: i === 0 }]} data-idx={i}>
-            <div class="wf-panel-illus">
-              <WorkflowIllus step={(i + 1) as StepNum} />
-            </div>
-            <div class="wf-panel-text">
-              <span class="wf-num">{s.n}</span>
-              <h3>{s.title}</h3>
-              <p>{s.body}</p>
-            </div>
-          </article>
-        ))}
+      <div class="wf-right">
+        <div class="wf-panels">
+          {t.steps.map((s, i) => (
+            <article class:list={['wf-panel', { active: i === 0 }]} data-idx={i}>
+              <div class="wf-panel-illus">
+                <WorkflowMock step={(i + 1) as StepNum} />
+              </div>
+            </article>
+          ))}
+        </div>
+        <div class="wf-captions">
+          {t.steps.map((s, i) => (
+            <p class:list={['wf-caption', { active: i === 0 }]} data-idx={i}>{s.body}</p>
+          ))}
+        </div>
       </div>
     </div>
   </div>
@@ -44,11 +46,13 @@ type StepNum = 1 | 2 | 3 | 4 | 5;
   function bind() {
     const steps = document.querySelectorAll<HTMLButtonElement>('.wf-step');
     const panels = document.querySelectorAll<HTMLElement>('.wf-panel');
+    const captions = document.querySelectorAll<HTMLElement>('.wf-caption');
     steps.forEach((btn) => {
       btn.addEventListener('click', () => {
         const idx = btn.dataset.idx;
         steps.forEach((b) => b.classList.toggle('active', b.dataset.idx === idx));
         panels.forEach((p) => p.classList.toggle('active', p.dataset.idx === idx));
+        captions.forEach((c) => c.classList.toggle('active', c.dataset.idx === idx));
       });
     });
   }
@@ -56,7 +60,7 @@ type StepNum = 1 | 2 | 3 | 4 | 5;
 </script>
 
 <style>
-  .section { position: relative; overflow: hidden; }
+  .workflow-sec { position: relative; overflow: hidden; background: #d0c8b4; }
   .section::before {
     content: '';
     position: absolute; inset: 0; z-index: 0;
@@ -97,29 +101,31 @@ type StepNum = 1 | 2 | 3 | 4 | 5;
     color: var(--bl-ink);
   }
 
-  .wf-panels { position: relative; min-height: 520px; }
+  .wf-right { display: flex; flex-direction: column; gap: var(--space-4); }
+  .wf-panels { position: relative; aspect-ratio: 9 / 5; }
   .wf-panel {
     position: absolute; inset: 0; background: var(--bl-card); border: 1px solid var(--bl-card-stroke);
     border-radius: var(--radius-lg); overflow: hidden;
-    display: grid; grid-template-rows: auto 1fr;
     opacity: 0; transition: opacity 0.25s var(--bl-ease); pointer-events: none;
   }
   .wf-panel.active { opacity: 1; pointer-events: auto; }
   .wf-panel-illus {
-    background: linear-gradient(135deg, var(--bl-paper) 0%, var(--bl-paper-2) 100%);
-    border-bottom: 1px solid var(--bl-card-stroke);
-    display: flex; align-items: center; justify-content: center;
-    padding: var(--space-5);
-    aspect-ratio: 9 / 5;
+    background: #f1f4f7;
+    width: 100%; height: 100%;
+    display: flex; align-items: stretch; justify-content: stretch;
+    padding: 0;
   }
-  .wf-panel-illus :global(svg) { width: 100%; height: 100%; max-height: 260px; }
-  .wf-panel-text { padding: var(--space-6) var(--space-8) var(--space-8); }
-  .wf-num {
-    font-family: var(--bl-font-display); font-size: 48px; color: var(--bl-accent);
-    display: block; line-height: 1; font-weight: 500; letter-spacing: -0.02em;
+  .wf-panel-illus > :global(*) { width: 100%; height: 100%; }
+
+  .wf-captions { position: relative; min-height: 3em; }
+  .wf-caption {
+    position: absolute; inset: 0; margin: 0;
+    font-size: 14px; line-height: 1.55; color: var(--bl-ink-2);
+    padding: 0 var(--space-2);
+    opacity: 0; transition: opacity 0.25s var(--bl-ease);
+    pointer-events: none;
   }
-  .wf-panel h3 { margin-top: var(--space-2); color: var(--bl-ink); }
-  .wf-panel p { margin-top: var(--space-3); color: var(--bl-ink-2); font-size: 15px; line-height: 1.6; }
+  .wf-caption.active { opacity: 1; pointer-events: auto; }
 
   @media (max-width: 960px) {
     .wf-wrap { grid-template-columns: 1fr; }

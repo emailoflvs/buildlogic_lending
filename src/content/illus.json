@@ -31,7 +31,15 @@
           { "l": "Na kontrole", "n": "4", "h": "čakajú", "mod": "accent" },
           { "l": "Schválené", "n": "22", "h": "prešli kontrolou", "mod": "ok" },
           { "l": "Po termíne", "n": "2", "h": "pozornosť", "mod": "warn" }
-        ]
+        ],
+        "rows": {
+          "headers": ["DOKUMENT", "STAV", "KOMENTÁR"],
+          "items": [
+            { "c1": "KTP-203", "c2": "Na kontrole", "c3": "čaká na podpis", "mod": "accent" },
+            { "c1": "Faktúra №184", "c2": "Schválená", "c3": "prešla kontrolou", "mod": "ok" },
+            { "c1": "TTN 12.04", "c2": "Po termíne", "c3": "vrátiť na schválenie", "mod": "warn" }
+          ]
+        }
       },
       {
         "label": "Kontrola",
@@ -42,7 +50,15 @@
           { "l": "Podľa normy", "n": "118", "h": "zo 126", "mod": "ok" },
           { "l": "Suma", "n": "3 210 €", "h": "odchýlka", "mod": "accent" },
           { "l": "Vyriešené", "n": "5", "h": "za smenu", "mod": "ok" }
-        ]
+        ],
+        "rows": {
+          "headers": ["POLOŽKA", "ROZDIEL", "AKCIA"],
+          "items": [
+            { "c1": "Cement M500", "c2": "+18 vriec na príjme", "c3": "porovnať so zákazkou", "mod": "accent" },
+            { "c1": "Výstuž Ø12", "c2": "Chýba 40 kg", "c3": "kontaktovať dodávateľa", "mod": "warn" },
+            { "c1": "Pena 50 mm", "c2": "Podľa normy", "c3": "uzavrieť položku", "mod": "ok" }
+          ]
+        }
       },
       {
         "label": "Príjem",
@@ -53,7 +69,15 @@
           { "l": "Dodávky", "n": "17", "h": "od začiatku" },
           { "l": "Čakáme", "n": "3", "h": "na ceste", "mod": "accent" },
           { "l": "Odmietnuté", "n": "1", "h": "vrátené", "mod": "warn" }
-        ]
+        ],
+        "rows": {
+          "headers": ["DODÁVKA", "SUMA", "POZNÁMKA"],
+          "items": [
+            { "c1": "Faktúra №203", "c2": "+56 340 €", "c3": "dodávka OK", "mod": "ok" },
+            { "c1": "TTN 10.04", "c2": "+18 900 €", "c3": "upresniť vykládku", "mod": "accent" },
+            { "c1": "Dodávka STM-7", "c2": "Odmietnuté 1 800 €", "c3": "vrátiť dodávateľovi", "mod": "warn" }
+          ]
+        }
       },
       {
         "label": "Sklad",
@@ -64,7 +88,15 @@
           { "l": "Nedostatok", "n": "3", "h": "nutné objednať", "mod": "warn" },
           { "l": "S rezervou", "n": "31", "h": "na 14 dní+", "mod": "ok" },
           { "l": "Zamrazené", "n": "12 740 €", "h": "nelikvid", "mod": "accent" }
-        ]
+        ],
+        "rows": {
+          "headers": ["MATERIÁL", "SITUÁCIA", "KOMENTÁR"],
+          "items": [
+            { "c1": "Sádrokartón 12.5", "c2": "Zvyšok 184 listov", "c3": "v rámci kalkulácie", "mod": "ok" },
+            { "c1": "Profil CW 75", "c2": "Chýba 62 m", "c3": "overiť dodávku", "mod": "warn" },
+            { "c1": "Štartový tmel", "c2": "Rozdiel 11 vriec", "c3": "kontrola zvyškov", "mod": "accent" }
+          ]
+        }
       },
       {
         "label": "Report",
@@ -75,7 +107,15 @@
           { "l": "Spotreba", "n": "104 120 €", "h": "odpísané" },
           { "l": "Úspora", "n": "4 820 €", "h": "vs plán", "mod": "ok" },
           { "l": "Dni na report", "n": "0", "h": "automat", "mod": "ok" }
-        ]
+        ],
+        "rows": {
+          "headers": ["ČASŤ", "SUMA", "POZNÁMKA"],
+          "items": [
+            { "c1": "Príjem materiálu", "c2": "128 460 €", "c3": "apríl, fakt" },
+            { "c1": "Spotreba", "c2": "104 120 €", "c3": "podľa príkazov" },
+            { "c1": "Úspora vs plán", "c2": "+4 820 €", "c3": "stabilné", "mod": "ok" }
+          ]
+        }
       }
     ]
   },
@@ -111,7 +151,15 @@
           { "l": "In review", "n": "4", "h": "awaiting check", "mod": "accent" },
           { "l": "Approved", "n": "22", "h": "passed control", "mod": "ok" },
           { "l": "Overdue", "n": "2", "h": "need attention", "mod": "warn" }
-        ]
+        ],
+        "rows": {
+          "headers": ["DOCUMENT", "STATUS", "COMMENT"],
+          "items": [
+            { "c1": "PMP-203", "c2": "In review", "c3": "awaiting signature", "mod": "accent" },
+            { "c1": "Invoice №184", "c2": "Approved", "c3": "passed control", "mod": "ok" },
+            { "c1": "Waybill 12.04", "c2": "Overdue", "c3": "resubmit for approval", "mod": "warn" }
+          ]
+        }
       },
       {
         "label": "Reconciliation",
@@ -122,7 +170,15 @@
           { "l": "On spec", "n": "118", "h": "of 126 lines", "mod": "ok" },
           { "l": "Value", "n": "3 210 €", "h": "variance", "mod": "accent" },
           { "l": "Closed today", "n": "5", "h": "this shift", "mod": "ok" }
-        ]
+        ],
+        "rows": {
+          "headers": ["ITEM", "VARIANCE", "ACTION"],
+          "items": [
+            { "c1": "Cement M500", "c2": "+18 bags on inflow", "c3": "check against order", "mod": "accent" },
+            { "c1": "Rebar Ø12", "c2": "Short 40 kg", "c3": "contact vendor", "mod": "warn" },
+            { "c1": "Foam 50 mm", "c2": "Matches spec", "c3": "close item", "mod": "ok" }
+          ]
+        }
       },
       {
         "label": "Inbound",
@@ -133,7 +189,15 @@
           { "l": "Deliveries", "n": "17", "h": "month to date" },
           { "l": "Awaiting", "n": "3", "h": "in transit", "mod": "accent" },
           { "l": "Rejected", "n": "1", "h": "return to vendor", "mod": "warn" }
-        ]
+        ],
+        "rows": {
+          "headers": ["DELIVERY", "AMOUNT", "NOTE"],
+          "items": [
+            { "c1": "Invoice №203", "c2": "+€56 340", "c3": "delivery OK", "mod": "ok" },
+            { "c1": "Waybill 10.04", "c2": "+€18 900", "c3": "clarify unloading", "mod": "accent" },
+            { "c1": "STM-7 delivery", "c2": "Rejected €1 800", "c3": "return to vendor", "mod": "warn" }
+          ]
+        }
       },
       {
         "label": "Stock",
@@ -144,7 +208,15 @@
           { "l": "Shortage", "n": "3", "h": "needs ordering", "mod": "warn" },
           { "l": "Buffer", "n": "31", "h": "14+ days cover", "mod": "ok" },
           { "l": "Dead stock", "n": "12 740 €", "h": "non-liquid", "mod": "accent" }
-        ]
+        ],
+        "rows": {
+          "headers": ["MATERIAL", "SITUATION", "COMMENT"],
+          "items": [
+            { "c1": "Drywall 12.5", "c2": "184 sheets on hand", "c3": "within estimate", "mod": "ok" },
+            { "c1": "CW Profile 75", "c2": "Short 62 m", "c3": "check delivery", "mod": "warn" },
+            { "c1": "Starter putty", "c2": "Variance 11 bags", "c3": "remainder check needed", "mod": "accent" }
+          ]
+        }
       },
       {
         "label": "Report",
@@ -155,7 +227,15 @@
           { "l": "Consumed", "n": "104 120 €", "h": "written off" },
           { "l": "Savings", "n": "4 820 €", "h": "vs plan", "mod": "ok" },
           { "l": "Days to report", "n": "0", "h": "auto-generated", "mod": "ok" }
-        ]
+        ],
+        "rows": {
+          "headers": ["SECTION", "TOTAL", "NOTE"],
+          "items": [
+            { "c1": "Inbound materials", "c2": "€128 460", "c3": "April, actual" },
+            { "c1": "Consumed", "c2": "€104 120", "c3": "per work orders" },
+            { "c1": "Savings vs plan", "c2": "+€4 820", "c3": "stable", "mod": "ok" }
+          ]
+        }
       }
     ]
   },
@@ -190,7 +270,15 @@
           { "l": "На проверке", "n": "4", "h": "ожидают сверки", "mod": "accent" },
           { "l": "Утверждены", "n": "22", "h": "прошли контроль", "mod": "ok" },
           { "l": "Просрочены", "n": "2", "h": "требуют внимания", "mod": "warn" }
-        ]
+        ],
+        "rows": {
+          "headers": ["ДОКУМЕНТ", "СТАТУС", "КОММЕНТАРИЙ"],
+          "items": [
+            { "c1": "КТП-203", "c2": "На проверке", "c3": "ждёт подписи", "mod": "accent" },
+            { "c1": "Накладная №184", "c2": "Утверждена", "c3": "прошла контроль", "mod": "ok" },
+            { "c1": "ТТН 12.04", "c2": "Просрочена", "c3": "вернуть на пересогласование", "mod": "warn" }
+          ]
+        }
       },
       {
         "label": "Сверка",
@@ -201,7 +289,15 @@
           { "l": "По норме", "n": "118", "h": "из 126 позиций", "mod": "ok" },
           { "l": "По сумме", "n": "3 210 €", "h": "отклонение", "mod": "accent" },
           { "l": "Решено", "n": "5", "h": "за смену", "mod": "ok" }
-        ]
+        ],
+        "rows": {
+          "headers": ["ПОЗИЦИЯ", "РАСХОЖДЕНИЕ", "ДЕЙСТВИЕ"],
+          "items": [
+            { "c1": "Цемент М500", "c2": "+18 мешков по приходу", "c3": "сверить с заявкой", "mod": "accent" },
+            { "c1": "Арматура Ø12", "c2": "Недопоставка 40 кг", "c3": "связаться с поставщиком", "mod": "warn" },
+            { "c1": "Пеноплекс 50мм", "c2": "Совпало по норме", "c3": "закрыть позицию", "mod": "ok" }
+          ]
+        }
       },
       {
         "label": "Приход",
@@ -212,7 +308,15 @@
           { "l": "Поставок", "n": "17", "h": "с начала месяца" },
           { "l": "Ждём", "n": "3", "h": "в пути", "mod": "accent" },
           { "l": "Отклонено", "n": "1", "h": "возврат", "mod": "warn" }
-        ]
+        ],
+        "rows": {
+          "headers": ["ПОСТАВКА", "СУММА", "ПРИМЕЧАНИЕ"],
+          "items": [
+            { "c1": "Накладная №203", "c2": "+56 340 €", "c3": "поставка ОК", "mod": "ok" },
+            { "c1": "ТТН 10.04", "c2": "+18 900 €", "c3": "уточнить разгрузку", "mod": "accent" },
+            { "c1": "Поставка СТМ-7", "c2": "Отклонено 1 800 €", "c3": "возврат поставщику", "mod": "warn" }
+          ]
+        }
       },
       {
         "label": "Склад",
@@ -223,7 +327,15 @@
           { "l": "Нехватка", "n": "3", "h": "требует заказа", "mod": "warn" },
           { "l": "С запасом", "n": "31", "h": "на 14 дней+", "mod": "ok" },
           { "l": "Заморожено", "n": "12 740 €", "h": "неликвид", "mod": "accent" }
-        ]
+        ],
+        "rows": {
+          "headers": ["МАТЕРИАЛ", "СИТУАЦИЯ", "КОММЕНТАРИЙ"],
+          "items": [
+            { "c1": "Гипсокартон 12.5", "c2": "Остаток 184 листа", "c3": "в пределах расчёта", "mod": "ok" },
+            { "c1": "Профиль CW 75", "c2": "Нехватка 62 м", "c3": "проверить поставку", "mod": "warn" },
+            { "c1": "Шпаклёвка старт", "c2": "Расхождение 11 мешков", "c3": "нужна сверка остатков", "mod": "accent" }
+          ]
+        }
       },
       {
         "label": "Отчёт",
@@ -234,7 +346,15 @@
           { "l": "Расход", "n": "104 120 €", "h": "списано в работу" },
           { "l": "Экономия", "n": "4 820 €", "h": "vs план", "mod": "ok" },
           { "l": "Дней на отчёт", "n": "0", "h": "формируется авто", "mod": "ok" }
-        ]
+        ],
+        "rows": {
+          "headers": ["РАЗДЕЛ", "ИТОГ", "КОММЕНТАРИЙ"],
+          "items": [
+            { "c1": "Приход материалов", "c2": "128 460 €", "c3": "апрель, факт" },
+            { "c1": "Списано в работу", "c2": "104 120 €", "c3": "по нарядам" },
+            { "c1": "Экономия vs план", "c2": "+4 820 €", "c3": "стабильно", "mod": "ok" }
+          ]
+        }
       }
     ]
   }

@@ -6,9 +6,7 @@
     "lead": "Объекты, материалы, документы и отчёты — без десяти Excel-файлов и бесконечных пересылок. Система подстраивается под роль, не наоборот.",
     "cta_primary": "Начать бесплатно",
     "cta_secondary": "Посмотреть демо",
-    "note": "14 дней на всё. Без привязки карты.",
-    "audience_label": "Особенно полезно:",
-    "audience_chips": ["Владельцу", "Директору", "Прорабу", "Снабженцу", "Бухгалтеру"]
+    "note": "14 дней тест-драйва — весь функционал, настройка в один день."
   },
   "sk": {
     "_meta": { "needs_review": true },
@@ -18,9 +16,7 @@
     "lead": "Objekty, materiály, dokumenty a reporty — bez desiatich Excel-ov a nekonečného preposielania. Systém sa prispôsobuje roli, nie naopak.",
     "cta_primary": "Začať zdarma",
     "cta_secondary": "Pozrieť demo",
-    "note": "14 dní na všetko. Bez platobnej karty.",
-    "audience_label": "Zvlášť užitočné pre:",
-    "audience_chips": ["Majiteľa", "Riaditeľa", "Stavbyvedúceho", "Nákupcu", "Účtovníka"]
+    "note": "14 dní testovacej jazdy — všetky funkcie, nastavenie za jeden deň."
   },
   "en": {
     "_meta": { "needs_review": true },
@@ -30,8 +26,6 @@
     "lead": "Objects, materials, documents and reports — without ten Excel files and endless email chains. The system adapts to the role, not the other way around.",
     "cta_primary": "Start for free",
     "cta_secondary": "See demo",
-    "note": "14 days of everything. No credit card.",
-    "audience_label": "Especially useful for:",
-    "audience_chips": ["Owner", "Director", "Site manager", "Procurement", "Accounting"]
+    "note": "14-day test drive — all features, set up in a day."
   }
 }

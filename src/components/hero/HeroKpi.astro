@@ -37,6 +37,23 @@ const heroDash = illus[locale].hero_dash;
       </button>
     ))}
   </div>
+
+  {steps[0].rows && (
+    <div class="kpi-rows" data-kpi-rows>
+      <div class="kpi-row kpi-row--head" data-kpi-rows-head>
+        <span>{steps[0].rows.headers[0]}</span>
+        <span>{steps[0].rows.headers[1]}</span>
+        <span>{steps[0].rows.headers[2]}</span>
+      </div>
+      {steps[0].rows.items.map((item) => (
+        <div class="kpi-row">
+          <span class="kpi-row-c1">{item.c1}</span>
+          <span class={`kpi-row-c2${item.mod ? ' kpi-row-c2--' + item.mod : ''}`}>{item.c2}</span>
+          <span class="kpi-row-c3">{item.c3}</span>
+        </div>
+      ))}
+    </div>
+  )}
 </div>
 
 <script is:inline define:vars={{ steps }}>
@@ -62,6 +79,17 @@ const heroDash = illus[locale].hero_dash;
       hint: el.querySelector('.kpi-tile-hint'),
     }));
 
+    // rows section (optional — present only if data has `rows`)
+    const rowsEl = card.querySelector('[data-kpi-rows]');
+    const rowsHeadEl = card.querySelector('[data-kpi-rows-head]');
+    const rowEls = rowsEl ? rowsEl.querySelectorAll('.kpi-row:not(.kpi-row--head)') : [];
+    const rowParts = Array.from(rowEls).map((el) => ({
+      root: el,
+      c1: el.querySelector('.kpi-row-c1'),
+      c2: el.querySelector('.kpi-row-c2'),
+      c3: el.querySelector('.kpi-row-c3'),
+    }));
+
     function renderStep(i) {
       const s = steps[i];
       titleEl.textContent = s.title;
@@ -74,6 +102,20 @@ const heroDash = illus[locale].hero_dash;
         parts.num.textContent = t.n;
         parts.hint.textContent = t.h;
       });
+      if (s.rows && rowsHeadEl) {
+        const headSpans = rowsHeadEl.querySelectorAll('span');
+        headSpans[0].textContent = s.rows.headers[0];
+        headSpans[1].textContent = s.rows.headers[1];
+        headSpans[2].textContent = s.rows.headers[2];
+        s.rows.items.forEach((item, j) => {
+          const parts = rowParts[j];
+          if (!parts) return;
+          parts.c1.textContent = item.c1;
+          parts.c2.textContent = item.c2;
+          parts.c2.className = 'kpi-row-c2' + (item.mod ? ' kpi-row-c2--' + item.mod : '');
+          parts.c3.textContent = item.c3;
+        });
+      }
       stepBtns.forEach((btn, j) => {
         const active = j === i;
         btn.classList.toggle('kpi-step--active', active);
@@ -198,6 +240,45 @@ const heroDash = illus[locale].hero_dash;
   .kpi-step:focus-visible {
     outline: 2px solid var(--bl-accent);
     outline-offset: 2px;
+  }
+
+  .kpi-rows {
+    margin-top: 16px;
+    border-top: 1px solid var(--bl-card-stroke);
+    padding-top: 12px;
+    display: grid;
+    gap: 0;
+  }
+  .kpi-row {
+    display: grid;
+    grid-template-columns: 1.2fr 1.1fr 1fr;
+    gap: 10px;
+    padding: 10px 4px;
+    border-bottom: 1px solid var(--bl-card-stroke);
+    align-items: center;
+  }
+  .kpi-row:last-child { border-bottom: none; }
+  .kpi-row--head {
+    font-family: var(--bl-font-mono);
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--bl-muted);
+    padding: 6px 4px;
+  }
+  .kpi-row-c1 { font-size: 12px; color: var(--bl-ink); font-weight: 500; }
+  .kpi-row-c2 { font-size: 12px; color: var(--bl-ink); font-weight: 600; }
+  .kpi-row-c2--ok { color: var(--bl-ok); }
+  .kpi-row-c2--warn { color: var(--bl-def); }
+  .kpi-row-c2--accent { color: var(--bl-accent-ink); }
+  .kpi-row-c3 { font-size: 11px; color: var(--bl-muted); }
+
+  @media (max-width: 420px) {
+    .kpi-rows { margin-top: 12px; padding-top: 10px; }
+    .kpi-row { padding: 8px 2px; gap: 6px; grid-template-columns: 1.1fr 1fr 0.9fr; }
+    .kpi-row--head { font-size: 8px; }
+    .kpi-row-c1, .kpi-row-c2 { font-size: 11px; }
+    .kpi-row-c3 { font-size: 10px; }
   }
 
   /* Narrow mobile — tighten everything so the card fits in ~320px viewports */
