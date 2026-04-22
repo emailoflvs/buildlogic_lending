@@ -115,5 +115,13 @@ ssh -o BatchMode=yes "$SERVER_HOST" "set -e
 "
 
 echo
-echo "→ verify https://buildlogic.eu/"
-curl -sfI https://buildlogic.eu/ | head -1 | sed 's/^/  /' || echo "  WARN: curl failed"
+echo "→ verify https://buildlogic.eu/ (may take a few seconds for Traefik to pick up the new container)"
+for i in 1 2 3 4 5 6; do
+  if out=$(curl -sfI https://buildlogic.eu/ 2>/dev/null | head -1); then
+    echo "  $out"
+    exit 0
+  fi
+  sleep 2
+done
+echo "  WARN: site not responding OK after 12s — check 'docker logs buildlogic-landing' and 'docker logs traefik'"
+exit 1
