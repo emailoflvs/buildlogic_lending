@@ -5,30 +5,43 @@
     "title": "Transparentná cena. Spustenie je samostatná položka.",
     "tiers": [
       {
-        "name": "Nastavenie a implementácia",
+        "name": "Nastavenie a spustenie",
         "price": "od 150 €",
-        "tagline": "Jeden objekt, štandardná logika.",
-        "features": ["Karta objektu", "Dokumenty a línie", "Základný príjem a zvyšky", "E-mail podpora"],
-        "cta": "Začať test"
+        "tagline": "Cena závisí od počtu objektov, štruktúry dokumentov a požadovanej logiky evidencie.",
+        "features": [
+          "spustenie prispôsobené vašim objektom, materiálom a obdobiam",
+          "nastavenie pravidiel spracovania dokumentov a tabuliek",
+          "nastavenie konštrukcií, noriem a rozdelenia materiálov",
+          "príprava prvého pracovného reportu"
+        ],
+        "cta": "Požiadať o spustenie"
       },
       {
         "name": "Mesačná podpora",
         "price": "od 180 €/mes.",
-        "tagline": "Viac objektov, roly a prehľady.",
-        "features": ["Všetko zo Start", "Viaceré objekty súčasne", "Normy a odchýlky", "Záverečná správa", "Roly a prístupy"],
-        "cta": "Hovoriť s nami",
+        "tagline": "Systém sa prispôsobuje zmenám vo vašej práci a nezostáva v stave „ako sa zaviedlo“.",
+        "features": [
+          "podpora používateľov a operatívne úpravy",
+          "prispôsobenie novým dokumentom, dodávateľom a formátom",
+          "úpravy logiky výpočtov a reportov",
+          "rozvoj systému s rastom firmy"
+        ],
+        "cta": "Prediskutovať podporu",
         "recommended": true
       },
       {
         "name": "Čo dostanete na začiatku",
         "price": "na mieru",
-        "tagline": "Keď má firma svoj poriadok.",
-        "features": ["Všetko zo Standard", "Hlbšie prispôsobenie", "Integrácie s interným softvérom", "Dedikovaná podpora"],
-        "cta": "Požiadať o demo"
+        "tagline": "Pred spustením vidíte nie prísľub, ale výsledok na vašich dátach.",
+        "features": [
+          "ukážka výsledku na vašich dokumentoch a v Exceli",
+          "prehľadný tok: príjem, výdaj, zvyšky, odchýlky",
+          "nastavenie podľa vášho poriadku evidencie, nie podľa cudzej šablóny",
+          "prehľad, kde dochádza k preplatkom, nedostatkom a stratám na objekte"
+        ],
+        "cta": "Získať demo"
       }
-    ],
-    "no_card": "Bez platobnej karty",
-    "note": "Spustenie a prvotné nastavenie sú samostatnou položkou — priznávame to otvorene."
+    ]
   },
   "en": {
     "_meta": { "needs_review": true },
@@ -36,59 +49,85 @@
     "title": "Transparent price. Setup is a separate line.",
     "tiers": [
       {
-        "name": "Setup and implementation",
+        "name": "Setup and launch",
         "price": "from €150",
-        "tagline": "Single object, standard logic.",
-        "features": ["Object card", "Documents and lines", "Basic inflow and remainders", "Email support"],
-        "cta": "Start trial"
+        "tagline": "Price depends on the number of objects, document structure, and the required accounting logic.",
+        "features": [
+          "launch tailored to your objects, materials, and periods",
+          "rules for processing documents and spreadsheets",
+          "setup of structures, norms, and material allocation",
+          "preparation of the first working report"
+        ],
+        "cta": "Request launch"
       },
       {
         "name": "Monthly support",
         "price": "from €180/mo",
-        "tagline": "Several objects, roles and reports.",
-        "features": ["Everything in Start", "Multiple objects at once", "Norms and deviations", "Final report", "Roles and access"],
-        "cta": "Talk to us",
+        "tagline": "The system adapts to changes in your work — it does not stay frozen at launch.",
+        "features": [
+          "user support and prompt fixes",
+          "adaptation to new documents, suppliers, and formats",
+          "adjustments to calculation logic and reports",
+          "system evolution as the company grows"
+        ],
+        "cta": "Discuss support",
         "recommended": true
       },
       {
         "name": "What you get at the start",
         "price": "by agreement",
-        "tagline": "When the company has its own rules.",
-        "features": ["Everything in Standard", "Deeper tuning", "Integrations with internal software", "Dedicated support"],
-        "cta": "Request demo"
+        "tagline": "Before launch, you see not a promise — but a result on your own data.",
+        "features": [
+          "example of the result on your documents and Excel",
+          "transparent flow: inflow, outflow, remainders, deviations",
+          "setup tailored to your accounting process, not someone else's template",
+          "clear view of overruns, shortages, and losses per object"
+        ],
+        "cta": "Get demo"
       }
-    ],
-    "no_card": "No credit card",
-    "note": "Setup and initial configuration are billed separately — we're upfront about it."
+    ]
   },
   "ru": {
     "eyebrow": "Тарифы",
     "title": "Прозрачная цена. Запуск — отдельной строкой.",
     "tiers": [
       {
-        "name": "Настройка и внедрение",
+        "name": "Настройка и запуск",
         "price": "от 150 €",
-        "tagline": "Один объект, стандартная логика.",
-        "features": ["Карточка объекта", "Документы и строки", "Базовый приход и остатки", "Поддержка по email"],
-        "cta": "Начать тест"
+        "tagline": "Стоимость зависит от количества объектов, структуры документов и требуемой логики учёта.",
+        "features": [
+          "запуск под ваши объекты, материалы и периоды",
+          "настройка правил обработки документов и таблиц",
+          "настройка конструкций, норм и распределения материалов",
+          "подготовка первого рабочего отчёта"
+        ],
+        "cta": "Запросить запуск"
       },
       {
         "name": "Ежемесячное сопровождение",
         "price": "от 180 €/мес",
-        "tagline": "Несколько объектов, роли и отчёты.",
-        "features": ["Всё из Start", "Несколько объектов параллельно", "Нормы и отклонения", "Итоговый отчёт", "Роли и доступы"],
-        "cta": "Поговорить",
+        "tagline": "Система адаптируется под изменения в вашей работе, а не остаётся «как внедрили».",
+        "features": [
+          "поддержка пользователей и оперативные правки",
+          "адаптация под новые документы, поставщиков и форматы",
+          "корректировка логики расчётов и отчётов",
+          "развитие системы по мере роста компании"
+        ],
+        "cta": "Обсудить сопровождение",
         "recommended": true
       },
       {
-        "name": "Что Вы получаете на старте",
+        "name": "Что вы получаете на старте",
         "price": "по запросу",
-        "tagline": "Когда у компании свой порядок.",
-        "features": ["Всё из Standard", "Глубокая настройка", "Интеграции с внутренним софтом", "Выделенная поддержка"],
-        "cta": "Запросить демо"
+        "tagline": "До запуска вы видите не обещание, а результат на своих данных.",
+        "features": [
+          "пример результата на ваших документах и в Excel",
+          "прозрачную схему: приход, расход, остатки, отклонения",
+          "настройку под ваш порядок учёта, а не под чужой шаблон",
+          "понимание, где перерасход, нехватка и потери по объекту"
+        ],
+        "cta": "Получить демо"
       }
-    ],
-    "no_card": "Без привязки карты",
-    "note": "Запуск и первичная настройка оплачиваются отдельно — говорим об этом открыто."
+    ]
   }
 }

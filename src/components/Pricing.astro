@@ -10,7 +10,6 @@ const t = pricing[locale];
       <span class="eyebrow">{t.eyebrow}</span>
       <h2>{t.title}</h2>
     </div>
-    <p class="pricing-no-card">{t.no_card}</p>
     <div class="tiers">
       {t.tiers.map((tier) => (
         <article class:list={['tier', { recommended: tier.recommended }]}>
@@ -21,11 +20,10 @@ const t = pricing[locale];
           <ul>
             {tier.features.map((f) => <li>{f}</li>)}
           </ul>
-          <a href="#contact" class:list={['btn', tier.recommended ? 'btn-primary' : 'btn-secondary']}>{tier.cta}</a>
+          <button type="button" class:list={['btn', tier.recommended ? 'btn-primary' : 'btn-secondary']}>{tier.cta}</button>
         </article>
       ))}
     </div>
-    <p class="note">{t.note}</p>
   </div>
 </section>
 
@@ -43,15 +41,9 @@ const t = pricing[locale];
   .badge { position: absolute; top: -12px; right: var(--space-6); background: var(--accent); color: var(--primary); font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; }
   .tier h3 { color: var(--primary); }
   .tier-price { font-family: var(--bl-font-mono); font-size: 28px; color: var(--primary); margin-top: var(--space-3); font-weight: 700; }
-  .pricing-no-card {
-    font-family: var(--bl-font-mono); font-size: 11px; letter-spacing: 0.1em;
-    color: var(--bl-accent-ink); text-transform: uppercase;
-    text-align: center; margin-bottom: var(--space-4);
-  }
   .tier-tag { color: var(--muted); font-size: 14px; margin-top: var(--space-2); }
   .tier ul { list-style: none; padding: 0; margin: var(--space-5) 0 var(--space-6); display: grid; gap: var(--space-2); flex: 1; }
   .tier li { font-size: 14px; padding-left: 20px; position: relative; color: var(--text); }
   .tier li::before { content: '✓'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
-  .note { text-align: center; color: var(--muted); font-size: 13px; margin-top: var(--space-8); }
   @media (max-width: 960px) { .tiers { grid-template-columns: 1fr; } }
 </style>
